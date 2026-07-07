@@ -1,0 +1,19 @@
+{
+  "name": "traveler-experience-lab",
+  "owner": {
+    "name": "KimGiii"
+  },
+  "metadata": {
+    "description": "Traveler Experience Lab — MyRealTrip PE plugin marketplace (single plugin)",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "traveler-experience-lab",
+      "source": "./",
+      "description": "MyRealTrip PE wedge: grounds traveler-experience problems in real-time MRT product inventory (MCP) + de-identified VoC. Commands: /mrt scenario, /mrt diagnose.",
+      "version": "0.1.0",
+      "keywords": ["myrealtrip", "travel", "mcp", "scenario", "voc", "product-engineering"]
+    }
+  ]
+}
