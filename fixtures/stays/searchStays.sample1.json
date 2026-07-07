@@ -1,0 +1,329 @@
+{
+  "domain": "stays",
+  "tool": "searchStays",
+  "arguments": {
+    "keyword": "오사카",
+    "checkIn": "2026-09-10",
+    "checkOut": "2026-09-13",
+    "adultCount": 2,
+    "order": "recommended"
+  },
+  "ok": true,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"widget\": {\n    \"type\": \"ListView\",\n    \"children\": [\n      {\n        \"type\": \"ListViewItem\",\n        \"children\": [\n          {\n            \"type\": \"Box\",\n            \"direction\": \"row\",\n            \"children\": [\n              {\n                \"type\": \"Box\",\n                \"children\": [\n                  {\n                    \"type\": \"Image\",\n                    \"src\": \"https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/06/jLkA/VyPo6uCxJw.jpg?width=720\",\n                    \"alt\": \"APA 호텔 & 리조트 오사카 난바 역앞 타워\",\n                    \"width\": 120,\n                    \"radius\": \"lg\",\n                    \"fit\": \"cover\"\n                  }\n                ],\n                \"padding\": 1,\n                \"radius\": \"xl\",\n                \"height\": \"100%\",\n                \"align\": \"stretch\"\n              },\n              {\n                \"type\": \"Box\",\n                \"direction\": \"row\",\n                \"children\": [\n                  {\n                    \"type\": \"Col\",\n                    \"children\": [\n                      {\n                        \"type\": \"Row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"APA 호텔 & 리조트 오사카 난바 역앞 타워\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Badge\",\n                            \"label\": \"무료취소\",\n                            \"color\": \"info\",\n                            \"variant\": \"soft\",\n                            \"size\": \"sm\"\n                          }\n                        ],\n                        \"gap\": 1,\n                        \"align\": \"center\"\n                      },\n                      {\n                        \"type\": \"Text\",\n                        \"value\": \"⭐ 4.4 (4,437)\",\n                        \"weight\": \"medium\",\n                        \"size\": \"sm\"\n                      },\n                      {\n                        \"type\": \"Box\",\n                        \"direction\": \"row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"86,834원/박\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Button\",\n                            \"label\": \"예약하기\",\n                            \"onClickAction\": {\n                              \"type\": \"open_url\",\n                              \"payload\": {\n                                \"target\": {\n                                  \"url\": \"https://accommodation.myrealtrip.com/union/products/3578504?checkIn=2026-09-10&checkOut=2026-09-13\"\n                                }\n                              },\n                              \"handler\": \"client\",\n                              \"loadingBehavior\": \"none\",\n                              \"url\": \"https://accommodation.myrealtrip.com/union/products/3578504?checkIn=2026-09-10&checkOut=2026-09-13\"\n                            },\n                            \"style\": \"primary\",\n                            \"size\": \"xs\"\n                          }\n                        ],\n                        \"justify\": \"between\",\n                        \"align\": \"center\"\n                      }\n                    ],\n                    \"gap\": 2,\n                    \"flex\": 1\n                  }\n                ],\n                \"padding\": {\n                  \"x\": 3,\n                  \"y\": 2\n                },\n                \"flex\": 1\n              }\n            ],\n            \"gap\": 0,\n            \"background\": {\n              \"dark\": \"#2A2A2A\",\n              \"light\": \"#FFFFFF\"\n            },\n            \"radius\": \"xl\",\n            \"width\": \"100%\",\n            \"align\": \"stretch\"\n          }\n        ],\n        \"onClickAction\": {\n          \"type\": \"open_url\",\n          \"payload\": {\n            \"target\": {\n              \"url\": \"https://accommodation.myrealtrip.com/union/products/3578504?checkIn=2026-09-10&checkOut=2026-09-13\"\n            }\n          },\n          \"handler\": \"client\",\n          \"loadingBehavior\": \"none\",\n          \"url\": \"https://accommodation.myrealtrip.com/union/products/3578504?checkIn=2026-09-10&checkOut=2026-09-13\"\n        }\n      },\n      {\n        \"type\": \"ListViewItem\",\n        \"children\": [\n          {\n            \"type\": \"Box\",\n            \"direction\": \"row\",\n            \"children\": [\n              {\n                \"type\": \"Box\",\n                \"children\": [\n                  {\n                    \"type\": \"Image\",\n                    \"src\": \"https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/05/WBag/9zJL6CGEfw.jpg?width=720\",\n                    \"alt\": \"소테츠 그랜드 프레사 오사카-난바\",\n                    \"width\": 120,\n                    \"radius\": \"lg\",\n                    \"fit\": \"cover\"\n                  }\n                ],\n                \"padding\": 1,\n                \"radius\": \"xl\",\n                \"height\": \"100%\",\n                \"align\": \"stretch\"\n              },\n              {\n                \"type\": \"Box\",\n                \"direction\": \"row\",\n                \"children\": [\n                  {\n                    \"type\": \"Col\",\n                    \"children\": [\n                      {\n                        \"type\": \"Row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"소테츠 그랜드 프레사 오사카-난바\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Badge\",\n                            \"label\": \"무료취소\",\n                            \"color\": \"info\",\n                            \"variant\": \"soft\",\n                            \"size\": \"sm\"\n                          }\n                        ],\n                        \"gap\": 1,\n                        \"align\": \"center\"\n                      },\n                      {\n                        \"type\": \"Text\",\n                        \"value\": \"⭐ 4.3 (2,658)\",\n                        \"weight\": \"medium\",\n                        \"size\": \"sm\"\n                      },\n                      {\n                        \"type\": \"Box\",\n                        \"direction\": \"row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"80,246원/박\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Button\",\n                            \"label\": \"예약하기\",\n                            \"onClickAction\": {\n                              \"type\": \"open_url\",\n                              \"payload\": {\n                                \"target\": {\n                                  \"url\": \"https://accommodation.myrealtrip.com/union/products/5022564?checkIn=2026-09-10&checkOut=2026-09-13\"\n                                }\n                              },\n                              \"handler\": \"client\",\n                              \"loadingBehavior\": \"none\",\n                              \"url\": \"https://accommodation.myrealtrip.com/union/products/5022564?checkIn=2026-09-10&checkOut=2026-09-13\"\n                            },\n                            \"style\": \"primary\",\n                            \"size\": \"xs\"\n                          }\n                        ],\n                        \"justify\": \"between\",\n                        \"align\": \"center\"\n                      }\n                    ],\n                    \"gap\": 2,\n                    \"flex\": 1\n                  }\n                ],\n                \"padding\": {\n                  \"x\": 3,\n                  \"y\": 2\n                },\n                \"flex\": 1\n              }\n            ],\n            \"gap\": 0,\n            \"background\": {\n              \"dark\": \"#2A2A2A\",\n              \"light\": \"#FFFFFF\"\n            },\n            \"radius\": \"xl\",\n            \"width\": \"100%\",\n            \"align\": \"stretch\"\n          }\n        ],\n        \"onClickAction\": {\n          \"type\": \"open_url\",\n          \"payload\": {\n            \"target\": {\n              \"url\": \"https://accommodation.myrealtrip.com/union/products/5022564?checkIn=2026-09-10&checkOut=2026-09-13\"\n            }\n          },\n          \"handler\": \"client\",\n          \"loadingBehavior\": \"none\",\n          \"url\": \"https://accommodation.myrealtrip.com/union/products/5022564?checkIn=2026-09-10&checkOut=2026-09-13\"\n        }\n      },\n      {\n        \"type\": \"ListViewItem\",\n        \"children\": [\n          {\n            \"type\": \"Box\",\n            \"direction\": \"row\",\n            \"children\": [\n              {\n                \"type\": \"Box\",\n                \"children\": [\n                  {\n                    \"type\": \"Image\",\n                    \"src\": \"https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/02/AH0Z/Kc1moGpnP2.jpg?width=720\",\n                    \"alt\": \"호텔한큐레스파이어오사카\",\n                    \"width\": 120,\n                    \"radius\": \"lg\",\n                    \"fit\": \"cover\"\n                  }\n                ],\n                \"padding\": 1,\n                \"radius\": \"xl\",\n                \"height\": \"100%\",\n                \"align\": \"stretch\"\n              },\n              {\n                \"type\": \"Box\",\n                \"direction\": \"row\",\n                \"children\": [\n                  {\n                    \"type\": \"Col\",\n                    \"children\": [\n                      {\n                        \"type\": \"Row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"호텔한큐레스파이어오사카\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Badge\",\n                            \"label\": \"무료취소\",\n                            \"color\": \"info\",\n                            \"variant\": \"soft\",\n                            \"size\": \"sm\"\n                          }\n                        ],\n                        \"gap\": 1,\n                        \"align\": \"center\"\n                      },\n                      {\n                        \"type\": \"Text\",\n                        \"value\": \"⭐ 4.5 (5,781)\",\n                        \"weight\": \"medium\",\n                        \"size\": \"sm\"\n                      },\n                      {\n                        \"type\": \"Box\",\n                        \"direction\": \"row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"175,701원/박\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Button\",\n                            \"label\": \"예약하기\",\n                            \"onClickAction\": {\n                              \"type\": \"open_url\",\n                              \"payload\": {\n                                \"target\": {\n                                  \"url\": \"https://accommodation.myrealtrip.com/union/products/1431475?checkIn=2026-09-10&checkOut=2026-09-13\"\n                                }\n                              },\n                              \"handler\": \"client\",\n                              \"loadingBehavior\": \"none\",\n                              \"url\": \"https://accommodation.myrealtrip.com/union/products/1431475?checkIn=2026-09-10&checkOut=2026-09-13\"\n                            },\n                            \"style\": \"primary\",\n                            \"size\": \"xs\"\n                          }\n                        ],\n                        \"justify\": \"between\",\n                        \"align\": \"center\"\n                      }\n                    ],\n                    \"gap\": 2,\n                    \"flex\": 1\n                  }\n                ],\n                \"padding\": {\n                  \"x\": 3,\n                  \"y\": 2\n                },\n                \"flex\": 1\n              }\n            ],\n            \"gap\": 0,\n            \"background\": {\n              \"dark\": \"#2A2A2A\",\n              \"light\": \"#FFFFFF\"\n            },\n            \"radius\": \"xl\",\n            \"width\": \"100%\",\n            \"align\": \"stretch\"\n          }\n        ],\n        \"onClickAction\": {\n          \"type\": \"open_url\",\n          \"payload\": {\n            \"target\": {\n              \"url\": \"https://accommodation.myrealtrip.com/union/products/1431475?checkIn=2026-09-10&checkOut=2026-09-13\"\n            }\n          },\n          \"handler\": \"client\",\n          \"loadingBehavior\": \"none\",\n          \"url\": \"https://accommodation.myrealtrip.com/union/products/1431475?checkIn=2026-09-10&checkOut=2026-09-13\"\n        }\n      },\n      {\n        \"type\": \"ListViewItem\",\n        \"children\": [\n          {\n            \"type\": \"Box\",\n            \"direction\": \"row\",\n            \"children\": [\n              {\n                \"type\": \"Box\",\n                \"children\": [\n                  {\n                    \"type\": \"Image\",\n                    \"src\": \"https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/01/20/IJG5/q3YJ17bEBz.jpg?width=720\",\n                    \"alt\": \"호텔 몬토레 그라스미아 오사카\",\n                    \"width\": 120,\n                    \"radius\": \"lg\",\n                    \"fit\": \"cover\"\n                  }\n                ],\n                \"padding\": 1,\n                \"radius\": \"xl\",\n                \"height\": \"100%\",\n                \"align\": \"stretch\"\n              },\n              {\n                \"type\": \"Box\",\n                \"direction\": \"row\",\n                \"children\": [\n                  {\n                    \"type\": \"Col\",\n                    \"children\": [\n                      {\n                        \"type\": \"Row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"호텔 몬토레 그라스미아 오사카\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Badge\",\n                            \"label\": \"무료취소\",\n                            \"color\": \"info\",\n                            \"variant\": \"soft\",\n                            \"size\": \"sm\"\n                          }\n                        ],\n                        \"gap\": 1,\n                        \"align\": \"center\"\n                      },\n                      {\n                        \"type\": \"Text\",\n                        \"value\": \"⭐ 4.6 (2,287)\",\n                        \"weight\": \"medium\",\n                        \"size\": \"sm\"\n                      },\n                      {\n                        \"type\": \"Box\",\n                        \"direction\": \"row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"115,136원/박\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Button\",\n                            \"label\": \"예약하기\",\n                            \"onClickAction\": {\n                              \"type\": \"open_url\",\n                              \"payload\": {\n                                \"target\": {\n                                  \"url\": \"https://accommodation.myrealtrip.com/union/products/1162565?checkIn=2026-09-10&checkOut=2026-09-13\"\n                                }\n                              },\n                              \"handler\": \"client\",\n                              \"loadingBehavior\": \"none\",\n                              \"url\": \"https://accommodation.myrealtrip.com/union/products/1162565?checkIn=2026-09-10&checkOut=2026-09-13\"\n                            },\n                            \"style\": \"primary\",\n                            \"size\": \"xs\"\n                          }\n                        ],\n                        \"justify\": \"between\",\n                        \"align\": \"center\"\n                      }\n                    ],\n                    \"gap\": 2,\n                    \"flex\": 1\n                  }\n                ],\n                \"padding\": {\n                  \"x\": 3,\n                  \"y\": 2\n                },\n                \"flex\": 1\n              }\n            ],\n            \"gap\": 0,\n            \"background\": {\n              \"dark\": \"#2A2A2A\",\n              \"light\": \"#FFFFFF\"\n            },\n            \"radius\": \"xl\",\n            \"width\": \"100%\",\n            \"align\": \"stretch\"\n          }\n        ],\n        \"onClickAction\": {\n          \"type\": \"open_url\",\n          \"payload\": {\n            \"target\": {\n              \"url\": \"https://accommodation.myrealtrip.com/union/products/1162565?checkIn=2026-09-10&checkOut=2026-09-13\"\n            }\n          },\n          \"handler\": \"client\",\n          \"loadingBehavior\": \"none\",\n          \"url\": \"https://accommodation.myrealtrip.com/union/products/1162565?checkIn=2026-09-10&checkOut=2026-09-13\"\n        }\n      },\n      {\n        \"type\": \"ListViewItem\",\n        \"children\": [\n          {\n            \"type\": \"Box\",\n            \"direction\": \"row\",\n            \"children\": [\n              {\n                \"type\": \"Box\",\n                \"children\": [\n                  {\n                    \"type\": \"Image\",\n                    \"src\": \"https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/30/DmCk/3epU06jlC9.jpg?width=720\",\n                    \"alt\": \"칸데오 호텔 오사카 난바\",\n                    \"width\": 120,\n                    \"radius\": \"lg\",\n                    \"fit\": \"cover\"\n                  }\n                ],\n                \"padding\": 1,\n                \"radius\": \"xl\",\n                \"height\": \"100%\",\n                \"align\": \"stretch\"\n              },\n              {\n                \"type\": \"Box\",\n                \"direction\": \"row\",\n                \"children\": [\n                  {\n                    \"type\": \"Col\",\n                    \"children\": [\n                      {\n                        \"type\": \"Row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"칸데오 호텔 오사카 난바\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Badge\",\n                            \"label\": \"무료취소\",\n                            \"color\": \"info\",\n                            \"variant\": \"soft\",\n                            \"size\": \"sm\"\n                          }\n                        ],\n                        \"gap\": 1,\n                        \"align\": \"center\"\n                      },\n                      {\n                        \"type\": \"Text\",\n                        \"value\": \"⭐ 4.2 (1,276)\",\n                        \"weight\": \"medium\",\n                        \"size\": \"sm\"\n                      },\n                      {\n                        \"type\": \"Box\",\n                        \"direction\": \"row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"141,583원/박\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Button\",\n                            \"label\": \"예약하기\",\n                            \"onClickAction\": {\n                              \"type\": \"open_url\",\n                              \"payload\": {\n                                \"target\": {\n                                  \"url\": \"https://accommodation.myrealtrip.com/union/products/1286523?checkIn=2026-09-10&checkOut=2026-09-13\"\n                                }\n                              },\n                              \"handler\": \"client\",\n                              \"loadingBehavior\": \"none\",\n                              \"url\": \"https://accommodation.myrealtrip.com/union/products/1286523?checkIn=2026-09-10&checkOut=2026-09-13\"\n                            },\n                            \"style\": \"primary\",\n                            \"size\": \"xs\"\n                          }\n                        ],\n                        \"justify\": \"between\",\n                        \"align\": \"center\"\n                      }\n                    ],\n                    \"gap\": 2,\n                    \"flex\": 1\n                  }\n                ],\n                \"padding\": {\n                  \"x\": 3,\n                  \"y\": 2\n                },\n                \"flex\": 1\n              }\n            ],\n            \"gap\": 0,\n            \"background\": {\n              \"dark\": \"#2A2A2A\",\n              \"light\": \"#FFFFFF\"\n            },\n            \"radius\": \"xl\",\n            \"width\": \"100%\",\n            \"align\": \"stretch\"\n          }\n        ],\n        \"onClickAction\": {\n          \"type\": \"open_url\",\n          \"payload\": {\n            \"target\": {\n              \"url\": \"https://accommodation.myrealtrip.com/union/products/1286523?checkIn=2026-09-10&checkOut=2026-09-13\"\n            }\n          },\n          \"handler\": \"client\",\n          \"loadingBehavior\": \"none\",\n          \"url\": \"https://accommodation.myrealtrip.com/union/products/1286523?checkIn=2026-09-10&checkOut=2026-09-13\"\n        }\n      },\n      {\n        \"type\": \"ListViewItem\",\n        \"children\": [\n          {\n            \"type\": \"Box\",\n            \"direction\": \"row\",\n            \"children\": [\n              {\n                \"type\": \"Box\",\n                \"children\": [\n                  {\n                    \"type\": \"Image\",\n                    \"src\": \"https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/09/08/pmLw/AzPVuWByMl.jpg?width=720\",\n                    \"alt\": \"호텔 일 쿠오레 남바\",\n                    \"width\": 120,\n                    \"radius\": \"lg\",\n                    \"fit\": \"cover\"\n                  }\n                ],\n                \"padding\": 1,\n                \"radius\": \"xl\",\n                \"height\": \"100%\",\n                \"align\": \"stretch\"\n              },\n              {\n                \"type\": \"Box\",\n                \"direction\": \"row\",\n                \"children\": [\n                  {\n                    \"type\": \"Col\",\n                    \"children\": [\n                      {\n                        \"type\": \"Row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"호텔 일 쿠오레 남바\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Badge\",\n                            \"label\": \"무료취소\",\n                            \"color\": \"info\",\n                            \"variant\": \"soft\",\n                            \"size\": \"sm\"\n                          }\n                        ],\n                        \"gap\": 1,\n                        \"align\": \"center\"\n                      },\n                      {\n                        \"type\": \"Text\",\n                        \"value\": \"⭐ 4.3 (1,042)\",\n                        \"weight\": \"medium\",\n                        \"size\": \"sm\"\n                      },\n                      {\n                        \"type\": \"Box\",\n                        \"direction\": \"row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"104,501원/박\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Button\",\n                            \"label\": \"예약하기\",\n                            \"onClickAction\": {\n                              \"type\": \"open_url\",\n                              \"payload\": {\n                                \"target\": {\n                                  \"url\": \"https://accommodation.myrealtrip.com/union/products/1268563?checkIn=2026-09-10&checkOut=2026-09-13\"\n                                }\n                              },\n                              \"handler\": \"client\",\n                              \"loadingBehavior\": \"none\",\n                              \"url\": \"https://accommodation.myrealtrip.com/union/products/1268563?checkIn=2026-09-10&checkOut=2026-09-13\"\n                            },\n                            \"style\": \"primary\",\n                            \"size\": \"xs\"\n                          }\n                        ],\n                        \"justify\": \"between\",\n                        \"align\": \"center\"\n                      }\n                    ],\n                    \"gap\": 2,\n                    \"flex\": 1\n                  }\n                ],\n                \"padding\": {\n                  \"x\": 3,\n                  \"y\": 2\n                },\n                \"flex\": 1\n              }\n            ],\n            \"gap\": 0,\n            \"background\": {\n              \"dark\": \"#2A2A2A\",\n              \"light\": \"#FFFFFF\"\n            },\n            \"radius\": \"xl\",\n            \"width\": \"100%\",\n            \"align\": \"stretch\"\n          }\n        ],\n        \"onClickAction\": {\n          \"type\": \"open_url\",\n          \"payload\": {\n            \"target\": {\n              \"url\": \"https://accommodation.myrealtrip.com/union/products/1268563?checkIn=2026-09-10&checkOut=2026-09-13\"\n            }\n          },\n          \"handler\": \"client\",\n          \"loadingBehavior\": \"none\",\n          \"url\": \"https://accommodation.myrealtrip.com/union/products/1268563?checkIn=2026-09-10&checkOut=2026-09-13\"\n        }\n      },\n      {\n        \"type\": \"ListViewItem\",\n        \"children\": [\n          {\n            \"type\": \"Box\",\n            \"direction\": \"row\",\n            \"children\": [\n              {\n                \"type\": \"Box\",\n                \"children\": [\n                  {\n                    \"type\": \"Image\",\n                    \"src\": \"https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/09/08/tyAH/QBI1tR6MVK.jpg?width=720\",\n                    \"alt\": \"남바 오리엔탈 호텔\",\n                    \"width\": 120,\n                    \"radius\": \"lg\",\n                    \"fit\": \"cover\"\n                  }\n                ],\n                \"padding\": 1,\n                \"radius\": \"xl\",\n                \"height\": \"100%\",\n                \"align\": \"stretch\"\n              },\n              {\n                \"type\": \"Box\",\n                \"direction\": \"row\",\n                \"children\": [\n                  {\n                    \"type\": \"Col\",\n                    \"children\": [\n                      {\n                        \"type\": \"Row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"남바 오리엔탈 호텔\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Badge\",\n                            \"label\": \"무료취소\",\n                            \"color\": \"info\",\n                            \"variant\": \"soft\",\n                            \"size\": \"sm\"\n                          }\n                        ],\n                        \"gap\": 1,\n                        \"align\": \"center\"\n                      },\n                      {\n                        \"type\": \"Text\",\n                        \"value\": \"⭐ 4.4 (1,568)\",\n                        \"weight\": \"medium\",\n                        \"size\": \"sm\"\n                      },\n                      {\n                        \"type\": \"Box\",\n                        \"direction\": \"row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"176,790원/박\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Button\",\n                            \"label\": \"예약하기\",\n                            \"onClickAction\": {\n                              \"type\": \"open_url\",\n                              \"payload\": {\n                                \"target\": {\n                                  \"url\": \"https://accommodation.myrealtrip.com/union/products/1141495?checkIn=2026-09-10&checkOut=2026-09-13\"\n                                }\n                              },\n                              \"handler\": \"client\",\n                              \"loadingBehavior\": \"none\",\n                              \"url\": \"https://accommodation.myrealtrip.com/union/products/1141495?checkIn=2026-09-10&checkOut=2026-09-13\"\n                            },\n                            \"style\": \"primary\",\n                            \"size\": \"xs\"\n                          }\n                        ],\n                        \"justify\": \"between\",\n                        \"align\": \"center\"\n                      }\n                    ],\n                    \"gap\": 2,\n                    \"flex\": 1\n                  }\n                ],\n                \"padding\": {\n                  \"x\": 3,\n                  \"y\": 2\n                },\n                \"flex\": 1\n              }\n            ],\n            \"gap\": 0,\n            \"background\": {\n              \"dark\": \"#2A2A2A\",\n              \"light\": \"#FFFFFF\"\n            },\n            \"radius\": \"xl\",\n            \"width\": \"100%\",\n            \"align\": \"stretch\"\n          }\n        ],\n        \"onClickAction\": {\n          \"type\": \"open_url\",\n          \"payload\": {\n            \"target\": {\n              \"url\": \"https://accommodation.myrealtrip.com/union/products/1141495?checkIn=2026-09-10&checkOut=2026-09-13\"\n            }\n          },\n          \"handler\": \"client\",\n          \"loadingBehavior\": \"none\",\n          \"url\": \"https://accommodation.myrealtrip.com/union/products/1141495?checkIn=2026-09-10&checkOut=2026-09-13\"\n        }\n      },\n      {\n        \"type\": \"ListViewItem\",\n        \"children\": [\n          {\n            \"type\": \"Box\",\n            \"direction\": \"row\",\n            \"children\": [\n              {\n                \"type\": \"Box\",\n                \"children\": [\n                  {\n                    \"type\": \"Image\",\n                    \"src\": \"https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/09/08/MGk1/IcGEvTQ4uC.jpg?width=720\",\n                    \"alt\": \"호텔 포르자 오사카 난바 도톤보리\",\n                    \"width\": 120,\n                    \"radius\": \"lg\",\n                    \"fit\": \"cover\"\n                  }\n                ],\n                \"padding\": 1,\n                \"radius\": \"xl\",\n                \"height\": \"100%\",\n                \"align\": \"stretch\"\n              },\n              {\n                \"type\": \"Box\",\n                \"direction\": \"row\",\n                \"children\": [\n                  {\n                    \"type\": \"Col\",\n                    \"children\": [\n                      {\n                        \"type\": \"Row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"호텔 포르자 오사카 난바 도톤보리\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Badge\",\n                            \"label\": \"무료취소\",\n                            \"color\": \"info\",\n                            \"variant\": \"soft\",\n                            \"size\": \"sm\"\n                          }\n                        ],\n                        \"gap\": 1,\n                        \"align\": \"center\"\n                      },\n                      {\n                        \"type\": \"Text\",\n                        \"value\": \"⭐ 4.6 (937)\",\n                        \"weight\": \"medium\",\n                        \"size\": \"sm\"\n                      },\n                      {\n                        \"type\": \"Box\",\n                        \"direction\": \"row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"169,892원/박\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Button\",\n                            \"label\": \"예약하기\",\n                            \"onClickAction\": {\n                              \"type\": \"open_url\",\n                              \"payload\": {\n                                \"target\": {\n                                  \"url\": \"https://accommodation.myrealtrip.com/union/products/1560748?checkIn=2026-09-10&checkOut=2026-09-13\"\n                                }\n                              },\n                              \"handler\": \"client\",\n                              \"loadingBehavior\": \"none\",\n                              \"url\": \"https://accommodation.myrealtrip.com/union/products/1560748?checkIn=2026-09-10&checkOut=2026-09-13\"\n                            },\n                            \"style\": \"primary\",\n                            \"size\": \"xs\"\n                          }\n                        ],\n                        \"justify\": \"between\",\n                        \"align\": \"center\"\n                      }\n                    ],\n                    \"gap\": 2,\n                    \"flex\": 1\n                  }\n                ],\n                \"padding\": {\n                  \"x\": 3,\n                  \"y\": 2\n                },\n                \"flex\": 1\n              }\n            ],\n            \"gap\": 0,\n            \"background\": {\n              \"dark\": \"#2A2A2A\",\n              \"light\": \"#FFFFFF\"\n            },\n            \"radius\": \"xl\",\n            \"width\": \"100%\",\n            \"align\": \"stretch\"\n          }\n        ],\n        \"onClickAction\": {\n          \"type\": \"open_url\",\n          \"payload\": {\n            \"target\": {\n              \"url\": \"https://accommodation.myrealtrip.com/union/products/1560748?checkIn=2026-09-10&checkOut=2026-09-13\"\n            }\n          },\n          \"handler\": \"client\",\n          \"loadingBehavior\": \"none\",\n          \"url\": \"https://accommodation.myrealtrip.com/union/products/1560748?checkIn=2026-09-10&checkOut=2026-09-13\"\n        }\n      },\n      {\n        \"type\": \"ListViewItem\",\n        \"children\": [\n          {\n            \"type\": \"Box\",\n            \"direction\": \"row\",\n            \"children\": [\n              {\n                \"type\": \"Box\",\n                \"children\": [\n                  {\n                    \"type\": \"Image\",\n                    \"src\": \"https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/18/hvBA/Mja5rLdeou.jpg?width=720\",\n                    \"alt\": \"더 원파이브 오사카 난바 도톤보리\",\n                    \"width\": 120,\n                    \"radius\": \"lg\",\n                    \"fit\": \"cover\"\n                  }\n                ],\n                \"padding\": 1,\n                \"radius\": \"xl\",\n                \"height\": \"100%\",\n                \"align\": \"stretch\"\n              },\n              {\n                \"type\": \"Box\",\n                \"direction\": \"row\",\n                \"children\": [\n                  {\n                    \"type\": \"Col\",\n                    \"children\": [\n                      {\n                        \"type\": \"Row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"더 원파이브 오사카 난바 도톤보리\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Badge\",\n                            \"label\": \"무료취소\",\n                            \"color\": \"info\",\n                            \"variant\": \"soft\",\n                            \"size\": \"sm\"\n                          }\n                        ],\n                        \"gap\": 1,\n                        \"align\": \"center\"\n                      },\n                      {\n                        \"type\": \"Text\",\n                        \"value\": \"⭐ 3.8 (833)\",\n                        \"weight\": \"medium\",\n                        \"size\": \"sm\"\n                      },\n                      {\n                        \"type\": \"Box\",\n                        \"direction\": \"row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"105,524원/박\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Button\",\n                            \"label\": \"예약하기\",\n                            \"onClickAction\": {\n                              \"type\": \"open_url\",\n                              \"payload\": {\n                                \"target\": {\n                                  \"url\": \"https://accommodation.myrealtrip.com/union/products/3576037?checkIn=2026-09-10&checkOut=2026-09-13\"\n                                }\n                              },\n                              \"handler\": \"client\",\n                              \"loadingBehavior\": \"none\",\n                              \"url\": \"https://accommodation.myrealtrip.com/union/products/3576037?checkIn=2026-09-10&checkOut=2026-09-13\"\n                            },\n                            \"style\": \"primary\",\n                            \"size\": \"xs\"\n                          }\n                        ],\n                        \"justify\": \"between\",\n                        \"align\": \"center\"\n                      }\n                    ],\n                    \"gap\": 2,\n                    \"flex\": 1\n                  }\n                ],\n                \"padding\": {\n                  \"x\": 3,\n                  \"y\": 2\n                },\n                \"flex\": 1\n              }\n            ],\n            \"gap\": 0,\n            \"background\": {\n              \"dark\": \"#2A2A2A\",\n              \"light\": \"#FFFFFF\"\n            },\n            \"radius\": \"xl\",\n            \"width\": \"100%\",\n            \"align\": \"stretch\"\n          }\n        ],\n        \"onClickAction\": {\n          \"type\": \"open_url\",\n          \"payload\": {\n            \"target\": {\n              \"url\": \"https://accommodation.myrealtrip.com/union/products/3576037?checkIn=2026-09-10&checkOut=2026-09-13\"\n            }\n          },\n          \"handler\": \"client\",\n          \"loadingBehavior\": \"none\",\n          \"url\": \"https://accommodation.myrealtrip.com/union/products/3576037?checkIn=2026-09-10&checkOut=2026-09-13\"\n        }\n      },\n      {\n        \"type\": \"ListViewItem\",\n        \"children\": [\n          {\n            \"type\": \"Box\",\n            \"direction\": \"row\",\n            \"children\": [\n              {\n                \"type\": \"Box\",\n                \"children\": [\n                  {\n                    \"type\": \"Image\",\n                    \"src\": \"https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/11/10/ANWf/AC8I2VldAu.jpg?width=720\",\n                    \"alt\": \"오사카 도톤보리,난바,신사이바시,에비스주택 모리하우스(집 전체,아파트형,주택형) \",\n                    \"width\": 120,\n                    \"radius\": \"lg\",\n                    \"fit\": \"cover\"\n                  }\n                ],\n                \"padding\": 1,\n                \"radius\": \"xl\",\n                \"height\": \"100%\",\n                \"align\": \"stretch\"\n              },\n              {\n                \"type\": \"Box\",\n                \"direction\": \"row\",\n                \"children\": [\n                  {\n                    \"type\": \"Col\",\n                    \"children\": [\n                      {\n                        \"type\": \"Row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"오사카 도톤보리,난바,신사이바시,에비스주택 모리하우스(집 전체,아파트형,주택형) \",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Badge\",\n                            \"label\": \"무료취소\",\n                            \"color\": \"info\",\n                            \"variant\": \"soft\",\n                            \"size\": \"sm\"\n                          }\n                        ],\n                        \"gap\": 1,\n                        \"align\": \"center\"\n                      },\n                      {\n                        \"type\": \"Text\",\n                        \"value\": \"⭐ 4.7 (736)\",\n                        \"weight\": \"medium\",\n                        \"size\": \"sm\"\n                      },\n                      {\n                        \"type\": \"Box\",\n                        \"direction\": \"row\",\n                        \"children\": [\n                          {\n                            \"type\": \"Text\",\n                            \"value\": \"93,939원/박\",\n                            \"weight\": \"bold\"\n                          },\n                          {\n                            \"type\": \"Button\",\n                            \"label\": \"예약하기\",\n                            \"onClickAction\": {\n                              \"type\": \"open_url\",\n                              \"payload\": {\n                                \"target\": {\n                                  \"url\": \"https://accommodation.myrealtrip.com/union/products/5008384?checkIn=2026-09-10&checkOut=2026-09-13\"\n                                }\n                              },\n                              \"handler\": \"client\",\n                              \"loadingBehavior\": \"none\",\n                              \"url\": \"https://accommodation.myrealtrip.com/union/products/5008384?checkIn=2026-09-10&checkOut=2026-09-13\"\n                            },\n                            \"style\": \"primary\",\n                            \"size\": \"xs\"\n                          }\n                        ],\n                        \"justify\": \"between\",\n                        \"align\": \"center\"\n                      }\n                    ],\n                    \"gap\": 2,\n                    \"flex\": 1\n                  }\n                ],\n                \"padding\": {\n                  \"x\": 3,\n                  \"y\": 2\n                },\n                \"flex\": 1\n              }\n            ],\n            \"gap\": 0,\n            \"background\": {\n              \"dark\": \"#2A2A2A\",\n              \"light\": \"#FFFFFF\"\n            },\n            \"radius\": \"xl\",\n            \"width\": \"100%\",\n            \"align\": \"stretch\"\n          }\n        ],\n        \"onClickAction\": {\n          \"type\": \"open_url\",\n          \"payload\": {\n            \"target\": {\n              \"url\": \"https://accommodation.myrealtrip.com/union/products/5008384?checkIn=2026-09-10&checkOut=2026-09-13\"\n            }\n          },\n          \"handler\": \"client\",\n          \"loadingBehavior\": \"none\",\n          \"url\": \"https://accommodation.myrealtrip.com/union/products/5008384?checkIn=2026-09-10&checkOut=2026-09-13\"\n        }\n      }\n    ],\n    \"limit\": 10\n  },\n  \"name\": \"myrealtrip\",\n  \"copy_text\": \"**오사카 숙소 검색 결과**\\n📅 2026-09-10 ~ 2026-09-13\\n1. **APA 호텔 & 리조트 오사카 난바 역앞 타워** ⭐4.4\\n   86,834원/박\\n2. **소테츠 그랜드 프레사 오사카-난바** ⭐4.3\\n   80,246원/박\\n3. **호텔한큐레스파이어오사카** ⭐4.5\\n   175,701원/박\\n4. **호텔 몬토레 그라스미아 오사카** ⭐4.6\\n   115,136원/박\\n5. **칸데오 호텔 오사카 난바** ⭐4.2\\n   141,583원/박\\n📋 총 3234개 중 20개 표시\"\n}"
+      }
+    ],
+    "structuredContent": {
+      "stays": [
+        {
+          "gid": 3578504,
+          "name": "APA 호텔 & 리조트 오사카 난바 역앞 타워",
+          "description": "3성급 · 호텔 · 나니와 · 오사카 · 일본",
+          "price": "86,834원/박",
+          "additionalPrice": "세금포함 110,170원/박",
+          "rating": 4.4,
+          "reviewCount": "(4,437)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/06/jLkA/VyPo6uCxJw.jpg?width=720",
+          "wishCount": "2,503"
+        },
+        {
+          "gid": 5022564,
+          "name": "소테츠 그랜드 프레사 오사카-난바",
+          "description": "3성급 · 호텔 · 미나미 · 오사카 · 일본",
+          "price": "80,246원/박",
+          "additionalPrice": "세금포함 88,270원/박",
+          "rating": 4.3,
+          "reviewCount": "(2,658)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/05/WBag/9zJL6CGEfw.jpg?width=720",
+          "wishCount": "8,100"
+        },
+        {
+          "gid": 1431475,
+          "name": "호텔한큐레스파이어오사카",
+          "description": "4성급 · 호텔 · 기타 · 오사카 · 일본",
+          "price": "175,701원/박",
+          "additionalPrice": "세금포함 226,794원/박",
+          "rating": 4.5,
+          "reviewCount": "(5,781)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/02/AH0Z/Kc1moGpnP2.jpg?width=720",
+          "wishCount": "5,028"
+        },
+        {
+          "gid": 1162565,
+          "name": "호텔 몬토레 그라스미아 오사카",
+          "description": "4성급 · 호텔 · 나니와 · 오사카 · 일본",
+          "price": "115,136원/박",
+          "additionalPrice": "세금포함 148,349원/박",
+          "rating": 4.6,
+          "reviewCount": "(2,287)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/01/20/IJG5/q3YJ17bEBz.jpg?width=720",
+          "wishCount": "2,752"
+        },
+        {
+          "gid": 1286523,
+          "name": "칸데오 호텔 오사카 난바",
+          "description": "3.5성급 · 호텔 · 도톤보리 · 오사카 · 일본",
+          "price": "141,583원/박",
+          "additionalPrice": "세금포함 171,110원/박",
+          "rating": 4.2,
+          "reviewCount": "(1,276)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/30/DmCk/3epU06jlC9.jpg?width=720",
+          "wishCount": "4,384"
+        },
+        {
+          "gid": 1268563,
+          "name": "호텔 일 쿠오레 남바",
+          "description": "3성급 · 호텔 · 나니와 · 오사카 · 일본",
+          "price": "104,501원/박",
+          "additionalPrice": "세금포함 114,951원/박",
+          "rating": 4.3,
+          "reviewCount": "(1,042)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/09/08/pmLw/AzPVuWByMl.jpg?width=720",
+          "wishCount": "3,542"
+        },
+        {
+          "gid": 1141495,
+          "name": "남바 오리엔탈 호텔",
+          "description": "4성급 · 호텔 · 미나미 · 오사카 · 일본",
+          "price": "176,790원/박",
+          "additionalPrice": "세금포함 194,469원/박",
+          "rating": 4.4,
+          "reviewCount": "(1,568)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/09/08/tyAH/QBI1tR6MVK.jpg?width=720",
+          "wishCount": "2,519"
+        },
+        {
+          "gid": 1560748,
+          "name": "호텔 포르자 오사카 난바 도톤보리",
+          "description": "3성급 · 호텔 · 도톤보리 · 오사카 · 일본",
+          "price": "169,892원/박",
+          "additionalPrice": "세금포함 187,353원/박",
+          "rating": 4.6,
+          "reviewCount": "(937)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/09/08/MGk1/IcGEvTQ4uC.jpg?width=720",
+          "wishCount": "1,834"
+        },
+        {
+          "gid": 3576037,
+          "name": "더 원파이브 오사카 난바 도톤보리",
+          "description": "2성급 · 호텔 · 도톤보리 · 오사카 · 일본",
+          "price": "105,524원/박",
+          "additionalPrice": "세금포함 133,091원/박",
+          "rating": 3.8,
+          "reviewCount": "(833)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/18/hvBA/Mja5rLdeou.jpg?width=720",
+          "wishCount": "1,157"
+        },
+        {
+          "gid": 5008384,
+          "name": "오사카 도톤보리,난바,신사이바시,에비스주택 모리하우스(집 전체,아파트형,주택형) ",
+          "description": "한인민박 · 도톤보리 · 오사카 · 일본",
+          "price": "93,939원/박",
+          "additionalPrice": "세금포함 103,333원/박",
+          "rating": 4.7,
+          "reviewCount": "(736)",
+          "tags": [
+            "무료취소",
+            "한인민박"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/11/10/ANWf/AC8I2VldAu.jpg?width=720",
+          "wishCount": "4,048"
+        },
+        {
+          "gid": 1134335,
+          "name": "호텔 케이한 유니버설 타워",
+          "description": "4성급 · 호텔 · 고노하나 · 오사카 · 일본",
+          "price": "215,393원/박",
+          "additionalPrice": "세금포함 260,026원/박",
+          "rating": 4.6,
+          "reviewCount": "(1,355)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/09/08/v8Pd/vBfm8CcOx4.jpg?width=720",
+          "wishCount": "329"
+        },
+        {
+          "gid": 1301211,
+          "name": "레드 루프 인 & 스위트 오사카 - 남바/닛폰바시",
+          "description": "3.5성급 · 호텔 · 미나미 · 오사카 · 일본",
+          "price": "94,663원/박",
+          "additionalPrice": "세금포함 104,129원/박",
+          "rating": 4.4,
+          "reviewCount": "(1,031)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/17/1lNp/bKDWDAqwbr.jpg?width=720",
+          "wishCount": "2,821"
+        },
+        {
+          "gid": 1185003,
+          "name": "오사카 테이코쿠 호텔",
+          "description": "2.5성급 · 호텔 · 도톤보리 · 오사카 · 일본",
+          "price": "89,648원/박",
+          "additionalPrice": "세금포함 108,224원/박",
+          "rating": 4.1,
+          "reviewCount": "(1,007)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/06/c3du/N9XZBbySD2.jpg?width=720",
+          "wishCount": "638"
+        },
+        {
+          "gid": 1158913,
+          "name": "호텔 유니버설 포트",
+          "description": "4성급 · 호텔 · 고노하나 · 오사카 · 일본",
+          "price": "213,539원/박",
+          "additionalPrice": "세금포함 258,104원/박",
+          "rating": 4.7,
+          "reviewCount": "(2,015)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/02/19/ueWN/PuP0wNaNDg.jpg?width=720",
+          "wishCount": "437"
+        },
+        {
+          "gid": 1487930,
+          "name": "시타딘스 난바 오사카",
+          "description": "4성급 · 호텔 · 나니와 · 오사카 · 일본",
+          "price": "204,315원/박",
+          "additionalPrice": "세금포함 225,685원/박",
+          "rating": 4.8,
+          "reviewCount": "(1,688)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/16/8Wuu/dUXrfX4NEm.jpg?width=720",
+          "wishCount": "814"
+        },
+        {
+          "gid": 1270212,
+          "name": "온야도 노노 남바 내추럴 핫 스프링",
+          "description": "4성급 · 호텔 · 도톤보리 · 오사카 · 일본",
+          "price": "256,645원/박",
+          "additionalPrice": "세금포함 310,687원/박",
+          "rating": 4.6,
+          "reviewCount": "(1,555)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/06/20/Tgfg/o86ycdifQP.jpg?width=720",
+          "wishCount": "2,764"
+        },
+        {
+          "gid": 5034811,
+          "name": "스마일호텔 프리미엄 오사카 히가시 신사이바시",
+          "description": "3성급 · 호텔 · 미나미 · 오사카 · 일본",
+          "price": "117,586원/박",
+          "additionalPrice": "세금포함 129,576원/박",
+          "rating": 4.5,
+          "reviewCount": "(1,011)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/10/E9V2/rYlM5y2u1M.jpg?width=720",
+          "wishCount": "1,218"
+        },
+        {
+          "gid": 1170153,
+          "name": "홀리데이 인 오사카 남바 바이 IHG",
+          "description": "4성급 · 호텔 · 도톤보리 · 오사카 · 일본",
+          "price": "150,299원/박",
+          "additionalPrice": "세금포함 165,328원/박",
+          "rating": 4.2,
+          "reviewCount": "(1,036)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/02/01/UO01/nZ6SZBRs8f.jpg?width=720",
+          "wishCount": "1,840"
+        },
+        {
+          "gid": 1641612,
+          "name": "호텔 케이한 난바 그란데",
+          "description": "4성급 · 호텔 · 난바 · 오사카 · 일본",
+          "price": "149,990원/박",
+          "additionalPrice": "세금포함 181,980원/박",
+          "rating": 4.6,
+          "reviewCount": "(1,089)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/11/06/JMg2/0U0eSRnsUm.jpg?width=720",
+          "wishCount": "1,535"
+        },
+        {
+          "gid": 1287820,
+          "name": "APA 호텔 난바 에키히가시",
+          "description": "3성급 · 호텔 · 미나미 · 오사카 · 일본",
+          "price": "102,416원/박",
+          "additionalPrice": "세금포함 123,923원/박",
+          "rating": 4.3,
+          "reviewCount": "(1,237)",
+          "tags": [
+            "무료취소"
+          ],
+          "thumbnailUrl": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/04/08/NBdM/klWQBlZ5Vg.jpg?width=720",
+          "wishCount": "1,230"
+        }
+      ],
+      "searchParams": {
+        "keyword": "오사카",
+        "checkIn": "2026-09-10",
+        "checkOut": "2026-09-13",
+        "adultCount": 2,
+        "childCount": 0,
+        "isDomestic": false,
+        "page": 1,
+        "filters": {
+          "order": "recommended"
+        }
+      },
+      "pagination": {
+        "currentPage": 1,
+        "hasNextPage": true,
+        "totalCount": 3234,
+        "itemsInThisPage": 20
+      }
+    }
+  },
+  "_meta": {
+    "normalizer_version": "1",
+    "source_type": "structured",
+    "raw_sha256": "f4317242878f1616e6add2238f2c9567b3f4cc349e88bf3214840679bbf121a5",
+    "probed_at": "2026-07-01T15:22:19+00:00"
+  }
+}

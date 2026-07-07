@@ -1,0 +1,25 @@
+{
+  "domain": "stays",
+  "tool": "searchStays",
+  "arguments": {
+    "keyword": "오사카",
+    "checkOut": "2026-09-10"
+  },
+  "ok": false,
+  "tool_error": "validation: MCP error -32602: Input validation error: Invalid arguments for tool searchStays: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"checkIn\"\n    ],\n    \"message\": \"Required\"\n  }\n]",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "MCP error -32602: Input validation error: Invalid arguments for tool searchStays: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"checkIn\"\n    ],\n    \"message\": \"Required\"\n  }\n]"
+      }
+    ],
+    "isError": true
+  },
+  "_meta": {
+    "normalizer_version": "1",
+    "source_type": "error",
+    "raw_sha256": "8e67f47c242ae871385c1fbc8feec28c1b69273c8316bfdaa324421159db49e5",
+    "probed_at": "2026-07-01T15:22:19+00:00"
+  }
+}

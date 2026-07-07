@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "tool": "getTnaOptions",
+  "arguments": {
+    "gid": "6082857",
+    "url": "https://experiences.myrealtrip.com/products/6082857",
+    "selectedDate": "2026-09-11"
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"success\": true,\n  \"searchParams\": {\n    \"gid\": \"6082857\",\n    \"selectedDate\": \"2026-09-11\"\n  },\n  \"selectedDate\": \"2026-09-11\",\n  \"isRequestedDateAvailable\": false,\n  \"hasAvailableOptions\": false,\n  \"availabilityMessage\": \"2026-09-11 해당 날짜는 예약이 불가능합니다.\",\n  \"units\": [],\n  \"options\": [],\n  \"defaultOption\": null\n}"
+      }
+    ]
+  },
+  "_meta": {
+    "normalizer_version": "1",
+    "source_type": "content-json",
+    "raw_sha256": "09aef39367af1db9d1a9be95b8ec441f8916eed760f43d46ebf15495ebd8d1f8",
+    "probed_at": "2026-07-01T15:22:19+00:00"
+  }
+}

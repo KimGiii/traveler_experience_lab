@@ -1,0 +1,37 @@
+{
+  "domain": "flights",
+  "tool": "searchInternationalFlights",
+  "arguments": {
+    "tripType": "ROUND_TRIP",
+    "destination": "NRT"
+  },
+  "ok": false,
+  "tool_error": "business: searchInternationalFlights: required input is missing.\n\n- 누락: origin, departDate\n\n참고:\n- origin/destination에 null을 전달하지 마세요. 3글자 IATA 코드 문자열을 사용하세요.\n- 모든 날짜는 오늘 이후여야 합니다.\n- ROUND_TRIP의 경우 returnDate는 선택사항이며, 생략 시 departDate + 4일로 설정됩니다.\n\n## 편도 예시\n{\n  \"tripType\": \"ONE_WAY\",\n  \"origin\": \"ICN\",\n  \"destination\": \"NRT\",\n  \"departDate\": \"2026-03-12\",\n  \"passengers\": {\n    \"adults\": 1,\n    \"children\": 0,\n    \"infants\": 0\n  },\n  \"cabinClass\": \"ECONOMY\",\n  \"directFlightOnly\": false,\n  \"maxResults\": 5\n}\n\n#",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":false,\"meta\":{\"status\":400,\"contentType\":\"text/plain\",\"elapsedMs\":0},\"presentation\":{\"note\":\"입력값을 확인하고 다시 시도해주세요.\"},\"error\":\"searchInternationalFlights: required input is missing.\\n\\n- 누락: origin, departDate\\n\\n참고:\\n- origin/destination에 null을 전달하지 마세요. 3글자 IATA 코드 문자열을 사용하세요.\\n- 모든 날짜는 오늘 이후여야 합니다.\\n- ROUND_TRIP의 경우 returnDate는 선택사항이며, 생략 시 departDate + 4일로 설정됩니다.\\n\\n## 편도 예시\\n{\\n  \\\"tripType\\\": \\\"ONE_WAY\\\",\\n  \\\"origin\\\": \\\"ICN\\\",\\n  \\\"destination\\\": \\\"NRT\\\",\\n  \\\"departDate\\\": \\\"2026-03-12\\\",\\n  \\\"passengers\\\": {\\n    \\\"adults\\\": 1,\\n    \\\"children\\\": 0,\\n    \\\"infants\\\": 0\\n  },\\n  \\\"cabinClass\\\": \\\"ECONOMY\\\",\\n  \\\"directFlightOnly\\\": false,\\n  \\\"maxResults\\\": 5\\n}\\n\\n## 왕복 예시\\n{\\n  \\\"tripType\\\": \\\"ROUND_TRIP\\\",\\n  \\\"origin\\\": \\\"ICN\\\",\\n  \\\"destination\\\": \\\"NRT\\\",\\n  \\\"departDate\\\": \\\"2026-03-12\\\",\\n  \\\"returnDate\\\": \\\"2026-03-17\\\",\\n  \\\"passengers\\\": {\\n    \\\"adults\\\": 1,\\n    \\\"children\\\": 0,\\n    \\\"infants\\\": 0\\n  },\\n  \\\"cabinClass\\\": \\\"ECONOMY\\\",\\n  \\\"directFlightOnly\\\": false,\\n  \\\"maxResults\\\": 5\\n}\\n\"}"
+      }
+    ],
+    "structuredContent": {
+      "success": false,
+      "meta": {
+        "status": 400,
+        "contentType": "text/plain",
+        "elapsedMs": 0
+      },
+      "presentation": {
+        "note": "입력값을 확인하고 다시 시도해주세요."
+      },
+      "error": "searchInternationalFlights: required input is missing.\n\n- 누락: origin, departDate\n\n참고:\n- origin/destination에 null을 전달하지 마세요. 3글자 IATA 코드 문자열을 사용하세요.\n- 모든 날짜는 오늘 이후여야 합니다.\n- ROUND_TRIP의 경우 returnDate는 선택사항이며, 생략 시 departDate + 4일로 설정됩니다.\n\n## 편도 예시\n{\n  \"tripType\": \"ONE_WAY\",\n  \"origin\": \"ICN\",\n  \"destination\": \"NRT\",\n  \"departDate\": \"2026-03-12\",\n  \"passengers\": {\n    \"adults\": 1,\n    \"children\": 0,\n    \"infants\": 0\n  },\n  \"cabinClass\": \"ECONOMY\",\n  \"directFlightOnly\": false,\n  \"maxResults\": 5\n}\n\n## 왕복 예시\n{\n  \"tripType\": \"ROUND_TRIP\",\n  \"origin\": \"ICN\",\n  \"destination\": \"NRT\",\n  \"departDate\": \"2026-03-12\",\n  \"returnDate\": \"2026-03-17\",\n  \"passengers\": {\n    \"adults\": 1,\n    \"children\": 0,\n    \"infants\": 0\n  },\n  \"cabinClass\": \"ECONOMY\",\n  \"directFlightOnly\": false,\n  \"maxResults\": 5\n}\n"
+    },
+    "isError": true
+  },
+  "_meta": {
+    "normalizer_version": "1",
+    "source_type": "error",
+    "raw_sha256": "7a627ce7ff9ebb2b0d3a381f658ae0c08ab548d24c59a9a5f07456d7f97541f4",
+    "probed_at": "2026-07-01T15:22:19+00:00"
+  }
+}

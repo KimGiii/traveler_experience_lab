@@ -1,0 +1,34 @@
+{
+  "_note": "Sample arguments for the flat probe sweep (search/independent tools only). Throwaway probe values chosen to exercise field shapes + one failure case per domain. Dates are after 2026-07-01.",
+  "searchInternationalFlights": [
+    {
+      "tripType": "ROUND_TRIP",
+      "origin": "ICN",
+      "destination": "KIX",
+      "departDate": "2026-09-10",
+      "returnDate": "2026-09-13",
+      "passengers": { "adults": 2 },
+      "cabinClass": "ECONOMY",
+      "maxResults": 5
+    },
+    { "tripType": "ONE_WAY", "origin": "ICN", "destination": "BKK", "departDate": "2026-09-20", "maxResults": 3 },
+    { "tripType": "ROUND_TRIP", "destination": "NRT" }
+  ],
+  "searchDomesticFlights": [
+    { "tripType": "ROUND_TRIP", "origin": "GMP", "destination": "CJU", "departDate": "2026-09-10", "returnDate": "2026-09-13", "maxResults": 5 }
+  ],
+  "flightsFareCalendar": [
+    { "from": "ICN", "to": "KIX", "departureDate": "2026-09-10", "airlines": ["*"], "period": 4, "international": true, "maxResults": 5 }
+  ],
+  "searchStays": [
+    { "keyword": "오사카", "checkIn": "2026-09-10", "checkOut": "2026-09-13", "adultCount": 2, "order": "recommended" },
+    { "keyword": "오사카", "checkOut": "2026-09-10" }
+  ],
+  "getCategoryList": [
+    { "city": "Osaka" }
+  ],
+  "searchTnas": [
+    { "query": "오사카 유니버설 스튜디오" },
+    { "query": "오사카" }
+  ]
+}

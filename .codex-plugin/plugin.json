@@ -1,0 +1,37 @@
+{
+  "name": "traveler-experience-lab",
+  "version": "0.1.0",
+  "description": "MyRealTrip PE wedge for grounding traveler-experience work in real-time MRT inventory and de-identified VoC.",
+  "author": {
+    "name": "MyRealTrip Product Engineering"
+  },
+  "keywords": [
+    "myrealtrip",
+    "travel",
+    "mcp",
+    "scenario",
+    "voc",
+    "product-engineering"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Traveler Experience Lab",
+    "shortDescription": "Ground MRT travel scenarios in live inventory and VoC.",
+    "longDescription": "Traveler Experience Lab helps Product Engineers turn traveler experience problems into grounded scenarios, experiment briefs, and QA drafts using MyRealTrip's public MCP inventory tools and de-identified VoC summaries.",
+    "developerName": "MyRealTrip Product Engineering",
+    "category": "Productivity",
+    "capabilities": [
+      "Travel scenario planning",
+      "MCP inventory lookup",
+      "VoC diagnosis",
+      "Product brief generation"
+    ],
+    "defaultPrompt": [
+      "Run /mrt scenario for an Osaka family trip.",
+      "Diagnose this de-identified VoC summary.",
+      "Create a travel scenario with flight, stay, and TNA."
+    ],
+    "brandColor": "#2B6AF3"
+  }
+}

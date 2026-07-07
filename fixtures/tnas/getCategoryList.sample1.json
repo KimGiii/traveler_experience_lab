@@ -1,0 +1,22 @@
+{
+  "domain": "tnas",
+  "tool": "getCategoryList",
+  "arguments": {
+    "city": "Osaka"
+  },
+  "ok": true,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"success\": true,\n  \"searchParams\": {\n    \"city\": \"Osaka\"\n  },\n  \"categories\": [\n    {\n      \"name\": \"전체\",\n      \"value\": \"all\",\n      \"isSelected\": true\n    },\n    {\n      \"name\": \"근교투어\",\n      \"value\": \"suburb_tour\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"티켓·입장권\",\n      \"value\": \"ticket_v2\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"이동·교통\",\n      \"value\": \"transportation_v2\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"미식\",\n      \"value\": \"delicacies\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"골프\",\n      \"value\": \"golf_cc\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"여행용품\",\n      \"value\": \"travel_goods\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"시내투어\",\n      \"value\": \"sinae_tour\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"투어\",\n      \"value\": \"tour\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"유심·와이파이\",\n      \"value\": \"usimwifi\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"입장권\",\n      \"value\": \"ticket\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"미식/식사권\",\n      \"value\": \"foodie\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"체험·클래스\",\n      \"value\": \"activity_class\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"이동/교통편의\",\n      \"value\": \"transportation\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"액티비티\",\n      \"value\": \"activity\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"스냅촬영\",\n      \"value\": \"snap_v2\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"여행편의/대여\",\n      \"value\": \"convenience\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"스파/힐링\",\n      \"value\": \"spa_healing\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"여행편의\",\n      \"value\": \"convenience_v2\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"클래스\",\n      \"value\": \"class\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"스냅\",\n      \"value\": \"snap\",\n      \"isSelected\": false\n    },\n    {\n      \"name\": \"스파·마사지\",\n      \"value\": \"spamassage\",\n      \"isSelected\": false\n    }\n  ],\n  \"totalCount\": 1032,\n  \"message\": \"Osaka에서 22개의 카테고리를 찾았습니다. (총 상품 1032개)\"\n}"
+      }
+    ]
+  },
+  "_meta": {
+    "normalizer_version": "1",
+    "source_type": "content-json",
+    "raw_sha256": "128540a6e8a4d74bd9fec92f4369b9267ea6f11145f1ed8c7b785e4b724de67f",
+    "probed_at": "2026-07-01T15:22:19+00:00"
+  }
+}

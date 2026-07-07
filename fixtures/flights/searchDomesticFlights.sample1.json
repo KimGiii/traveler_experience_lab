@@ -1,0 +1,399 @@
+{
+  "domain": "flights",
+  "tool": "searchDomesticFlights",
+  "arguments": {
+    "tripType": "ROUND_TRIP",
+    "origin": "GMP",
+    "destination": "CJU",
+    "departDate": "2026-09-10",
+    "returnDate": "2026-09-13",
+    "maxResults": 5
+  },
+  "ok": true,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"meta\":{\"status\":200,\"contentType\":\"application/json\",\"elapsedMs\":38},\"presentation\":{\"requiredInputs\":[\"origin\",\"destination\",\"departDate\"],\"recommendedFieldsToShow\":[\"result.items[].outbound.departDate\",\"result.items[].outbound.departTime\",\"result.items[].outbound.arriveDate\",\"result.items[].outbound.arriveTime\",\"result.items[].inbound.departDate\",\"result.items[].inbound.departTime\",\"result.items[].inbound.arriveDate\",\"result.items[].inbound.arriveTime\",\"result.items[].price.total\",\"result.items[].reservationUrl\"],\"note\":\"각 항공편의 출발/도착 일정을 반드시 안내하세요: outbound.departDate + outbound.departTime (출발), outbound.arriveDate + outbound.arriveTime (도착). 왕복편은 inbound 필드도 동일하게 안내하세요.\\nreservationUrl은 예약 페이지 링크입니다. 마크다운 링크 형식으로 사용자에게 표시하세요. 예: [예약하기](reservationUrl). 중요: URL은 시스템이 생성한 값으로, 한 글자도 변경 없이 그대로 사용해야 합니다. URL이 매우 길거나(500자 이상) 동일한 파라미터가 반복되더라도 절대 축약·생략·순서 변경·중복 제거하지 마세요. 반복 파라미터와 순서는 예약 동작에 필수입니다.\\n중요: 항공권 가격은 실시간으로 변동됩니다. 표시된 가격과 실제 예약 가격이 다를 수 있습니다.\\n국내선은 모두 직항편입니다.\",\"warnings\":[\"항공권 가격은 실시간으로 변동됩니다.\",\"표시된 가격과 실제 예약 가격이 다를 수 있습니다.\"]},\"result\":{\"summary\":{\"totalOutbound\":158,\"totalInbound\":115,\"returned\":5,\"cheapestTotal\":149070},\"items\":[{\"id\":\"BX-8019-202609101740-LJ-502-202609130705\",\"tripType\":\"ROUND_TRIP\",\"airline\":{\"code\":\"BX\",\"name\":\"에어부산\",\"logoUrl\":\"https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/BX.png\"},\"route\":{\"origin\":\"GMP\",\"destination\":\"CJU\"},\"outbound\":{\"airlineCode\":\"BX\",\"flightNo\":\"8019\",\"flightNumber\":\"BX8019\",\"departCity\":\"GMP\",\"arriveCity\":\"CJU\",\"departDate\":\"2026-09-10\",\"departTime\":\"17:40\",\"arriveDate\":\"2026-09-10\",\"arriveTime\":\"18:55\",\"durationMinutes\":75,\"seatClass\":\"BXI\",\"availableSeats\":9,\"legPrice\":50970,\"adultFare\":22770,\"adultTax\":4000,\"adultFuel\":24200,\"childFare\":0,\"childTax\":0,\"childFuel\":0},\"inbound\":{\"airlineCode\":\"LJ\",\"flightNo\":\"502\",\"flightNumber\":\"LJ502\",\"departCity\":\"CJU\",\"arriveCity\":\"GMP\",\"departDate\":\"2026-09-13\",\"departTime\":\"07:05\",\"arriveDate\":\"2026-09-13\",\"arriveTime\":\"08:20\",\"durationMinutes\":75,\"seatClass\":\"LJE4\",\"availableSeats\":5,\"legPrice\":98100,\"adultFare\":69900,\"adultTax\":4000,\"adultFuel\":24200,\"childFare\":0,\"childTax\":0,\"childFuel\":0},\"price\":{\"currency\":\"KRW\",\"total\":149070,\"breakdown\":{\"baseFare\":92670,\"tax\":8000,\"fuelSurcharge\":48400}},\"isCheapest\":true,\"reservationUrl\":\"https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100090.k1?domintgubun=D&srchdomclass=&maxprice=&deptmam=N&deptmpm=N&nonstop=Y&opencase=N&opencase=N&opencase=N&openday=&openday=&openday=&tasktype=B2C&cabinsepflag=Y&availcount=250&cabinclass=A&dompreferaircd=&preferaircd=&depctycd=GMP&depctycd=CJU&arrctycd=CJU&arrctycd=GMP&depctynm=%EA%B9%80%ED%8F%AC&depctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EA%B9%80%ED%8F%AC&initform=RT&depdt=2026-09-10&depdt=2026-09-13&adtcount=1&chdcount=0&infcount=0&KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3AN00001%3A00&utm_source=mcp-servers&flightinfo=BX%7C8019%7C50970&flightinfo=LJ%7C502%7C98100\"},{\"id\":\"TW-743-202609101730-LJ-502-202609130705\",\"tripType\":\"ROUND_TRIP\",\"airline\":{\"code\":\"TW\",\"name\":\"티웨이항공\",\"logoUrl\":\"https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/TW.png\"},\"route\":{\"origin\":\"GMP\",\"destination\":\"CJU\"},\"outbound\":{\"airlineCode\":\"TW\",\"flightNo\":\"743\",\"flightNumber\":\"TW743\",\"departCity\":\"GMP\",\"arriveCity\":\"CJU\",\"departDate\":\"2026-09-10\",\"departTime\":\"17:30\",\"arriveDate\":\"2026-09-10\",\"arriveTime\":\"18:45\",\"durationMinutes\":75,\"seatClass\":\"TWJ\",\"availableSeats\":9,\"legPrice\":52100,\"adultFare\":23900,\"adultTax\":4000,\"adultFuel\":24200,\"childFare\":0,\"childTax\":0,\"childFuel\":0},\"inbound\":{\"airlineCode\":\"LJ\",\"flightNo\":\"502\",\"flightNumber\":\"LJ502\",\"departCity\":\"CJU\",\"arriveCity\":\"GMP\",\"departDate\":\"2026-09-13\",\"departTime\":\"07:05\",\"arriveDate\":\"2026-09-13\",\"arriveTime\":\"08:20\",\"durationMinutes\":75,\"seatClass\":\"LJE4\",\"availableSeats\":5,\"legPrice\":98100,\"adultFare\":69900,\"adultTax\":4000,\"adultFuel\":24200,\"childFare\":0,\"childTax\":0,\"childFuel\":0},\"price\":{\"currency\":\"KRW\",\"total\":150200,\"breakdown\":{\"baseFare\":93800,\"tax\":8000,\"fuelSurcharge\":48400}},\"isCheapest\":false,\"reservationUrl\":\"https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100090.k1?domintgubun=D&srchdomclass=&maxprice=&deptmam=N&deptmpm=N&nonstop=Y&opencase=N&opencase=N&opencase=N&openday=&openday=&openday=&tasktype=B2C&cabinsepflag=Y&availcount=250&cabinclass=A&dompreferaircd=&preferaircd=&depctycd=GMP&depctycd=CJU&arrctycd=CJU&arrctycd=GMP&depctynm=%EA%B9%80%ED%8F%AC&depctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EA%B9%80%ED%8F%AC&initform=RT&depdt=2026-09-10&depdt=2026-09-13&adtcount=1&chdcount=0&infcount=0&KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3AN00001%3A00&utm_source=mcp-servers&flightinfo=TW%7C743%7C52100&flightinfo=LJ%7C502%7C98100\"},{\"id\":\"BX-8019-202609101740-KE-1114-202609130655\",\"tripType\":\"ROUND_TRIP\",\"airline\":{\"code\":\"BX\",\"name\":\"에어부산\",\"logoUrl\":\"https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/BX.png\"},\"route\":{\"origin\":\"GMP\",\"destination\":\"CJU\"},\"outbound\":{\"airlineCode\":\"BX\",\"flightNo\":\"8019\",\"flightNumber\":\"BX8019\",\"departCity\":\"GMP\",\"arriveCity\":\"CJU\",\"departDate\":\"2026-09-10\",\"departTime\":\"17:40\",\"arriveDate\":\"2026-09-10\",\"arriveTime\":\"18:55\",\"durationMinutes\":75,\"seatClass\":\"BXI\",\"availableSeats\":9,\"legPrice\":50970,\"adultFare\":22770,\"adultTax\":4000,\"adultFuel\":24200,\"childFare\":0,\"childTax\":0,\"childFuel\":0},\"inbound\":{\"airlineCode\":\"KE\",\"flightNo\":\"1114\",\"flightNumber\":\"KE1114\",\"departCity\":\"CJU\",\"arriveCity\":\"GMP\",\"departDate\":\"2026-09-13\",\"departTime\":\"06:55\",\"arriveDate\":\"2026-09-13\",\"arriveTime\":\"08:10\",\"durationMinutes\":75,\"seatClass\":\"KES\",\"availableSeats\":9,\"legPrice\":100200,\"adultFare\":72000,\"adultTax\":4000,\"adultFuel\":24200,\"childFare\":0,\"childTax\":0,\"childFuel\":0},\"price\":{\"currency\":\"KRW\",\"total\":151170,\"breakdown\":{\"baseFare\":94770,\"tax\":8000,\"fuelSurcharge\":48400}},\"isCheapest\":false,\"reservationUrl\":\"https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100090.k1?domintgubun=D&srchdomclass=&maxprice=&deptmam=N&deptmpm=N&nonstop=Y&opencase=N&opencase=N&opencase=N&openday=&openday=&openday=&tasktype=B2C&cabinsepflag=Y&availcount=250&cabinclass=A&dompreferaircd=&preferaircd=&depctycd=GMP&depctycd=CJU&arrctycd=CJU&arrctycd=GMP&depctynm=%EA%B9%80%ED%8F%AC&depctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EA%B9%80%ED%8F%AC&initform=RT&depdt=2026-09-10&depdt=2026-09-13&adtcount=1&chdcount=0&infcount=0&KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3AN00001%3A00&utm_source=mcp-servers&flightinfo=BX%7C8019%7C50970&flightinfo=KE%7C1114%7C100200\"},{\"id\":\"BX-8019-202609101740-OZ-8900-202609130625\",\"tripType\":\"ROUND_TRIP\",\"airline\":{\"code\":\"BX\",\"name\":\"에어부산\",\"logoUrl\":\"https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/BX.png\"},\"route\":{\"origin\":\"GMP\",\"destination\":\"CJU\"},\"outbound\":{\"airlineCode\":\"BX\",\"flightNo\":\"8019\",\"flightNumber\":\"BX8019\",\"departCity\":\"GMP\",\"arriveCity\":\"CJU\",\"departDate\":\"2026-09-10\",\"departTime\":\"17:40\",\"arriveDate\":\"2026-09-10\",\"arriveTime\":\"18:55\",\"durationMinutes\":75,\"seatClass\":\"BXI\",\"availableSeats\":9,\"legPrice\":50970,\"adultFare\":22770,\"adultTax\":4000,\"adultFuel\":24200,\"childFare\":0,\"childTax\":0,\"childFuel\":0},\"inbound\":{\"airlineCode\":\"OZ\",\"flightNo\":\"8900\",\"flightNumber\":\"OZ8900\",\"departCity\":\"CJU\",\"arriveCity\":\"GMP\",\"departDate\":\"2026-09-13\",\"departTime\":\"06:25\",\"arriveDate\":\"2026-09-13\",\"arriveTime\":\"07:40\",\"durationMinutes\":75,\"seatClass\":\"OZK\",\"availableSeats\":8,\"legPrice\":100200,\"adultFare\":72000,\"adultTax\":4000,\"adultFuel\":24200,\"childFare\":0,\"childTax\":0,\"childFuel\":0},\"price\":{\"currency\":\"KRW\",\"total\":151170,\"breakdown\":{\"baseFare\":94770,\"tax\":8000,\"fuelSurcharge\":48400}},\"isCheapest\":false,\"reservationUrl\":\"https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100090.k1?domintgubun=D&srchdomclass=&maxprice=&deptmam=N&deptmpm=N&nonstop=Y&opencase=N&opencase=N&opencase=N&openday=&openday=&openday=&tasktype=B2C&cabinsepflag=Y&availcount=250&cabinclass=A&dompreferaircd=&preferaircd=&depctycd=GMP&depctycd=CJU&arrctycd=CJU&arrctycd=GMP&depctynm=%EA%B9%80%ED%8F%AC&depctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EA%B9%80%ED%8F%AC&initform=RT&depdt=2026-09-10&depdt=2026-09-13&adtcount=1&chdcount=0&infcount=0&KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3AN00001%3A00&utm_source=mcp-servers&flightinfo=BX%7C8019%7C50970&flightinfo=OZ%7C8900%7C100200\"},{\"id\":\"BX-8019-202609101740-OZ-8902-202609130630\",\"tripType\":\"ROUND_TRIP\",\"airline\":{\"code\":\"BX\",\"name\":\"에어부산\",\"logoUrl\":\"https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/BX.png\"},\"route\":{\"origin\":\"GMP\",\"destination\":\"CJU\"},\"outbound\":{\"airlineCode\":\"BX\",\"flightNo\":\"8019\",\"flightNumber\":\"BX8019\",\"departCity\":\"GMP\",\"arriveCity\":\"CJU\",\"departDate\":\"2026-09-10\",\"departTime\":\"17:40\",\"arriveDate\":\"2026-09-10\",\"arriveTime\":\"18:55\",\"durationMinutes\":75,\"seatClass\":\"BXI\",\"availableSeats\":9,\"legPrice\":50970,\"adultFare\":22770,\"adultTax\":4000,\"adultFuel\":24200,\"childFare\":0,\"childTax\":0,\"childFuel\":0},\"inbound\":{\"airlineCode\":\"OZ\",\"flightNo\":\"8902\",\"flightNumber\":\"OZ8902\",\"departCity\":\"CJU\",\"arriveCity\":\"GMP\",\"departDate\":\"2026-09-13\",\"departTime\":\"06:30\",\"arriveDate\":\"2026-09-13\",\"arriveTime\":\"07:45\",\"durationMinutes\":75,\"seatClass\":\"OZK\",\"availableSeats\":9,\"legPrice\":100200,\"adultFare\":72000,\"adultTax\":4000,\"adultFuel\":24200,\"childFare\":0,\"childTax\":0,\"childFuel\":0},\"price\":{\"currency\":\"KRW\",\"total\":151170,\"breakdown\":{\"baseFare\":94770,\"tax\":8000,\"fuelSurcharge\":48400}},\"isCheapest\":false,\"reservationUrl\":\"https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100090.k1?domintgubun=D&srchdomclass=&maxprice=&deptmam=N&deptmpm=N&nonstop=Y&opencase=N&opencase=N&opencase=N&openday=&openday=&openday=&tasktype=B2C&cabinsepflag=Y&availcount=250&cabinclass=A&dompreferaircd=&preferaircd=&depctycd=GMP&depctycd=CJU&arrctycd=CJU&arrctycd=GMP&depctynm=%EA%B9%80%ED%8F%AC&depctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EA%B9%80%ED%8F%AC&initform=RT&depdt=2026-09-10&depdt=2026-09-13&adtcount=1&chdcount=0&infcount=0&KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3AN00001%3A00&utm_source=mcp-servers&flightinfo=BX%7C8019%7C50970&flightinfo=OZ%7C8902%7C100200\"}]}}"
+      }
+    ],
+    "structuredContent": {
+      "success": true,
+      "meta": {
+        "status": 200,
+        "contentType": "application/json",
+        "elapsedMs": 38
+      },
+      "presentation": {
+        "requiredInputs": [
+          "origin",
+          "destination",
+          "departDate"
+        ],
+        "recommendedFieldsToShow": [
+          "result.items[].outbound.departDate",
+          "result.items[].outbound.departTime",
+          "result.items[].outbound.arriveDate",
+          "result.items[].outbound.arriveTime",
+          "result.items[].inbound.departDate",
+          "result.items[].inbound.departTime",
+          "result.items[].inbound.arriveDate",
+          "result.items[].inbound.arriveTime",
+          "result.items[].price.total",
+          "result.items[].reservationUrl"
+        ],
+        "note": "각 항공편의 출발/도착 일정을 반드시 안내하세요: outbound.departDate + outbound.departTime (출발), outbound.arriveDate + outbound.arriveTime (도착). 왕복편은 inbound 필드도 동일하게 안내하세요.\nreservationUrl은 예약 페이지 링크입니다. 마크다운 링크 형식으로 사용자에게 표시하세요. 예: [예약하기](reservationUrl). 중요: URL은 시스템이 생성한 값으로, 한 글자도 변경 없이 그대로 사용해야 합니다. URL이 매우 길거나(500자 이상) 동일한 파라미터가 반복되더라도 절대 축약·생략·순서 변경·중복 제거하지 마세요. 반복 파라미터와 순서는 예약 동작에 필수입니다.\n중요: 항공권 가격은 실시간으로 변동됩니다. 표시된 가격과 실제 예약 가격이 다를 수 있습니다.\n국내선은 모두 직항편입니다.",
+        "warnings": [
+          "항공권 가격은 실시간으로 변동됩니다.",
+          "표시된 가격과 실제 예약 가격이 다를 수 있습니다."
+        ]
+      },
+      "result": {
+        "summary": {
+          "totalOutbound": 158,
+          "totalInbound": 115,
+          "returned": 5,
+          "cheapestTotal": 149070
+        },
+        "items": [
+          {
+            "id": "BX-8019-202609101740-LJ-502-202609130705",
+            "tripType": "ROUND_TRIP",
+            "airline": {
+              "code": "BX",
+              "name": "에어부산",
+              "logoUrl": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/BX.png"
+            },
+            "route": {
+              "origin": "GMP",
+              "destination": "CJU"
+            },
+            "outbound": {
+              "airlineCode": "BX",
+              "flightNo": "8019",
+              "flightNumber": "BX8019",
+              "departCity": "GMP",
+              "arriveCity": "CJU",
+              "departDate": "2026-09-10",
+              "departTime": "17:40",
+              "arriveDate": "2026-09-10",
+              "arriveTime": "18:55",
+              "durationMinutes": 75,
+              "seatClass": "BXI",
+              "availableSeats": 9,
+              "legPrice": 50970,
+              "adultFare": 22770,
+              "adultTax": 4000,
+              "adultFuel": 24200,
+              "childFare": 0,
+              "childTax": 0,
+              "childFuel": 0
+            },
+            "inbound": {
+              "airlineCode": "LJ",
+              "flightNo": "502",
+              "flightNumber": "LJ502",
+              "departCity": "CJU",
+              "arriveCity": "GMP",
+              "departDate": "2026-09-13",
+              "departTime": "07:05",
+              "arriveDate": "2026-09-13",
+              "arriveTime": "08:20",
+              "durationMinutes": 75,
+              "seatClass": "LJE4",
+              "availableSeats": 5,
+              "legPrice": 98100,
+              "adultFare": 69900,
+              "adultTax": 4000,
+              "adultFuel": 24200,
+              "childFare": 0,
+              "childTax": 0,
+              "childFuel": 0
+            },
+            "price": {
+              "currency": "KRW",
+              "total": 149070,
+              "breakdown": {
+                "baseFare": 92670,
+                "tax": 8000,
+                "fuelSurcharge": 48400
+              }
+            },
+            "isCheapest": true,
+            "reservationUrl": "https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100090.k1?domintgubun=D&srchdomclass=&maxprice=&deptmam=N&deptmpm=N&nonstop=Y&opencase=N&opencase=N&opencase=N&openday=&openday=&openday=&tasktype=B2C&cabinsepflag=Y&availcount=250&cabinclass=A&dompreferaircd=&preferaircd=&depctycd=GMP&depctycd=CJU&arrctycd=CJU&arrctycd=GMP&depctynm=%EA%B9%80%ED%8F%AC&depctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EA%B9%80%ED%8F%AC&initform=RT&depdt=2026-09-10&depdt=2026-09-13&adtcount=1&chdcount=0&infcount=0&KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3AN00001%3A00&utm_source=mcp-servers&flightinfo=BX%7C8019%7C50970&flightinfo=LJ%7C502%7C98100"
+          },
+          {
+            "id": "TW-743-202609101730-LJ-502-202609130705",
+            "tripType": "ROUND_TRIP",
+            "airline": {
+              "code": "TW",
+              "name": "티웨이항공",
+              "logoUrl": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/TW.png"
+            },
+            "route": {
+              "origin": "GMP",
+              "destination": "CJU"
+            },
+            "outbound": {
+              "airlineCode": "TW",
+              "flightNo": "743",
+              "flightNumber": "TW743",
+              "departCity": "GMP",
+              "arriveCity": "CJU",
+              "departDate": "2026-09-10",
+              "departTime": "17:30",
+              "arriveDate": "2026-09-10",
+              "arriveTime": "18:45",
+              "durationMinutes": 75,
+              "seatClass": "TWJ",
+              "availableSeats": 9,
+              "legPrice": 52100,
+              "adultFare": 23900,
+              "adultTax": 4000,
+              "adultFuel": 24200,
+              "childFare": 0,
+              "childTax": 0,
+              "childFuel": 0
+            },
+            "inbound": {
+              "airlineCode": "LJ",
+              "flightNo": "502",
+              "flightNumber": "LJ502",
+              "departCity": "CJU",
+              "arriveCity": "GMP",
+              "departDate": "2026-09-13",
+              "departTime": "07:05",
+              "arriveDate": "2026-09-13",
+              "arriveTime": "08:20",
+              "durationMinutes": 75,
+              "seatClass": "LJE4",
+              "availableSeats": 5,
+              "legPrice": 98100,
+              "adultFare": 69900,
+              "adultTax": 4000,
+              "adultFuel": 24200,
+              "childFare": 0,
+              "childTax": 0,
+              "childFuel": 0
+            },
+            "price": {
+              "currency": "KRW",
+              "total": 150200,
+              "breakdown": {
+                "baseFare": 93800,
+                "tax": 8000,
+                "fuelSurcharge": 48400
+              }
+            },
+            "isCheapest": false,
+            "reservationUrl": "https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100090.k1?domintgubun=D&srchdomclass=&maxprice=&deptmam=N&deptmpm=N&nonstop=Y&opencase=N&opencase=N&opencase=N&openday=&openday=&openday=&tasktype=B2C&cabinsepflag=Y&availcount=250&cabinclass=A&dompreferaircd=&preferaircd=&depctycd=GMP&depctycd=CJU&arrctycd=CJU&arrctycd=GMP&depctynm=%EA%B9%80%ED%8F%AC&depctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EA%B9%80%ED%8F%AC&initform=RT&depdt=2026-09-10&depdt=2026-09-13&adtcount=1&chdcount=0&infcount=0&KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3AN00001%3A00&utm_source=mcp-servers&flightinfo=TW%7C743%7C52100&flightinfo=LJ%7C502%7C98100"
+          },
+          {
+            "id": "BX-8019-202609101740-KE-1114-202609130655",
+            "tripType": "ROUND_TRIP",
+            "airline": {
+              "code": "BX",
+              "name": "에어부산",
+              "logoUrl": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/BX.png"
+            },
+            "route": {
+              "origin": "GMP",
+              "destination": "CJU"
+            },
+            "outbound": {
+              "airlineCode": "BX",
+              "flightNo": "8019",
+              "flightNumber": "BX8019",
+              "departCity": "GMP",
+              "arriveCity": "CJU",
+              "departDate": "2026-09-10",
+              "departTime": "17:40",
+              "arriveDate": "2026-09-10",
+              "arriveTime": "18:55",
+              "durationMinutes": 75,
+              "seatClass": "BXI",
+              "availableSeats": 9,
+              "legPrice": 50970,
+              "adultFare": 22770,
+              "adultTax": 4000,
+              "adultFuel": 24200,
+              "childFare": 0,
+              "childTax": 0,
+              "childFuel": 0
+            },
+            "inbound": {
+              "airlineCode": "KE",
+              "flightNo": "1114",
+              "flightNumber": "KE1114",
+              "departCity": "CJU",
+              "arriveCity": "GMP",
+              "departDate": "2026-09-13",
+              "departTime": "06:55",
+              "arriveDate": "2026-09-13",
+              "arriveTime": "08:10",
+              "durationMinutes": 75,
+              "seatClass": "KES",
+              "availableSeats": 9,
+              "legPrice": 100200,
+              "adultFare": 72000,
+              "adultTax": 4000,
+              "adultFuel": 24200,
+              "childFare": 0,
+              "childTax": 0,
+              "childFuel": 0
+            },
+            "price": {
+              "currency": "KRW",
+              "total": 151170,
+              "breakdown": {
+                "baseFare": 94770,
+                "tax": 8000,
+                "fuelSurcharge": 48400
+              }
+            },
+            "isCheapest": false,
+            "reservationUrl": "https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100090.k1?domintgubun=D&srchdomclass=&maxprice=&deptmam=N&deptmpm=N&nonstop=Y&opencase=N&opencase=N&opencase=N&openday=&openday=&openday=&tasktype=B2C&cabinsepflag=Y&availcount=250&cabinclass=A&dompreferaircd=&preferaircd=&depctycd=GMP&depctycd=CJU&arrctycd=CJU&arrctycd=GMP&depctynm=%EA%B9%80%ED%8F%AC&depctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EA%B9%80%ED%8F%AC&initform=RT&depdt=2026-09-10&depdt=2026-09-13&adtcount=1&chdcount=0&infcount=0&KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3AN00001%3A00&utm_source=mcp-servers&flightinfo=BX%7C8019%7C50970&flightinfo=KE%7C1114%7C100200"
+          },
+          {
+            "id": "BX-8019-202609101740-OZ-8900-202609130625",
+            "tripType": "ROUND_TRIP",
+            "airline": {
+              "code": "BX",
+              "name": "에어부산",
+              "logoUrl": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/BX.png"
+            },
+            "route": {
+              "origin": "GMP",
+              "destination": "CJU"
+            },
+            "outbound": {
+              "airlineCode": "BX",
+              "flightNo": "8019",
+              "flightNumber": "BX8019",
+              "departCity": "GMP",
+              "arriveCity": "CJU",
+              "departDate": "2026-09-10",
+              "departTime": "17:40",
+              "arriveDate": "2026-09-10",
+              "arriveTime": "18:55",
+              "durationMinutes": 75,
+              "seatClass": "BXI",
+              "availableSeats": 9,
+              "legPrice": 50970,
+              "adultFare": 22770,
+              "adultTax": 4000,
+              "adultFuel": 24200,
+              "childFare": 0,
+              "childTax": 0,
+              "childFuel": 0
+            },
+            "inbound": {
+              "airlineCode": "OZ",
+              "flightNo": "8900",
+              "flightNumber": "OZ8900",
+              "departCity": "CJU",
+              "arriveCity": "GMP",
+              "departDate": "2026-09-13",
+              "departTime": "06:25",
+              "arriveDate": "2026-09-13",
+              "arriveTime": "07:40",
+              "durationMinutes": 75,
+              "seatClass": "OZK",
+              "availableSeats": 8,
+              "legPrice": 100200,
+              "adultFare": 72000,
+              "adultTax": 4000,
+              "adultFuel": 24200,
+              "childFare": 0,
+              "childTax": 0,
+              "childFuel": 0
+            },
+            "price": {
+              "currency": "KRW",
+              "total": 151170,
+              "breakdown": {
+                "baseFare": 94770,
+                "tax": 8000,
+                "fuelSurcharge": 48400
+              }
+            },
+            "isCheapest": false,
+            "reservationUrl": "https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100090.k1?domintgubun=D&srchdomclass=&maxprice=&deptmam=N&deptmpm=N&nonstop=Y&opencase=N&opencase=N&opencase=N&openday=&openday=&openday=&tasktype=B2C&cabinsepflag=Y&availcount=250&cabinclass=A&dompreferaircd=&preferaircd=&depctycd=GMP&depctycd=CJU&arrctycd=CJU&arrctycd=GMP&depctynm=%EA%B9%80%ED%8F%AC&depctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EA%B9%80%ED%8F%AC&initform=RT&depdt=2026-09-10&depdt=2026-09-13&adtcount=1&chdcount=0&infcount=0&KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3AN00001%3A00&utm_source=mcp-servers&flightinfo=BX%7C8019%7C50970&flightinfo=OZ%7C8900%7C100200"
+          },
+          {
+            "id": "BX-8019-202609101740-OZ-8902-202609130630",
+            "tripType": "ROUND_TRIP",
+            "airline": {
+              "code": "BX",
+              "name": "에어부산",
+              "logoUrl": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/BX.png"
+            },
+            "route": {
+              "origin": "GMP",
+              "destination": "CJU"
+            },
+            "outbound": {
+              "airlineCode": "BX",
+              "flightNo": "8019",
+              "flightNumber": "BX8019",
+              "departCity": "GMP",
+              "arriveCity": "CJU",
+              "departDate": "2026-09-10",
+              "departTime": "17:40",
+              "arriveDate": "2026-09-10",
+              "arriveTime": "18:55",
+              "durationMinutes": 75,
+              "seatClass": "BXI",
+              "availableSeats": 9,
+              "legPrice": 50970,
+              "adultFare": 22770,
+              "adultTax": 4000,
+              "adultFuel": 24200,
+              "childFare": 0,
+              "childTax": 0,
+              "childFuel": 0
+            },
+            "inbound": {
+              "airlineCode": "OZ",
+              "flightNo": "8902",
+              "flightNumber": "OZ8902",
+              "departCity": "CJU",
+              "arriveCity": "GMP",
+              "departDate": "2026-09-13",
+              "departTime": "06:30",
+              "arriveDate": "2026-09-13",
+              "arriveTime": "07:45",
+              "durationMinutes": 75,
+              "seatClass": "OZK",
+              "availableSeats": 9,
+              "legPrice": 100200,
+              "adultFare": 72000,
+              "adultTax": 4000,
+              "adultFuel": 24200,
+              "childFare": 0,
+              "childTax": 0,
+              "childFuel": 0
+            },
+            "price": {
+              "currency": "KRW",
+              "total": 151170,
+              "breakdown": {
+                "baseFare": 94770,
+                "tax": 8000,
+                "fuelSurcharge": 48400
+              }
+            },
+            "isCheapest": false,
+            "reservationUrl": "https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100090.k1?domintgubun=D&srchdomclass=&maxprice=&deptmam=N&deptmpm=N&nonstop=Y&opencase=N&opencase=N&opencase=N&openday=&openday=&openday=&tasktype=B2C&cabinsepflag=Y&availcount=250&cabinclass=A&dompreferaircd=&preferaircd=&depctycd=GMP&depctycd=CJU&arrctycd=CJU&arrctycd=GMP&depctynm=%EA%B9%80%ED%8F%AC&depctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EC%A0%9C%EC%A3%BC&arrctynm=%EA%B9%80%ED%8F%AC&initform=RT&depdt=2026-09-10&depdt=2026-09-13&adtcount=1&chdcount=0&infcount=0&KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3AN00001%3A00&utm_source=mcp-servers&flightinfo=BX%7C8019%7C50970&flightinfo=OZ%7C8902%7C100200"
+          }
+        ]
+      }
+    }
+  },
+  "_meta": {
+    "normalizer_version": "1",
+    "source_type": "structured",
+    "raw_sha256": "ef7e74dad461e8695b4369247deb2e776e029de8861f948f9181dc2e6b513345",
+    "probed_at": "2026-07-01T15:22:19+00:00"
+  }
+}

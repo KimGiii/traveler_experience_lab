@@ -1,0 +1,10 @@
+{
+  "name": "traveler-experience-lab",
+  "version": "0.1.0",
+  "description": "MyRealTrip PE wedge: grounds traveler-experience problems in real-time MRT product inventory (MCP) + de-identified VoC, from problem definition to build brief. Two commands: scenario, diagnose.",
+  "author": {
+    "name": "MyRealTrip Product Engineering"
+  },
+  "commands": "./commands",
+  "keywords": ["myrealtrip", "travel", "mcp", "scenario", "voc", "product-engineering"]
+}

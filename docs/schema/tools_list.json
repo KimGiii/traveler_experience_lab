@@ -1,0 +1,1314 @@
+[
+  {
+    "name": "getCurrentTime",
+    "description": "Get current Korea Standard Time (KST) with both formatted and ISO date.",
+    "inputSchema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "properties": {}
+    },
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "openWorldHint": false,
+      "idempotentHint": true
+    },
+    "execution": {
+      "taskSupport": "forbidden"
+    }
+  },
+  {
+    "name": "searchStays",
+    "title": "Search Stays",
+    "description": "Search accommodations (hotels, pensions, resorts, etc.) on MyRealTrip(마이리얼트립). Keywords: 숙소, 호텔, 펜션, 리조트, hotel, accommodation, stay, lodging. Supports filters for price, sorting, and amenities. ⚠️ Returns only listing summaries (name, price range, rating). Does NOT include room types, per-room pricing, amenities, or reviews. When user asks about specific hotel details, room types (룸 타입/객실), room prices (객실 가격), facilities, or uses keywords like '자세히/상세/detail', you MUST follow up with getStayDetail using the gid from these results.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "keyword": {
+          "type": "string",
+          "description": "검색 키워드 (예: 파리, 제주, 교토)"
+        },
+        "checkIn": {
+          "type": "string",
+          "description": "체크인 날짜 (YYYY-MM-DD)"
+        },
+        "checkOut": {
+          "type": "string",
+          "description": "체크아웃 날짜 (YYYY-MM-DD)"
+        },
+        "adultCount": {
+          "type": "number",
+          "minimum": 1,
+          "default": 2,
+          "description": "성인 인원 수"
+        },
+        "childCount": {
+          "type": "number",
+          "default": 0,
+          "description": "아동 인원 수"
+        },
+        "isDomestic": {
+          "type": "boolean",
+          "default": false,
+          "description": "국내 여부 (true: 국내, false: 해외)"
+        },
+        "page": {
+          "type": "number",
+          "minimum": 1,
+          "default": 1,
+          "description": "페이지 번호 (기본값: 1, 더 많은 결과를 보려면 증가)"
+        },
+        "minPrice": {
+          "type": "number",
+          "description": "최소 가격 (원)"
+        },
+        "maxPrice": {
+          "type": "number",
+          "description": "최대 가격 (원)"
+        },
+        "order": {
+          "type": "string",
+          "enum": [
+            "recommended",
+            "price_asc",
+            "price_desc",
+            "discount_rate_desc"
+          ],
+          "description": "정렬: recommended(추천순), price_asc(낮은가격), price_desc(높은가격), discount_rate_desc(할인높은순)"
+        },
+        "stayTypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "HOTELS",
+              "BNB_V2",
+              "HOSTELS",
+              "TRADITIONAL_ACCOMMODATION",
+              "MOTELS",
+              "RESORTS",
+              "PENSION_PRIVATEHOUSE"
+            ]
+          },
+          "description": "숙소 유형: HOTELS(호텔), BNB_V2(민박), HOSTELS(호스텔), RESORTS(리조트) 등"
+        },
+        "minReviewRating": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5,
+          "description": "최소 리뷰 평점 (예: 4.0, 4.5)"
+        },
+        "starRatings": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "fivestar",
+              "fourstar",
+              "threestar",
+              "twostar",
+              "onestar"
+            ]
+          },
+          "description": "호텔 성급 필터"
+        },
+        "freeCancellation": {
+          "type": "boolean",
+          "description": "무료 취소 가능 숙소만"
+        },
+        "includeBreakfast": {
+          "type": "boolean",
+          "description": "조식 포함 숙소만"
+        },
+        "services": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "WIFI",
+              "PARKING",
+              "LAUNDARY",
+              "SPA_SAUNA",
+              "FITNESS",
+              "POOL",
+              "BARBECUE",
+              "PET"
+            ]
+          },
+          "description": "시설/서비스: WIFI, PARKING, POOL, FITNESS, PET 등"
+        }
+      },
+      "required": [
+        "keyword",
+        "checkIn",
+        "checkOut"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "openWorldHint": true,
+      "idempotentHint": true
+    },
+    "execution": {
+      "taskSupport": "forbidden"
+    },
+    "_meta": {
+      "openai/outputTemplate": "ui://myrealtrip/stays-search-v13.html",
+      "openai/toolInvocation/invoking": "숙소를 검색하고 있습니다...",
+      "openai/toolInvocation/invoked": "숙소 검색 완료"
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "stays": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gid": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "price": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "additionalPrice": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "rating": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "reviewCount": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "thumbnailUrl": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "wishCount": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "gid",
+              "name",
+              "description",
+              "price",
+              "additionalPrice",
+              "rating",
+              "reviewCount",
+              "tags",
+              "thumbnailUrl",
+              "wishCount"
+            ],
+            "additionalProperties": false
+          },
+          "description": "숙소 목록"
+        },
+        "searchParams": {
+          "type": "object",
+          "properties": {
+            "keyword": {
+              "type": "string"
+            },
+            "checkIn": {
+              "type": "string"
+            },
+            "checkOut": {
+              "type": "string"
+            },
+            "adultCount": {
+              "type": "number"
+            },
+            "childCount": {
+              "type": "number"
+            },
+            "isDomestic": {
+              "type": "boolean"
+            },
+            "page": {
+              "type": "number"
+            },
+            "filters": {
+              "type": "object",
+              "additionalProperties": {}
+            }
+          },
+          "required": [
+            "keyword",
+            "checkIn",
+            "checkOut",
+            "adultCount",
+            "childCount",
+            "isDomestic",
+            "page",
+            "filters"
+          ],
+          "additionalProperties": false,
+          "description": "검색 조건"
+        },
+        "pagination": {
+          "type": "object",
+          "properties": {
+            "currentPage": {
+              "type": "number"
+            },
+            "hasNextPage": {
+              "type": "boolean"
+            },
+            "totalCount": {
+              "type": "number"
+            },
+            "itemsInThisPage": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "currentPage",
+            "hasNextPage",
+            "totalCount",
+            "itemsInThisPage"
+          ],
+          "additionalProperties": false,
+          "description": "페이지네이션 정보"
+        }
+      },
+      "required": [
+        "stays",
+        "searchParams",
+        "pagination"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+  },
+  {
+    "name": "getStayDetail",
+    "description": "Get accommodation details including room types, per-room pricing, cancellation policies, amenities, and reviews. MUST be called after searchStays when user asks about a specific hotel, room types (룸 타입/객실/방 종류), room prices (객실 가격/방 가격), facilities (시설/편의시설), reviews (리뷰/후기), or wants detailed info (자세히/상세/알아봐줘). Requires gid from searchStays results. For queries mentioning a specific hotel name, call searchStays first to get the gid, then call this tool immediately.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "number",
+          "description": "Accommodation GID (from searchStays results)"
+        },
+        "checkIn": {
+          "type": "string",
+          "description": "Check-in date (YYYY-MM-DD)"
+        },
+        "checkOut": {
+          "type": "string",
+          "description": "Check-out date (YYYY-MM-DD)"
+        },
+        "adultCount": {
+          "type": "number",
+          "minimum": 1,
+          "default": 2,
+          "description": "Number of adults"
+        },
+        "childCount": {
+          "type": "number",
+          "default": 0,
+          "description": "Number of children"
+        }
+      },
+      "required": [
+        "gid",
+        "checkIn",
+        "checkOut"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "openWorldHint": true,
+      "idempotentHint": true
+    },
+    "execution": {
+      "taskSupport": "forbidden"
+    }
+  },
+  {
+    "name": "getCategoryList",
+    "description": "Get available TNA (tour/activity) categories for a city. Required workflow: Call this before searchTnas to identify valid category values for filtering.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "City name to search (e.g., Cebu, Nha Trang, Bangkok, Paris, Tokyo)"
+        }
+      },
+      "required": [
+        "city"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "openWorldHint": true,
+      "idempotentHint": true
+    },
+    "execution": {
+      "taskSupport": "forbidden"
+    }
+  },
+  {
+    "name": "searchTnas",
+    "description": "Search tours, tickets, and activities with optional category filtering. Use Korean keywords for best results. Returned prices are starting prices; use getTnaOptions for date-specific pricing.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Search keyword (city name or 'city+product'. Important: Use Korean keywords for best results. e.g., 오사카, 오사카 유니버설 스튜디오, 도쿄 디즈니랜드)"
+        },
+        "page": {
+          "type": "number",
+          "minimum": 1,
+          "default": 1,
+          "description": "Page number (default: 1, increase for more results)"
+        },
+        "perPage": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 20,
+          "description": "Results per page (default: 20, max: 100)"
+        },
+        "category": {
+          "type": "string",
+          "description": "Use categories[].value from getCategoryList. Never guess! Values vary by city (Cebu: 'tour', Mexico City: 'MexicocityTour')"
+        },
+        "sort": {
+          "type": "string",
+          "description": "Sort order (e.g., price_asc, review_score_desc, selling_count_desc)"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "openWorldHint": true,
+      "idempotentHint": true
+    },
+    "execution": {
+      "taskSupport": "forbidden"
+    }
+  },
+  {
+    "name": "getTnaDetail",
+    "description": "Get tour/activity details including itinerary, inclusions/exclusions, and cancellation policy. Use gid and url from searchTnas results. For date-specific pricing and availability, use getTnaOptions.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string",
+          "description": "Product ID (from searchTnas results)"
+        },
+        "url": {
+          "type": "string",
+          "description": "Product URL (from searchTnas results)"
+        }
+      },
+      "required": [
+        "gid",
+        "url"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "openWorldHint": true,
+      "idempotentHint": true
+    },
+    "execution": {
+      "taskSupport": "forbidden"
+    }
+  },
+  {
+    "name": "getTnaOptions",
+    "description": "Check availability and pricing for a specific date. Required: Use this to verify booking availability before proceeding with reservation.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "gid": {
+          "type": "string",
+          "description": "Product ID (from searchTnas results)"
+        },
+        "url": {
+          "type": "string",
+          "description": "Product URL (from searchTnas results)"
+        },
+        "selectedDate": {
+          "type": "string",
+          "description": "Booking date (YYYY-MM-DD format, e.g., 2025-12-20)"
+        }
+      },
+      "required": [
+        "gid",
+        "url",
+        "selectedDate"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "openWorldHint": true,
+      "idempotentHint": true
+    },
+    "execution": {
+      "taskSupport": "forbidden"
+    }
+  },
+  {
+    "name": "searchInternationalFlights",
+    "title": "Search International Flights",
+    "description": "Search international flights (Korea to overseas). Use when destination is outside Korea. Common destinations: Tokyo(NRT/HND), Osaka(KIX), Bangkok(BKK), Bali(DPS), Singapore(SIN), Rome(FCO), Paris(CDG), London(LHR), New York(JFK), Hanoi(HAN), Danang(DAD), Cebu(CEB). ⚠️ Any city NOT in Korea = international flight. Required params: origin (IATA 3-letter, e.g. ICN), destination (IATA 3-letter, e.g. NRT), departDate (YYYY-MM-DD). If user doesn't specify airport, default origin to ICN for international flights. For round-trip: set tripType=ROUND_TRIP. returnDate defaults to departDate+4 if omitted. Results include real-time pricing and reservationUrl — always show both to users.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "tripType": {
+          "type": "string",
+          "enum": [
+            "ONE_WAY",
+            "ROUND_TRIP"
+          ],
+          "default": "ONE_WAY",
+          "description": "Trip type (ONE_WAY: one-way, ROUND_TRIP: round-trip)"
+        },
+        "origin": {
+          "type": "string",
+          "default": "",
+          "description": "Required. Origin airport IATA code (3 letters, e.g., ICN). Cannot be null."
+        },
+        "destination": {
+          "$ref": "#/properties/origin",
+          "default": "",
+          "description": "Required. Destination airport IATA code (3 letters, e.g., NRT). Cannot be null."
+        },
+        "departDate": {
+          "type": "string",
+          "default": "",
+          "description": "Required. Departure date (YYYYMMDD or YYYY-MM-DD). Must be after today."
+        },
+        "returnDate": {
+          "$ref": "#/properties/departDate",
+          "default": "",
+          "description": "Return date (required for round-trip). Must be after today. Defaults to departDate + 4 days if omitted."
+        },
+        "passengers": {
+          "type": "object",
+          "properties": {
+            "adults": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "description": "Number of adults"
+            },
+            "children": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "description": "Number of children (ages 2-11)"
+            },
+            "infants": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "description": "Number of infants (under 2)"
+            }
+          },
+          "additionalProperties": false,
+          "default": {
+            "adults": 1,
+            "children": 0,
+            "infants": 0
+          },
+          "description": "Passenger counts"
+        },
+        "cabinClass": {
+          "type": "string",
+          "enum": [
+            "ECONOMY",
+            "BUSINESS",
+            "FIRST"
+          ],
+          "default": "ECONOMY",
+          "description": "Cabin class"
+        },
+        "directFlightOnly": {
+          "type": "boolean",
+          "default": false,
+          "description": "Search direct flights only when true"
+        },
+        "maxResults": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 250,
+          "default": 5,
+          "description": "Maximum number of results (max: 250, default: 5)"
+        },
+        "preferredAirline": {
+          "type": "string",
+          "default": "",
+          "description": "Preferred airline code (2 letters, e.g., KE). Empty means no preference."
+        }
+      },
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "openWorldHint": true,
+      "idempotentHint": true
+    },
+    "execution": {
+      "taskSupport": "forbidden"
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "number"
+            },
+            "contentType": {
+              "type": "string"
+            },
+            "elapsedMs": {
+              "type": "number"
+            },
+            "promotionAirlines": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number"
+                },
+                "statusText": {
+                  "type": "string"
+                },
+                "contentType": {
+                  "type": "string"
+                },
+                "error": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "status",
+            "contentType"
+          ],
+          "additionalProperties": false
+        },
+        "presentation": {
+          "type": "object",
+          "properties": {
+            "requiredInputs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "recommendedFieldsToShow": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "note": {
+              "type": "string"
+            },
+            "warnings": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "summary": {
+              "type": "object",
+              "properties": {
+                "totalCandidates": {
+                  "type": "number"
+                },
+                "totalRoutes": {
+                  "type": "number"
+                },
+                "returned": {
+                  "type": "number"
+                },
+                "cheapestTotal": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "totalCandidates",
+                "totalRoutes",
+                "returned"
+              ],
+              "additionalProperties": false
+            },
+            "items": {
+              "type": "array",
+              "items": {}
+            },
+            "promotionAirlines": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "required": [
+            "summary",
+            "items",
+            "promotionAirlines"
+          ],
+          "additionalProperties": false
+        },
+        "error": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "meta",
+        "presentation"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+  },
+  {
+    "name": "searchDomesticFlights",
+    "title": "Search Domestic Flights",
+    "description": "Search domestic Korea flights. Use ONLY when BOTH origin and destination are Korean cities (e.g. 제주, 부산, 김포, 대구, 광주, 여수). ⚠️ Do NOT use for overseas destinations (로마, 발리, 도쿄, 파리, 방콕 etc.) — use searchInternationalFlights instead. Airport codes: GMP(김포), CJU(제주), PUS(부산/김해), TAE(대구), KWJ(광주), RSU(여수), USN(울산), WJU(원주). Required params: origin (e.g. GMP), destination (e.g. CJU), departDate (YYYY-MM-DD). Default origin to GMP for domestic flights if not specified. All domestic routes are direct (no layovers). Results include real-time pricing and reservationUrl — always show both to users.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "tripType": {
+          "type": "string",
+          "enum": [
+            "ONE_WAY",
+            "ROUND_TRIP"
+          ],
+          "default": "ONE_WAY",
+          "description": "Trip type (ONE_WAY: one-way, ROUND_TRIP: round-trip)"
+        },
+        "origin": {
+          "type": "string",
+          "default": "",
+          "description": "Required. Origin airport code (3 letters, e.g., GMP, CJU). Cannot be null."
+        },
+        "destination": {
+          "$ref": "#/properties/origin",
+          "default": "",
+          "description": "Required. Destination airport code (3 letters, e.g., GMP, CJU). Cannot be null."
+        },
+        "departDate": {
+          "type": "string",
+          "default": "",
+          "description": "Required. Departure date (YYYYMMDD or YYYY-MM-DD). Must be after today."
+        },
+        "returnDate": {
+          "$ref": "#/properties/departDate",
+          "default": "",
+          "description": "Return date (required for round-trip). Must be after today."
+        },
+        "passengers": {
+          "type": "object",
+          "properties": {
+            "adults": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "description": "Number of adults"
+            },
+            "children": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "description": "Number of children (ages 2-11)"
+            }
+          },
+          "additionalProperties": false,
+          "default": {
+            "adults": 1,
+            "children": 0
+          },
+          "description": "Passenger counts"
+        },
+        "cabinClass": {
+          "type": "string",
+          "enum": [
+            "ECONOMY",
+            "BUSINESS"
+          ],
+          "default": "ECONOMY",
+          "description": "Cabin class (domestic flights support ECONOMY and BUSINESS only)"
+        },
+        "maxResults": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 10,
+          "description": "Maximum number of results (max: 100, default: 10)"
+        }
+      },
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "openWorldHint": true,
+      "idempotentHint": true
+    },
+    "execution": {
+      "taskSupport": "forbidden"
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "number"
+            },
+            "contentType": {
+              "type": "string"
+            },
+            "elapsedMs": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "status",
+            "contentType"
+          ],
+          "additionalProperties": false
+        },
+        "presentation": {
+          "type": "object",
+          "properties": {
+            "requiredInputs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "recommendedFieldsToShow": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "note": {
+              "type": "string"
+            },
+            "warnings": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "summary": {
+              "type": "object",
+              "properties": {
+                "totalOutbound": {
+                  "type": "number"
+                },
+                "totalInbound": {
+                  "type": "number"
+                },
+                "returned": {
+                  "type": "number"
+                },
+                "cheapestTotal": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "totalOutbound",
+                "totalInbound",
+                "returned"
+              ],
+              "additionalProperties": false
+            },
+            "items": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "required": [
+            "summary",
+            "items"
+          ],
+          "additionalProperties": false
+        },
+        "error": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "meta",
+        "presentation"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+  },
+  {
+    "name": "getPromotionAirlines",
+    "title": "Get Promotion Airlines",
+    "description": "Get airlines with active fare promotions. Call this when user asks about cheap/discounted flights, 특가, 할인, or lowest prices. Returns airline codes, routes, periods, and event names. Pass returned airline code to preferredAirline param in searchInternationalFlights or searchDomesticFlights to filter by that airline.",
+    "inputSchema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "properties": {}
+    },
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "openWorldHint": true,
+      "idempotentHint": true
+    },
+    "execution": {
+      "taskSupport": "forbidden"
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "number"
+            },
+            "contentType": {
+              "type": "string"
+            },
+            "elapsedMs": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "status",
+            "contentType"
+          ],
+          "additionalProperties": false
+        },
+        "presentation": {
+          "type": "object",
+          "properties": {
+            "note": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "summary": {
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "total"
+              ],
+              "additionalProperties": false
+            },
+            "promotions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "airline": {
+                    "type": "string"
+                  },
+                  "eventName": {
+                    "type": "string"
+                  },
+                  "startDate": {
+                    "type": "string"
+                  },
+                  "endDate": {
+                    "type": "string"
+                  },
+                  "origin": {
+                    "type": "string"
+                  },
+                  "destinations": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "priority": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "id",
+                  "airline",
+                  "startDate",
+                  "endDate",
+                  "origin",
+                  "destinations"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "summary",
+            "promotions"
+          ],
+          "additionalProperties": false
+        },
+        "error": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "meta",
+        "presentation"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+  },
+  {
+    "name": "flightsFareCalendar",
+    "title": "Flights Fare Calendar",
+    "description": "Get lowest fare calendar showing cheapest prices by date for a route. Use when user wants to compare prices across dates, find 최저가, or explore flexible travel dates. Required params: from (origin IATA, e.g. ICN), to (destination IATA, e.g. NRT), departureDate (YYYY-MM-DD). Covers up to 180 days from departureDate. Important: Calendar prices are pre-cached estimates, NOT real-time. Inform users that actual prices may differ — use search tools for real-time pricing.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "string",
+          "default": "",
+          "description": "Required. Origin airport IATA code (e.g., ICN)."
+        },
+        "to": {
+          "$ref": "#/properties/from",
+          "default": "",
+          "description": "Required. Destination airport IATA code (e.g., KIX)."
+        },
+        "departureDate": {
+          "type": "string",
+          "default": "",
+          "description": "Required. Departure date (YYYYMMDD or YYYY-MM-DD). Must be after today."
+        },
+        "airlines": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "*"
+          ],
+          "description": "Airline codes list. Use [\"*\"] to include all airlines."
+        },
+        "period": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 60,
+          "default": 4,
+          "description": "Trip duration in days (e.g., 4)."
+        },
+        "international": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether the route is international (default: true)."
+        },
+        "transfer": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3,
+          "default": 0,
+          "description": "Number of transfers/stops (0 = prefer nonstop)."
+        },
+        "maxResults": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 180,
+          "default": 60,
+          "description": "Max number of results to return (sorted by cheapest)."
+        }
+      },
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "openWorldHint": true,
+      "idempotentHint": true
+    },
+    "execution": {
+      "taskSupport": "forbidden"
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "number"
+            },
+            "contentType": {
+              "type": "string"
+            },
+            "elapsedMs": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "status",
+            "contentType"
+          ],
+          "additionalProperties": false
+        },
+        "presentation": {
+          "type": "object",
+          "properties": {
+            "requiredInputs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "recommendedFieldsToShow": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "note": {
+              "type": "string"
+            },
+            "warnings": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "summary": {
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number"
+                },
+                "returned": {
+                  "type": "number"
+                },
+                "cheapestPrice": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "total",
+                "returned"
+              ],
+              "additionalProperties": false
+            },
+            "cheapest": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "departureDate": {
+                      "type": "string"
+                    },
+                    "returnDate": {
+                      "type": "string"
+                    },
+                    "airline": {
+                      "type": "string"
+                    },
+                    "totalPrice": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "departureDate",
+                    "returnDate",
+                    "airline",
+                    "totalPrice"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "departureDate": {
+                    "type": "string"
+                  },
+                  "returnDate": {
+                    "type": "string"
+                  },
+                  "airline": {
+                    "type": "string"
+                  },
+                  "totalPrice": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "departureDate",
+                  "returnDate",
+                  "airline",
+                  "totalPrice"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "raw": {
+              "type": "object",
+              "properties": {
+                "from": {
+                  "type": "string"
+                },
+                "to": {
+                  "type": "string"
+                },
+                "period": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "from",
+                "to",
+                "period"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "summary",
+            "cheapest",
+            "items",
+            "raw"
+          ],
+          "additionalProperties": false
+        },
+        "error": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "meta",
+        "presentation"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+  }
+]

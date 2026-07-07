@@ -1,0 +1,674 @@
+{
+  "domain": "flights",
+  "tool": "searchInternationalFlights",
+  "arguments": {
+    "tripType": "ROUND_TRIP",
+    "origin": "ICN",
+    "destination": "KIX",
+    "departDate": "2026-09-10",
+    "returnDate": "2026-09-13",
+    "passengers": {
+      "adults": 2
+    },
+    "cabinClass": "ECONOMY",
+    "maxResults": 5
+  },
+  "ok": true,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"meta\":{\"status\":200,\"contentType\":\"application/xml\",\"promotionAirlines\":{\"status\":200,\"statusText\":\"OK\",\"contentType\":\"application/json\"},\"elapsedMs\":751},\"presentation\":{\"requiredInputs\":[\"origin\",\"destination\",\"departDate\"],\"recommendedFieldsToShow\":[\"result.items[].legs[].origin\",\"result.items[].legs[].destination\",\"result.items[].legs[].departDate\",\"result.items[].legs[].departTime\",\"result.items[].legs[].arriveDate\",\"result.items[].legs[].arriveTime\",\"result.items[].reservationUrl\"],\"note\":\"For each flight, always show departure and arrival schedule: legs[0].departDate + legs[0].departTime (outbound), legs[0].arriveDate + legs[0].arriveTime. For round trips, also show legs[1].departDate + legs[1].departTime and legs[1].arriveDate + legs[1].arriveTime.\\nThe reservationUrl in each item is the booking link. You must display it to the user as a markdown link, e.g. [예약하기](reservationUrl). CRITICAL: The URL is system-generated and must be reproduced byte-for-byte. Do NOT shorten, truncate, reorder, deduplicate, or alter any part of the URL — including query parameters that appear repeated or redundant. The URL may be very long (500+ characters) and contain repeated parameter names or values; this is intentional and required for the booking to work correctly.\\nImportant: Flight prices change in real-time. The displayed price may differ from the final booking price. Please show this notice to the user.\\nIf an airline is included in result.promotionAirlines, display the relevant promotion information.\",\"warnings\":[\"Flight prices change in real-time.\",\"The displayed price may differ from the final booking price.\"]},\"result\":{\"summary\":{\"totalCandidates\":96,\"totalRoutes\":9,\"returned\":5,\"cheapestTotal\":243800},\"items\":[{\"id\":\"52001:52001,52001\",\"fareNo\":52001,\"tripType\":\"ROUND_TRIP\",\"airline\":{\"code\":\"BX\",\"name\":\"에어부산\",\"logoUrl\":\"https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/BX.png\"},\"route\":{\"origin\":\"ICN\",\"destination\":\"KIX\"},\"travelInfo\":{\"departDate\":\"20260910\",\"returnDate\":\"20260913\",\"totalDurationMinutes\":260,\"stops\":0,\"isDirect\":true},\"legs\":[{\"legIndex\":1,\"origin\":\"ICN\",\"destination\":\"KIX\",\"departDate\":\"20260910\",\"departTime\":\"1450\",\"arriveDate\":\"20260910\",\"arriveTime\":\"1700\",\"durationMinutes\":130,\"stops\":0,\"isDirect\":true,\"segments\":[{\"airlineCode\":\"BX\",\"airlineName\":\"에어부산\",\"flightNumber\":\"176\",\"departure\":{\"cityCode\":\"ICN\",\"cityName\":\"서울\",\"airportName\":\"인천\",\"airportNameEn\":\"Incheon\",\"date\":\"20260910\",\"time\":\"1450\",\"terminal\":\"2\"},\"arrival\":{\"cityCode\":\"KIX\",\"cityName\":\"오사카\",\"airportName\":\"오사카/간사이\",\"airportNameEn\":\"Kansai\",\"date\":\"20260910\",\"time\":\"1700\",\"terminal\":\"1\"},\"durationMinutes\":130,\"equipment\":\"321\",\"codeShare\":\"\",\"operatingCarrier\":\"BX\"}]},{\"legIndex\":2,\"origin\":\"KIX\",\"destination\":\"ICN\",\"departDate\":\"20260913\",\"departTime\":\"1250\",\"arriveDate\":\"20260913\",\"arriveTime\":\"1500\",\"durationMinutes\":130,\"stops\":0,\"isDirect\":true,\"segments\":[{\"airlineCode\":\"BX\",\"airlineName\":\"에어부산\",\"flightNumber\":\"171\",\"departure\":{\"cityCode\":\"KIX\",\"cityName\":\"오사카\",\"airportName\":\"오사카/간사이\",\"airportNameEn\":\"Kansai\",\"date\":\"20260913\",\"time\":\"1250\",\"terminal\":\"1\"},\"arrival\":{\"cityCode\":\"ICN\",\"cityName\":\"서울\",\"airportName\":\"인천\",\"airportNameEn\":\"Incheon\",\"date\":\"20260913\",\"time\":\"1500\",\"terminal\":\"2\"},\"durationMinutes\":130,\"equipment\":\"321\",\"codeShare\":\"\",\"operatingCarrier\":\"BX\"}]}],\"price\":{\"currency\":\"KRW\",\"total\":243800,\"breakdown\":{\"baseAmount\":234600,\"discountedBaseAmount\":54200,\"taxAmount\":87400,\"tasfAmount\":10000}},\"isCheapest\":true,\"reservationUrl\":\"https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100210.k1?KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3A%3A00&tripbean=B2C%5E250%5EI%5ERT%5EICN%2CKIX%2C%2C%5E2026-09-10%2C2026-09-13%2C%2C%5EKIX%2CICN%2C%2C%5EN%2CN%2CN%5E%2C%2C%5E2%5E0%5E0%5EY%5E%5E%5E%5E%5E%5E%5E%5E%5EFARE%5ED%5EN%5Enull%5Enull&farebean=BX%5ERP%5EADT%5ERP%5E243800%5E54200%5E87400%5E0%5E10000%5E92200%5E799849%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E0%5E%5EY%5EY%5ED%5ER%5E1.5%5ED%5EA%5E0.0%5E%5E%5E1.5%5ED%5EA%5E0.0%5E%5E%5E0%5E%5E%5EY001%5E20260705%5E%5EIBK%EA%B8%B0%EC%97%85%EC%9D%80%ED%96%89%EC%B9%B4%EB%93%9C%5EC%5E%5E%5E&itno=1%2C2&sno=1%2C1&air=BX%2CBX&fgtno=176%2C171&dctcd=ICN%2CKIX&ddt=20260910%2C20260913&dtm=1450%2C1250&actcd=KIX%2CICN&adt=20260910%2C20260913&atm=1700%2C1500&cdshare=%2C&stopovercd=%2C&stopovertm=%2C&deptml=2%2C1&arrtml=1%2C2&isFreeSameDayRefundable=%2C&exposeyn=&exposeday=&exposecolor=&saleFormCd=B2C&cabincls=Y%2CY&bkgcls=X%2CX&seatcnt=9%2C9&seatstus=HK%2CHK&baginfo=15kg%2C15kg&segfarets=RP%2CRP&fcno=1%2C2&fabasis=XRTKRPR%2CXRTKRPR&fabasischd=XRTKRPR%2CXRTKRPR&fabasisinf=XRTKRPR%2CXRTKRPR&eqtype=321%2C321&qchargeincludeyn=Y&utm_source=mcp-servers\"},{\"id\":\"52002:52002,52002\",\"fareNo\":52002,\"tripType\":\"ROUND_TRIP\",\"airline\":{\"code\":\"RS\",\"name\":\"에어서울\",\"logoUrl\":\"https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/RS.png\"},\"route\":{\"origin\":\"ICN\",\"destination\":\"KIX\"},\"travelInfo\":{\"departDate\":\"20260910\",\"returnDate\":\"20260913\",\"totalDurationMinutes\":220,\"stops\":0,\"isDirect\":true},\"legs\":[{\"legIndex\":1,\"origin\":\"ICN\",\"destination\":\"KIX\",\"departDate\":\"20260910\",\"departTime\":\"1520\",\"arriveDate\":\"20260910\",\"arriveTime\":\"1700\",\"durationMinutes\":100,\"stops\":0,\"isDirect\":true,\"segments\":[{\"airlineCode\":\"RS\",\"airlineName\":\"에어서울\",\"flightNumber\":\"715\",\"departure\":{\"cityCode\":\"ICN\",\"cityName\":\"서울\",\"airportName\":\"인천\",\"airportNameEn\":\"Incheon\",\"date\":\"20260910\",\"time\":\"1520\",\"terminal\":\"2\"},\"arrival\":{\"cityCode\":\"KIX\",\"cityName\":\"오사카\",\"airportName\":\"오사카/간사이\",\"airportNameEn\":\"Kansai\",\"date\":\"20260910\",\"time\":\"1700\",\"terminal\":\"1\"},\"durationMinutes\":100,\"equipment\":\"321\",\"codeShare\":\"\",\"operatingCarrier\":\"RS\"}]},{\"legIndex\":2,\"origin\":\"KIX\",\"destination\":\"ICN\",\"departDate\":\"20260913\",\"departTime\":\"1005\",\"arriveDate\":\"20260913\",\"arriveTime\":\"1205\",\"durationMinutes\":120,\"stops\":0,\"isDirect\":true,\"segments\":[{\"airlineCode\":\"RS\",\"airlineName\":\"에어서울\",\"flightNumber\":\"712\",\"departure\":{\"cityCode\":\"KIX\",\"cityName\":\"오사카\",\"airportName\":\"오사카/간사이\",\"airportNameEn\":\"Kansai\",\"date\":\"20260913\",\"time\":\"1005\",\"terminal\":\"1\"},\"arrival\":{\"cityCode\":\"ICN\",\"cityName\":\"서울\",\"airportName\":\"인천\",\"airportNameEn\":\"Incheon\",\"date\":\"20260913\",\"time\":\"1205\",\"terminal\":\"2\"},\"durationMinutes\":120,\"equipment\":\"321\",\"codeShare\":\"\",\"operatingCarrier\":\"RS\"}]}],\"price\":{\"currency\":\"KRW\",\"total\":244200,\"breakdown\":{\"baseAmount\":238600,\"discountedBaseAmount\":37800,\"taxAmount\":196400,\"tasfAmount\":10000}},\"isCheapest\":false,\"reservationUrl\":\"https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100210.k1?KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3A%3A00&tripbean=B2C%5E250%5EI%5ERT%5EICN%2CKIX%2C%2C%5E2026-09-10%2C2026-09-13%2C%2C%5EKIX%2CICN%2C%2C%5EN%2CN%2CN%5E%2C%2C%5E2%5E0%5E0%5EY%5E%5E%5E%5E%5E%5E%5E%5E%5EFARE%5ED%5EN%5Enull%5Enull&farebean=RS%5ERP%5EADT%5ERP%5E244200%5E37800%5E87400%5E109000%5E10000%5E0%5E682497%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E0%5E%5EY%5EY%5ED%5ER%5E10.5%5ED%5EA%5E0.0%5E%5E%5E10.5%5ED%5EA%5E0.0%5E%5E%5E0%5E%5E%5EY001%5E20260707%5E%5EIBK%EA%B8%B0%EC%97%85%EC%9D%80%ED%96%89%EC%B9%B4%EB%93%9C%5EC%5E%5E%5E&itno=1%2C2&sno=1%2C1&air=RS%2CRS&fgtno=715%2C712&dctcd=ICN%2CKIX&ddt=20260910%2C20260913&dtm=1520%2C1005&actcd=KIX%2CICN&adt=20260910%2C20260913&atm=1700%2C1205&cdshare=%2C&stopovercd=%2C&stopovertm=%2C&deptml=2%2C1&arrtml=1%2C2&isFreeSameDayRefundable=%2C&exposeyn=&exposeday=&exposecolor=&saleFormCd=B2C&cabincls=Y%2CY&bkgcls=A%2CU&seatcnt=7%2C4&seatstus=HK%2CHK&baginfo=0%EA%B0%9C%2C0%EA%B0%9C&segfarets=RP%2CRP&fcno=1%2C2&fabasis=AOWPV%2CUOWPV&fabasischd=AOWPV%2CUOWPV&fabasisinf=AOWPV%2CUOWPV&eqtype=321%2C321&qchargeincludeyn=Y&utm_source=mcp-servers\"},{\"id\":\"81001:81001,81001\",\"fareNo\":81001,\"tripType\":\"ROUND_TRIP\",\"airline\":{\"code\":\"7C\",\"name\":\"제주항공\",\"logoUrl\":\"https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/7C.png\"},\"route\":{\"origin\":\"ICN\",\"destination\":\"KIX\"},\"travelInfo\":{\"departDate\":\"20260910\",\"returnDate\":\"20260913\",\"totalDurationMinutes\":235,\"stops\":0,\"isDirect\":true},\"legs\":[{\"legIndex\":1,\"origin\":\"ICN\",\"destination\":\"KIX\",\"departDate\":\"20260910\",\"departTime\":\"0710\",\"arriveDate\":\"20260910\",\"arriveTime\":\"0905\",\"durationMinutes\":115,\"stops\":0,\"isDirect\":true,\"segments\":[{\"airlineCode\":\"7C\",\"airlineName\":\"제주항공\",\"flightNumber\":\"1301\",\"departure\":{\"cityCode\":\"ICN\",\"cityName\":\"서울\",\"airportName\":\"인천\",\"airportNameEn\":\"Incheon\",\"date\":\"20260910\",\"time\":\"0710\",\"terminal\":\"1\"},\"arrival\":{\"cityCode\":\"KIX\",\"cityName\":\"오사카\",\"airportName\":\"오사카/간사이\",\"airportNameEn\":\"Kansai\",\"date\":\"20260910\",\"time\":\"0905\",\"terminal\":\"2\"},\"durationMinutes\":115,\"equipment\":\"7M8\",\"codeShare\":\"\",\"operatingCarrier\":\"7C\"}]},{\"legIndex\":2,\"origin\":\"KIX\",\"destination\":\"ICN\",\"departDate\":\"20260913\",\"departTime\":\"1005\",\"arriveDate\":\"20260913\",\"arriveTime\":\"1205\",\"durationMinutes\":120,\"stops\":0,\"isDirect\":true,\"segments\":[{\"airlineCode\":\"7C\",\"airlineName\":\"제주항공\",\"flightNumber\":\"1302\",\"departure\":{\"cityCode\":\"KIX\",\"cityName\":\"오사카\",\"airportName\":\"오사카/간사이\",\"airportNameEn\":\"Kansai\",\"date\":\"20260913\",\"time\":\"1005\",\"terminal\":\"2\"},\"arrival\":{\"cityCode\":\"ICN\",\"cityName\":\"서울\",\"airportName\":\"인천\",\"airportNameEn\":\"Incheon\",\"date\":\"20260913\",\"time\":\"1205\",\"terminal\":\"1\"},\"durationMinutes\":120,\"equipment\":\"7M8\",\"codeShare\":\"\",\"operatingCarrier\":\"7C\"}]}],\"price\":{\"currency\":\"KRW\",\"total\":253600,\"breakdown\":{\"baseAmount\":250100,\"discountedBaseAmount\":58500,\"taxAmount\":185100,\"tasfAmount\":10000}},\"isCheapest\":false,\"reservationUrl\":\"https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100210.k1?KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3A%3A00&tripbean=B2C%5E250%5EI%5ERT%5EICN%2CKIX%2C%2C%5E2026-09-10%2C2026-09-13%2C%2C%5EKIX%2CICN%2C%2C%5EN%2CN%2CN%5E%2C%2C%5E2%5E0%5E0%5EY%5E%5E%5E%5E%5E%5E%5E%5E%5EFARE%5ED%5EN%5Enull%5Enull&farebean=7C%5ERP%5EADT%5ERP%5E253600%5E58500%5E67500%5E117600%5E10000%5E0%5E689687%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E0%5E%5EY%5EY%5ED%5ER%5E10.01%5ED%5EA%5E0.0%5E%5E%5E10.01%5ED%5EA%5E0.0%5E%5E%5E0%5E%5E%5EY001%5E20260702%5E%5E%EC%82%BC%EC%84%B1%EC%B9%B4%EB%93%9C%5EC%5E%5E%5E&itno=1%2C2&sno=1%2C1&air=7C%2C7C&fgtno=1301%2C1302&dctcd=ICN%2CKIX&ddt=20260910%2C20260913&dtm=0710%2C1005&actcd=KIX%2CICN&adt=20260910%2C20260913&atm=0905%2C1205&cdshare=%2C&stopovercd=%2C&stopovertm=%2C&deptml=1%2C2&arrtml=2%2C1&isFreeSameDayRefundable=%2C&exposeyn=&exposeday=&exposecolor=&saleFormCd=B2C&cabincls=Y%2CY&bkgcls=J%2CH&seatcnt=8%2C8&seatstus=HK%2CHK&baginfo=15kg%2C15kg&segfarets=RP%2CRP&fcno=1%2C2&fabasis=JVOWKJ%2CHFRKR&fabasischd=JVOWKJ%2CHFRKR&fabasisinf=JVOWKJ%2CHFRKR&eqtype=7M8%2C7M8&qchargeincludeyn=N&utm_source=mcp-servers\"},{\"id\":\"2:2,2\",\"fareNo\":2,\"tripType\":\"ROUND_TRIP\",\"airline\":{\"code\":\"OZ\",\"name\":\"아시아나항공\",\"logoUrl\":\"https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/OZ.png\"},\"route\":{\"origin\":\"ICN\",\"destination\":\"KIX\"},\"travelInfo\":{\"departDate\":\"20260910\",\"returnDate\":\"20260913\",\"totalDurationMinutes\":230,\"stops\":0,\"isDirect\":true},\"legs\":[{\"legIndex\":1,\"origin\":\"ICN\",\"destination\":\"KIX\",\"departDate\":\"20260910\",\"departTime\":\"1640\",\"arriveDate\":\"20260910\",\"arriveTime\":\"1830\",\"durationMinutes\":110,\"stops\":0,\"isDirect\":true,\"segments\":[{\"airlineCode\":\"OZ\",\"airlineName\":\"아시아나항공\",\"flightNumber\":\"114\",\"departure\":{\"cityCode\":\"ICN\",\"cityName\":\"서울\",\"airportName\":\"인천\",\"airportNameEn\":\"Incheon\",\"date\":\"20260910\",\"time\":\"1640\",\"terminal\":\"2\"},\"arrival\":{\"cityCode\":\"KIX\",\"cityName\":\"오사카\",\"airportName\":\"오사카/간사이\",\"airportNameEn\":\"Kansai\",\"date\":\"20260910\",\"time\":\"1830\",\"terminal\":\"1\"},\"durationMinutes\":110,\"equipment\":\"32Q\",\"codeShare\":\"\",\"operatingCarrier\":\"OZ\"}]},{\"legIndex\":2,\"origin\":\"KIX\",\"destination\":\"ICN\",\"departDate\":\"20260913\",\"departTime\":\"0015\",\"arriveDate\":\"20260913\",\"arriveTime\":\"0215\",\"durationMinutes\":120,\"stops\":0,\"isDirect\":true,\"segments\":[{\"airlineCode\":\"OZ\",\"airlineName\":\"아시아나항공\",\"flightNumber\":\"117\",\"departure\":{\"cityCode\":\"KIX\",\"cityName\":\"오사카\",\"airportName\":\"오사카/간사이\",\"airportNameEn\":\"Kansai\",\"date\":\"20260913\",\"time\":\"0015\",\"terminal\":\"1\"},\"arrival\":{\"cityCode\":\"ICN\",\"cityName\":\"서울\",\"airportName\":\"인천\",\"airportNameEn\":\"Incheon\",\"date\":\"20260913\",\"time\":\"0215\",\"terminal\":\"2\"},\"durationMinutes\":120,\"equipment\":\"321\",\"codeShare\":\"\",\"operatingCarrier\":\"OZ\"}]}],\"price\":{\"currency\":\"KRW\",\"total\":277200,\"breakdown\":{\"baseAmount\":269800,\"discountedBaseAmount\":37400,\"taxAmount\":229800,\"tasfAmount\":10000}},\"isCheapest\":false,\"reservationUrl\":\"https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100210.k1?KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3A%3A00&tripbean=B2C%5E250%5EI%5ERT%5EICN%2CKIX%2C%2C%5E2026-09-10%2C2026-09-13%2C%2C%5EKIX%2CICN%2C%2C%5EN%2CN%2CN%5E%2C%2C%5E2%5E0%5E0%5EY%5E%5E%5E%5E%5E%5E%5E%5E%5EFARE%5ED%5EN%5Enull%5Enull&farebean=OZ%5ERP%5EADT%5ERP%5E277200%5E37400%5E87400%5E142400%5E10000%5E0%5E588814%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E0%5E%5EY%5EY%5ED%5ER%5E6.5%5ED%5EA%5E0.0%5E%5E%5E6.5%5ED%5EA%5E0.0%5E%5E%5E0%5E%5E%5EM003%5E20260705%5E%5E%EC%82%BC%EC%84%B1+iD+GLOBAL+%EC%B9%B4%EB%93%9C%5EC%5E%5E%5E&itno=1%2C2&sno=1%2C1&air=OZ%2COZ&fgtno=114%2C117&dctcd=ICN%2CKIX&ddt=20260910%2C20260913&dtm=1640%2C0015&actcd=KIX%2CICN&adt=20260910%2C20260913&atm=1830%2C0215&cdshare=%2C&stopovercd=%2C&stopovertm=%2C&deptml=2%2C1&arrtml=1%2C2&isFreeSameDayRefundable=%2C&exposeyn=&exposeday=&exposecolor=&saleFormCd=B2C&cabincls=M%2CM&bkgcls=T%2CT&seatcnt=7%2C2&seatstus=HK%2CHK&baginfo=1%EA%B0%9C%2C1%EA%B0%9C&segfarets=RP%2CRP&fcno=1%2C2&fabasis=TLKJNZ%2CTLKJNZ&fabasischd=TLKJNZ%2CTLKJNZ&fabasisinf=TLKJNZ%2CTLKJNZ&eqtype=32Q%2C321&qchargeincludeyn=N&utm_source=mcp-servers\"},{\"id\":\"3:3,3\",\"fareNo\":3,\"tripType\":\"ROUND_TRIP\",\"airline\":{\"code\":\"LJ\",\"name\":\"진에어\",\"logoUrl\":\"https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/LJ.png\"},\"route\":{\"origin\":\"ICN\",\"destination\":\"KIX\"},\"travelInfo\":{\"departDate\":\"20260910\",\"returnDate\":\"20260913\",\"totalDurationMinutes\":225,\"stops\":0,\"isDirect\":true},\"legs\":[{\"legIndex\":1,\"origin\":\"ICN\",\"destination\":\"KIX\",\"departDate\":\"20260910\",\"departTime\":\"0740\",\"arriveDate\":\"20260910\",\"arriveTime\":\"0935\",\"durationMinutes\":115,\"stops\":0,\"isDirect\":true,\"segments\":[{\"airlineCode\":\"LJ\",\"airlineName\":\"진에어\",\"flightNumber\":\"231\",\"departure\":{\"cityCode\":\"ICN\",\"cityName\":\"서울\",\"airportName\":\"인천\",\"airportNameEn\":\"Incheon\",\"date\":\"20260910\",\"time\":\"0740\",\"terminal\":\"2\"},\"arrival\":{\"cityCode\":\"KIX\",\"cityName\":\"오사카\",\"airportName\":\"오사카/간사이\",\"airportNameEn\":\"Kansai\",\"date\":\"20260910\",\"time\":\"0935\",\"terminal\":\"1\"},\"durationMinutes\":115,\"equipment\":\"738\",\"codeShare\":\"\",\"operatingCarrier\":\"LJ\"}]},{\"legIndex\":2,\"origin\":\"KIX\",\"destination\":\"ICN\",\"departDate\":\"20260913\",\"departTime\":\"1110\",\"arriveDate\":\"20260913\",\"arriveTime\":\"1300\",\"durationMinutes\":110,\"stops\":0,\"isDirect\":true,\"segments\":[{\"airlineCode\":\"LJ\",\"airlineName\":\"진에어\",\"flightNumber\":\"242\",\"departure\":{\"cityCode\":\"KIX\",\"cityName\":\"오사카\",\"airportName\":\"오사카/간사이\",\"airportNameEn\":\"Kansai\",\"date\":\"20260913\",\"time\":\"1110\",\"terminal\":\"1\"},\"arrival\":{\"cityCode\":\"ICN\",\"cityName\":\"서울\",\"airportName\":\"인천\",\"airportNameEn\":\"Incheon\",\"date\":\"20260913\",\"time\":\"1300\",\"terminal\":\"2\"},\"durationMinutes\":110,\"equipment\":\"738\",\"codeShare\":\"\",\"operatingCarrier\":\"LJ\"}]}],\"price\":{\"currency\":\"KRW\",\"total\":290200,\"breakdown\":{\"baseAmount\":293000,\"discountedBaseAmount\":99000,\"taxAmount\":171200,\"tasfAmount\":10000}},\"isCheapest\":false,\"reservationUrl\":\"https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100210.k1?KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3A%3A00&tripbean=B2C%5E250%5EI%5ERT%5EICN%2CKIX%2C%2C%5E2026-09-10%2C2026-09-13%2C%2C%5EKIX%2CICN%2C%2C%5EN%2CN%2CN%5E%2C%2C%5E2%5E0%5E0%5EY%5E%5E%5E%5E%5E%5E%5E%5E%5EFARE%5ED%5EN%5Enull%5Enull&farebean=LJ%5ERA%5EADT%5ERA%5E290200%5E99000%5E87400%5E83800%5E10000%5E10000%5E655361%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E0%5E%5EY%5EY%5ED%5ER%5E11.5%5ED%5EA%5E0.0%5E%5E%5E11.5%5ED%5EA%5E0.0%5E%5E%5E0%5E%5E%5EY001%5E20260705%5E%5EIBK%EA%B8%B0%EC%97%85%EC%9D%80%ED%96%89%EC%B9%B4%EB%93%9C%5EC%5E%5E%5E&itno=1%2C2&sno=1%2C1&air=LJ%2CLJ&fgtno=231%2C242&dctcd=ICN%2CKIX&ddt=20260910%2C20260913&dtm=0740%2C1110&actcd=KIX%2CICN&adt=20260910%2C20260913&atm=0935%2C1300&cdshare=%2C&stopovercd=%2C&stopovertm=%2C&deptml=2%2C1&arrtml=1%2C2&isFreeSameDayRefundable=%2C&exposeyn=&exposeday=&exposecolor=&saleFormCd=B2C&cabincls=M%2CM&bkgcls=X%2CO&seatcnt=9%2C9&seatstus=HK%2CHK&baginfo=15kg%2C15kg&segfarets=RA%2CRA&fcno=1%2C2&fabasis=XKRTA1%2COKRTA1&fabasischd=XKRTA1%2COKRTA1&fabasisinf=XKRTA1%2COKRTA1&eqtype=738%2C738&qchargeincludeyn=N&utm_source=mcp-servers\"}],\"promotionAirlines\":[{\"id\":179,\"startDate\":\"2026-07-01\",\"endDate\":\"2026-07-31\",\"priority\":1,\"airline\":\"QR\",\"origin\":\"ICN, SEL\",\"destinations\":[\"DOH\"],\"eventName\":\"카타르항공 인기 노선 특가\"}]}}"
+      }
+    ],
+    "structuredContent": {
+      "success": true,
+      "meta": {
+        "status": 200,
+        "contentType": "application/xml",
+        "promotionAirlines": {
+          "status": 200,
+          "statusText": "OK",
+          "contentType": "application/json"
+        },
+        "elapsedMs": 751
+      },
+      "presentation": {
+        "requiredInputs": [
+          "origin",
+          "destination",
+          "departDate"
+        ],
+        "recommendedFieldsToShow": [
+          "result.items[].legs[].origin",
+          "result.items[].legs[].destination",
+          "result.items[].legs[].departDate",
+          "result.items[].legs[].departTime",
+          "result.items[].legs[].arriveDate",
+          "result.items[].legs[].arriveTime",
+          "result.items[].reservationUrl"
+        ],
+        "note": "For each flight, always show departure and arrival schedule: legs[0].departDate + legs[0].departTime (outbound), legs[0].arriveDate + legs[0].arriveTime. For round trips, also show legs[1].departDate + legs[1].departTime and legs[1].arriveDate + legs[1].arriveTime.\nThe reservationUrl in each item is the booking link. You must display it to the user as a markdown link, e.g. [예약하기](reservationUrl). CRITICAL: The URL is system-generated and must be reproduced byte-for-byte. Do NOT shorten, truncate, reorder, deduplicate, or alter any part of the URL — including query parameters that appear repeated or redundant. The URL may be very long (500+ characters) and contain repeated parameter names or values; this is intentional and required for the booking to work correctly.\nImportant: Flight prices change in real-time. The displayed price may differ from the final booking price. Please show this notice to the user.\nIf an airline is included in result.promotionAirlines, display the relevant promotion information.",
+        "warnings": [
+          "Flight prices change in real-time.",
+          "The displayed price may differ from the final booking price."
+        ]
+      },
+      "result": {
+        "summary": {
+          "totalCandidates": 96,
+          "totalRoutes": 9,
+          "returned": 5,
+          "cheapestTotal": 243800
+        },
+        "items": [
+          {
+            "id": "52001:52001,52001",
+            "fareNo": 52001,
+            "tripType": "ROUND_TRIP",
+            "airline": {
+              "code": "BX",
+              "name": "에어부산",
+              "logoUrl": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/BX.png"
+            },
+            "route": {
+              "origin": "ICN",
+              "destination": "KIX"
+            },
+            "travelInfo": {
+              "departDate": "20260910",
+              "returnDate": "20260913",
+              "totalDurationMinutes": 260,
+              "stops": 0,
+              "isDirect": true
+            },
+            "legs": [
+              {
+                "legIndex": 1,
+                "origin": "ICN",
+                "destination": "KIX",
+                "departDate": "20260910",
+                "departTime": "1450",
+                "arriveDate": "20260910",
+                "arriveTime": "1700",
+                "durationMinutes": 130,
+                "stops": 0,
+                "isDirect": true,
+                "segments": [
+                  {
+                    "airlineCode": "BX",
+                    "airlineName": "에어부산",
+                    "flightNumber": "176",
+                    "departure": {
+                      "cityCode": "ICN",
+                      "cityName": "서울",
+                      "airportName": "인천",
+                      "airportNameEn": "Incheon",
+                      "date": "20260910",
+                      "time": "1450",
+                      "terminal": "2"
+                    },
+                    "arrival": {
+                      "cityCode": "KIX",
+                      "cityName": "오사카",
+                      "airportName": "오사카/간사이",
+                      "airportNameEn": "Kansai",
+                      "date": "20260910",
+                      "time": "1700",
+                      "terminal": "1"
+                    },
+                    "durationMinutes": 130,
+                    "equipment": "321",
+                    "codeShare": "",
+                    "operatingCarrier": "BX"
+                  }
+                ]
+              },
+              {
+                "legIndex": 2,
+                "origin": "KIX",
+                "destination": "ICN",
+                "departDate": "20260913",
+                "departTime": "1250",
+                "arriveDate": "20260913",
+                "arriveTime": "1500",
+                "durationMinutes": 130,
+                "stops": 0,
+                "isDirect": true,
+                "segments": [
+                  {
+                    "airlineCode": "BX",
+                    "airlineName": "에어부산",
+                    "flightNumber": "171",
+                    "departure": {
+                      "cityCode": "KIX",
+                      "cityName": "오사카",
+                      "airportName": "오사카/간사이",
+                      "airportNameEn": "Kansai",
+                      "date": "20260913",
+                      "time": "1250",
+                      "terminal": "1"
+                    },
+                    "arrival": {
+                      "cityCode": "ICN",
+                      "cityName": "서울",
+                      "airportName": "인천",
+                      "airportNameEn": "Incheon",
+                      "date": "20260913",
+                      "time": "1500",
+                      "terminal": "2"
+                    },
+                    "durationMinutes": 130,
+                    "equipment": "321",
+                    "codeShare": "",
+                    "operatingCarrier": "BX"
+                  }
+                ]
+              }
+            ],
+            "price": {
+              "currency": "KRW",
+              "total": 243800,
+              "breakdown": {
+                "baseAmount": 234600,
+                "discountedBaseAmount": 54200,
+                "taxAmount": 87400,
+                "tasfAmount": 10000
+              }
+            },
+            "isCheapest": true,
+            "reservationUrl": "https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100210.k1?KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3A%3A00&tripbean=B2C%5E250%5EI%5ERT%5EICN%2CKIX%2C%2C%5E2026-09-10%2C2026-09-13%2C%2C%5EKIX%2CICN%2C%2C%5EN%2CN%2CN%5E%2C%2C%5E2%5E0%5E0%5EY%5E%5E%5E%5E%5E%5E%5E%5E%5EFARE%5ED%5EN%5Enull%5Enull&farebean=BX%5ERP%5EADT%5ERP%5E243800%5E54200%5E87400%5E0%5E10000%5E92200%5E799849%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E0%5E%5EY%5EY%5ED%5ER%5E1.5%5ED%5EA%5E0.0%5E%5E%5E1.5%5ED%5EA%5E0.0%5E%5E%5E0%5E%5E%5EY001%5E20260705%5E%5EIBK%EA%B8%B0%EC%97%85%EC%9D%80%ED%96%89%EC%B9%B4%EB%93%9C%5EC%5E%5E%5E&itno=1%2C2&sno=1%2C1&air=BX%2CBX&fgtno=176%2C171&dctcd=ICN%2CKIX&ddt=20260910%2C20260913&dtm=1450%2C1250&actcd=KIX%2CICN&adt=20260910%2C20260913&atm=1700%2C1500&cdshare=%2C&stopovercd=%2C&stopovertm=%2C&deptml=2%2C1&arrtml=1%2C2&isFreeSameDayRefundable=%2C&exposeyn=&exposeday=&exposecolor=&saleFormCd=B2C&cabincls=Y%2CY&bkgcls=X%2CX&seatcnt=9%2C9&seatstus=HK%2CHK&baginfo=15kg%2C15kg&segfarets=RP%2CRP&fcno=1%2C2&fabasis=XRTKRPR%2CXRTKRPR&fabasischd=XRTKRPR%2CXRTKRPR&fabasisinf=XRTKRPR%2CXRTKRPR&eqtype=321%2C321&qchargeincludeyn=Y&utm_source=mcp-servers"
+          },
+          {
+            "id": "52002:52002,52002",
+            "fareNo": 52002,
+            "tripType": "ROUND_TRIP",
+            "airline": {
+              "code": "RS",
+              "name": "에어서울",
+              "logoUrl": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/RS.png"
+            },
+            "route": {
+              "origin": "ICN",
+              "destination": "KIX"
+            },
+            "travelInfo": {
+              "departDate": "20260910",
+              "returnDate": "20260913",
+              "totalDurationMinutes": 220,
+              "stops": 0,
+              "isDirect": true
+            },
+            "legs": [
+              {
+                "legIndex": 1,
+                "origin": "ICN",
+                "destination": "KIX",
+                "departDate": "20260910",
+                "departTime": "1520",
+                "arriveDate": "20260910",
+                "arriveTime": "1700",
+                "durationMinutes": 100,
+                "stops": 0,
+                "isDirect": true,
+                "segments": [
+                  {
+                    "airlineCode": "RS",
+                    "airlineName": "에어서울",
+                    "flightNumber": "715",
+                    "departure": {
+                      "cityCode": "ICN",
+                      "cityName": "서울",
+                      "airportName": "인천",
+                      "airportNameEn": "Incheon",
+                      "date": "20260910",
+                      "time": "1520",
+                      "terminal": "2"
+                    },
+                    "arrival": {
+                      "cityCode": "KIX",
+                      "cityName": "오사카",
+                      "airportName": "오사카/간사이",
+                      "airportNameEn": "Kansai",
+                      "date": "20260910",
+                      "time": "1700",
+                      "terminal": "1"
+                    },
+                    "durationMinutes": 100,
+                    "equipment": "321",
+                    "codeShare": "",
+                    "operatingCarrier": "RS"
+                  }
+                ]
+              },
+              {
+                "legIndex": 2,
+                "origin": "KIX",
+                "destination": "ICN",
+                "departDate": "20260913",
+                "departTime": "1005",
+                "arriveDate": "20260913",
+                "arriveTime": "1205",
+                "durationMinutes": 120,
+                "stops": 0,
+                "isDirect": true,
+                "segments": [
+                  {
+                    "airlineCode": "RS",
+                    "airlineName": "에어서울",
+                    "flightNumber": "712",
+                    "departure": {
+                      "cityCode": "KIX",
+                      "cityName": "오사카",
+                      "airportName": "오사카/간사이",
+                      "airportNameEn": "Kansai",
+                      "date": "20260913",
+                      "time": "1005",
+                      "terminal": "1"
+                    },
+                    "arrival": {
+                      "cityCode": "ICN",
+                      "cityName": "서울",
+                      "airportName": "인천",
+                      "airportNameEn": "Incheon",
+                      "date": "20260913",
+                      "time": "1205",
+                      "terminal": "2"
+                    },
+                    "durationMinutes": 120,
+                    "equipment": "321",
+                    "codeShare": "",
+                    "operatingCarrier": "RS"
+                  }
+                ]
+              }
+            ],
+            "price": {
+              "currency": "KRW",
+              "total": 244200,
+              "breakdown": {
+                "baseAmount": 238600,
+                "discountedBaseAmount": 37800,
+                "taxAmount": 196400,
+                "tasfAmount": 10000
+              }
+            },
+            "isCheapest": false,
+            "reservationUrl": "https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100210.k1?KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3A%3A00&tripbean=B2C%5E250%5EI%5ERT%5EICN%2CKIX%2C%2C%5E2026-09-10%2C2026-09-13%2C%2C%5EKIX%2CICN%2C%2C%5EN%2CN%2CN%5E%2C%2C%5E2%5E0%5E0%5EY%5E%5E%5E%5E%5E%5E%5E%5E%5EFARE%5ED%5EN%5Enull%5Enull&farebean=RS%5ERP%5EADT%5ERP%5E244200%5E37800%5E87400%5E109000%5E10000%5E0%5E682497%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E0%5E%5EY%5EY%5ED%5ER%5E10.5%5ED%5EA%5E0.0%5E%5E%5E10.5%5ED%5EA%5E0.0%5E%5E%5E0%5E%5E%5EY001%5E20260707%5E%5EIBK%EA%B8%B0%EC%97%85%EC%9D%80%ED%96%89%EC%B9%B4%EB%93%9C%5EC%5E%5E%5E&itno=1%2C2&sno=1%2C1&air=RS%2CRS&fgtno=715%2C712&dctcd=ICN%2CKIX&ddt=20260910%2C20260913&dtm=1520%2C1005&actcd=KIX%2CICN&adt=20260910%2C20260913&atm=1700%2C1205&cdshare=%2C&stopovercd=%2C&stopovertm=%2C&deptml=2%2C1&arrtml=1%2C2&isFreeSameDayRefundable=%2C&exposeyn=&exposeday=&exposecolor=&saleFormCd=B2C&cabincls=Y%2CY&bkgcls=A%2CU&seatcnt=7%2C4&seatstus=HK%2CHK&baginfo=0%EA%B0%9C%2C0%EA%B0%9C&segfarets=RP%2CRP&fcno=1%2C2&fabasis=AOWPV%2CUOWPV&fabasischd=AOWPV%2CUOWPV&fabasisinf=AOWPV%2CUOWPV&eqtype=321%2C321&qchargeincludeyn=Y&utm_source=mcp-servers"
+          },
+          {
+            "id": "81001:81001,81001",
+            "fareNo": 81001,
+            "tripType": "ROUND_TRIP",
+            "airline": {
+              "code": "7C",
+              "name": "제주항공",
+              "logoUrl": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/7C.png"
+            },
+            "route": {
+              "origin": "ICN",
+              "destination": "KIX"
+            },
+            "travelInfo": {
+              "departDate": "20260910",
+              "returnDate": "20260913",
+              "totalDurationMinutes": 235,
+              "stops": 0,
+              "isDirect": true
+            },
+            "legs": [
+              {
+                "legIndex": 1,
+                "origin": "ICN",
+                "destination": "KIX",
+                "departDate": "20260910",
+                "departTime": "0710",
+                "arriveDate": "20260910",
+                "arriveTime": "0905",
+                "durationMinutes": 115,
+                "stops": 0,
+                "isDirect": true,
+                "segments": [
+                  {
+                    "airlineCode": "7C",
+                    "airlineName": "제주항공",
+                    "flightNumber": "1301",
+                    "departure": {
+                      "cityCode": "ICN",
+                      "cityName": "서울",
+                      "airportName": "인천",
+                      "airportNameEn": "Incheon",
+                      "date": "20260910",
+                      "time": "0710",
+                      "terminal": "1"
+                    },
+                    "arrival": {
+                      "cityCode": "KIX",
+                      "cityName": "오사카",
+                      "airportName": "오사카/간사이",
+                      "airportNameEn": "Kansai",
+                      "date": "20260910",
+                      "time": "0905",
+                      "terminal": "2"
+                    },
+                    "durationMinutes": 115,
+                    "equipment": "7M8",
+                    "codeShare": "",
+                    "operatingCarrier": "7C"
+                  }
+                ]
+              },
+              {
+                "legIndex": 2,
+                "origin": "KIX",
+                "destination": "ICN",
+                "departDate": "20260913",
+                "departTime": "1005",
+                "arriveDate": "20260913",
+                "arriveTime": "1205",
+                "durationMinutes": 120,
+                "stops": 0,
+                "isDirect": true,
+                "segments": [
+                  {
+                    "airlineCode": "7C",
+                    "airlineName": "제주항공",
+                    "flightNumber": "1302",
+                    "departure": {
+                      "cityCode": "KIX",
+                      "cityName": "오사카",
+                      "airportName": "오사카/간사이",
+                      "airportNameEn": "Kansai",
+                      "date": "20260913",
+                      "time": "1005",
+                      "terminal": "2"
+                    },
+                    "arrival": {
+                      "cityCode": "ICN",
+                      "cityName": "서울",
+                      "airportName": "인천",
+                      "airportNameEn": "Incheon",
+                      "date": "20260913",
+                      "time": "1205",
+                      "terminal": "1"
+                    },
+                    "durationMinutes": 120,
+                    "equipment": "7M8",
+                    "codeShare": "",
+                    "operatingCarrier": "7C"
+                  }
+                ]
+              }
+            ],
+            "price": {
+              "currency": "KRW",
+              "total": 253600,
+              "breakdown": {
+                "baseAmount": 250100,
+                "discountedBaseAmount": 58500,
+                "taxAmount": 185100,
+                "tasfAmount": 10000
+              }
+            },
+            "isCheapest": false,
+            "reservationUrl": "https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100210.k1?KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3A%3A00&tripbean=B2C%5E250%5EI%5ERT%5EICN%2CKIX%2C%2C%5E2026-09-10%2C2026-09-13%2C%2C%5EKIX%2CICN%2C%2C%5EN%2CN%2CN%5E%2C%2C%5E2%5E0%5E0%5EY%5E%5E%5E%5E%5E%5E%5E%5E%5EFARE%5ED%5EN%5Enull%5Enull&farebean=7C%5ERP%5EADT%5ERP%5E253600%5E58500%5E67500%5E117600%5E10000%5E0%5E689687%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E0%5E%5EY%5EY%5ED%5ER%5E10.01%5ED%5EA%5E0.0%5E%5E%5E10.01%5ED%5EA%5E0.0%5E%5E%5E0%5E%5E%5EY001%5E20260702%5E%5E%EC%82%BC%EC%84%B1%EC%B9%B4%EB%93%9C%5EC%5E%5E%5E&itno=1%2C2&sno=1%2C1&air=7C%2C7C&fgtno=1301%2C1302&dctcd=ICN%2CKIX&ddt=20260910%2C20260913&dtm=0710%2C1005&actcd=KIX%2CICN&adt=20260910%2C20260913&atm=0905%2C1205&cdshare=%2C&stopovercd=%2C&stopovertm=%2C&deptml=1%2C2&arrtml=2%2C1&isFreeSameDayRefundable=%2C&exposeyn=&exposeday=&exposecolor=&saleFormCd=B2C&cabincls=Y%2CY&bkgcls=J%2CH&seatcnt=8%2C8&seatstus=HK%2CHK&baginfo=15kg%2C15kg&segfarets=RP%2CRP&fcno=1%2C2&fabasis=JVOWKJ%2CHFRKR&fabasischd=JVOWKJ%2CHFRKR&fabasisinf=JVOWKJ%2CHFRKR&eqtype=7M8%2C7M8&qchargeincludeyn=N&utm_source=mcp-servers"
+          },
+          {
+            "id": "2:2,2",
+            "fareNo": 2,
+            "tripType": "ROUND_TRIP",
+            "airline": {
+              "code": "OZ",
+              "name": "아시아나항공",
+              "logoUrl": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/OZ.png"
+            },
+            "route": {
+              "origin": "ICN",
+              "destination": "KIX"
+            },
+            "travelInfo": {
+              "departDate": "20260910",
+              "returnDate": "20260913",
+              "totalDurationMinutes": 230,
+              "stops": 0,
+              "isDirect": true
+            },
+            "legs": [
+              {
+                "legIndex": 1,
+                "origin": "ICN",
+                "destination": "KIX",
+                "departDate": "20260910",
+                "departTime": "1640",
+                "arriveDate": "20260910",
+                "arriveTime": "1830",
+                "durationMinutes": 110,
+                "stops": 0,
+                "isDirect": true,
+                "segments": [
+                  {
+                    "airlineCode": "OZ",
+                    "airlineName": "아시아나항공",
+                    "flightNumber": "114",
+                    "departure": {
+                      "cityCode": "ICN",
+                      "cityName": "서울",
+                      "airportName": "인천",
+                      "airportNameEn": "Incheon",
+                      "date": "20260910",
+                      "time": "1640",
+                      "terminal": "2"
+                    },
+                    "arrival": {
+                      "cityCode": "KIX",
+                      "cityName": "오사카",
+                      "airportName": "오사카/간사이",
+                      "airportNameEn": "Kansai",
+                      "date": "20260910",
+                      "time": "1830",
+                      "terminal": "1"
+                    },
+                    "durationMinutes": 110,
+                    "equipment": "32Q",
+                    "codeShare": "",
+                    "operatingCarrier": "OZ"
+                  }
+                ]
+              },
+              {
+                "legIndex": 2,
+                "origin": "KIX",
+                "destination": "ICN",
+                "departDate": "20260913",
+                "departTime": "0015",
+                "arriveDate": "20260913",
+                "arriveTime": "0215",
+                "durationMinutes": 120,
+                "stops": 0,
+                "isDirect": true,
+                "segments": [
+                  {
+                    "airlineCode": "OZ",
+                    "airlineName": "아시아나항공",
+                    "flightNumber": "117",
+                    "departure": {
+                      "cityCode": "KIX",
+                      "cityName": "오사카",
+                      "airportName": "오사카/간사이",
+                      "airportNameEn": "Kansai",
+                      "date": "20260913",
+                      "time": "0015",
+                      "terminal": "1"
+                    },
+                    "arrival": {
+                      "cityCode": "ICN",
+                      "cityName": "서울",
+                      "airportName": "인천",
+                      "airportNameEn": "Incheon",
+                      "date": "20260913",
+                      "time": "0215",
+                      "terminal": "2"
+                    },
+                    "durationMinutes": 120,
+                    "equipment": "321",
+                    "codeShare": "",
+                    "operatingCarrier": "OZ"
+                  }
+                ]
+              }
+            ],
+            "price": {
+              "currency": "KRW",
+              "total": 277200,
+              "breakdown": {
+                "baseAmount": 269800,
+                "discountedBaseAmount": 37400,
+                "taxAmount": 229800,
+                "tasfAmount": 10000
+              }
+            },
+            "isCheapest": false,
+            "reservationUrl": "https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100210.k1?KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3A%3A00&tripbean=B2C%5E250%5EI%5ERT%5EICN%2CKIX%2C%2C%5E2026-09-10%2C2026-09-13%2C%2C%5EKIX%2CICN%2C%2C%5EN%2CN%2CN%5E%2C%2C%5E2%5E0%5E0%5EY%5E%5E%5E%5E%5E%5E%5E%5E%5EFARE%5ED%5EN%5Enull%5Enull&farebean=OZ%5ERP%5EADT%5ERP%5E277200%5E37400%5E87400%5E142400%5E10000%5E0%5E588814%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E0%5E%5EY%5EY%5ED%5ER%5E6.5%5ED%5EA%5E0.0%5E%5E%5E6.5%5ED%5EA%5E0.0%5E%5E%5E0%5E%5E%5EM003%5E20260705%5E%5E%EC%82%BC%EC%84%B1+iD+GLOBAL+%EC%B9%B4%EB%93%9C%5EC%5E%5E%5E&itno=1%2C2&sno=1%2C1&air=OZ%2COZ&fgtno=114%2C117&dctcd=ICN%2CKIX&ddt=20260910%2C20260913&dtm=1640%2C0015&actcd=KIX%2CICN&adt=20260910%2C20260913&atm=1830%2C0215&cdshare=%2C&stopovercd=%2C&stopovertm=%2C&deptml=2%2C1&arrtml=1%2C2&isFreeSameDayRefundable=%2C&exposeyn=&exposeday=&exposecolor=&saleFormCd=B2C&cabincls=M%2CM&bkgcls=T%2CT&seatcnt=7%2C2&seatstus=HK%2CHK&baginfo=1%EA%B0%9C%2C1%EA%B0%9C&segfarets=RP%2CRP&fcno=1%2C2&fabasis=TLKJNZ%2CTLKJNZ&fabasischd=TLKJNZ%2CTLKJNZ&fabasisinf=TLKJNZ%2CTLKJNZ&eqtype=32Q%2C321&qchargeincludeyn=N&utm_source=mcp-servers"
+          },
+          {
+            "id": "3:3,3",
+            "fareNo": 3,
+            "tripType": "ROUND_TRIP",
+            "airline": {
+              "code": "LJ",
+              "name": "진에어",
+              "logoUrl": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/LJ.png"
+            },
+            "route": {
+              "origin": "ICN",
+              "destination": "KIX"
+            },
+            "travelInfo": {
+              "departDate": "20260910",
+              "returnDate": "20260913",
+              "totalDurationMinutes": 225,
+              "stops": 0,
+              "isDirect": true
+            },
+            "legs": [
+              {
+                "legIndex": 1,
+                "origin": "ICN",
+                "destination": "KIX",
+                "departDate": "20260910",
+                "departTime": "0740",
+                "arriveDate": "20260910",
+                "arriveTime": "0935",
+                "durationMinutes": 115,
+                "stops": 0,
+                "isDirect": true,
+                "segments": [
+                  {
+                    "airlineCode": "LJ",
+                    "airlineName": "진에어",
+                    "flightNumber": "231",
+                    "departure": {
+                      "cityCode": "ICN",
+                      "cityName": "서울",
+                      "airportName": "인천",
+                      "airportNameEn": "Incheon",
+                      "date": "20260910",
+                      "time": "0740",
+                      "terminal": "2"
+                    },
+                    "arrival": {
+                      "cityCode": "KIX",
+                      "cityName": "오사카",
+                      "airportName": "오사카/간사이",
+                      "airportNameEn": "Kansai",
+                      "date": "20260910",
+                      "time": "0935",
+                      "terminal": "1"
+                    },
+                    "durationMinutes": 115,
+                    "equipment": "738",
+                    "codeShare": "",
+                    "operatingCarrier": "LJ"
+                  }
+                ]
+              },
+              {
+                "legIndex": 2,
+                "origin": "KIX",
+                "destination": "ICN",
+                "departDate": "20260913",
+                "departTime": "1110",
+                "arriveDate": "20260913",
+                "arriveTime": "1300",
+                "durationMinutes": 110,
+                "stops": 0,
+                "isDirect": true,
+                "segments": [
+                  {
+                    "airlineCode": "LJ",
+                    "airlineName": "진에어",
+                    "flightNumber": "242",
+                    "departure": {
+                      "cityCode": "KIX",
+                      "cityName": "오사카",
+                      "airportName": "오사카/간사이",
+                      "airportNameEn": "Kansai",
+                      "date": "20260913",
+                      "time": "1110",
+                      "terminal": "1"
+                    },
+                    "arrival": {
+                      "cityCode": "ICN",
+                      "cityName": "서울",
+                      "airportName": "인천",
+                      "airportNameEn": "Incheon",
+                      "date": "20260913",
+                      "time": "1300",
+                      "terminal": "2"
+                    },
+                    "durationMinutes": 110,
+                    "equipment": "738",
+                    "codeShare": "",
+                    "operatingCarrier": "LJ"
+                  }
+                ]
+              }
+            ],
+            "price": {
+              "currency": "KRW",
+              "total": 290200,
+              "breakdown": {
+                "baseAmount": 293000,
+                "discountedBaseAmount": 99000,
+                "taxAmount": 171200,
+                "tasfAmount": 10000
+              }
+            },
+            "isCheapest": false,
+            "reservationUrl": "https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100210.k1?KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3A%3A00&tripbean=B2C%5E250%5EI%5ERT%5EICN%2CKIX%2C%2C%5E2026-09-10%2C2026-09-13%2C%2C%5EKIX%2CICN%2C%2C%5EN%2CN%2CN%5E%2C%2C%5E2%5E0%5E0%5EY%5E%5E%5E%5E%5E%5E%5E%5E%5EFARE%5ED%5EN%5Enull%5Enull&farebean=LJ%5ERA%5EADT%5ERA%5E290200%5E99000%5E87400%5E83800%5E10000%5E10000%5E655361%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E0%5E%5EY%5EY%5ED%5ER%5E11.5%5ED%5EA%5E0.0%5E%5E%5E11.5%5ED%5EA%5E0.0%5E%5E%5E0%5E%5E%5EY001%5E20260705%5E%5EIBK%EA%B8%B0%EC%97%85%EC%9D%80%ED%96%89%EC%B9%B4%EB%93%9C%5EC%5E%5E%5E&itno=1%2C2&sno=1%2C1&air=LJ%2CLJ&fgtno=231%2C242&dctcd=ICN%2CKIX&ddt=20260910%2C20260913&dtm=0740%2C1110&actcd=KIX%2CICN&adt=20260910%2C20260913&atm=0935%2C1300&cdshare=%2C&stopovercd=%2C&stopovertm=%2C&deptml=2%2C1&arrtml=1%2C2&isFreeSameDayRefundable=%2C&exposeyn=&exposeday=&exposecolor=&saleFormCd=B2C&cabincls=M%2CM&bkgcls=X%2CO&seatcnt=9%2C9&seatstus=HK%2CHK&baginfo=15kg%2C15kg&segfarets=RA%2CRA&fcno=1%2C2&fabasis=XKRTA1%2COKRTA1&fabasischd=XKRTA1%2COKRTA1&fabasisinf=XKRTA1%2COKRTA1&eqtype=738%2C738&qchargeincludeyn=N&utm_source=mcp-servers"
+          }
+        ],
+        "promotionAirlines": [
+          {
+            "id": 179,
+            "startDate": "2026-07-01",
+            "endDate": "2026-07-31",
+            "priority": 1,
+            "airline": "QR",
+            "origin": "ICN, SEL",
+            "destinations": [
+              "DOH"
+            ],
+            "eventName": "카타르항공 인기 노선 특가"
+          }
+        ]
+      }
+    }
+  },
+  "_meta": {
+    "normalizer_version": "1",
+    "source_type": "structured",
+    "raw_sha256": "c5119febd5319ce0d8092923e110b2129a9181e12f6e00dae4456ad605d8c773",
+    "probed_at": "2026-07-01T15:22:19+00:00"
+  }
+}

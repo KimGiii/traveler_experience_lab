@@ -1,0 +1,334 @@
+{
+  "domain": "flights",
+  "tool": "searchInternationalFlights",
+  "arguments": {
+    "tripType": "ONE_WAY",
+    "origin": "ICN",
+    "destination": "BKK",
+    "departDate": "2026-09-20",
+    "maxResults": 3
+  },
+  "ok": true,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"meta\":{\"status\":200,\"contentType\":\"application/xml\",\"promotionAirlines\":{\"status\":200,\"statusText\":\"OK\",\"contentType\":\"application/json\"},\"elapsedMs\":103},\"presentation\":{\"requiredInputs\":[\"origin\",\"destination\",\"departDate\"],\"recommendedFieldsToShow\":[\"result.items[].legs[].origin\",\"result.items[].legs[].destination\",\"result.items[].legs[].departDate\",\"result.items[].legs[].departTime\",\"result.items[].legs[].arriveDate\",\"result.items[].legs[].arriveTime\",\"result.items[].reservationUrl\"],\"note\":\"For each flight, always show departure and arrival schedule: legs[0].departDate + legs[0].departTime (outbound), legs[0].arriveDate + legs[0].arriveTime. For round trips, also show legs[1].departDate + legs[1].departTime and legs[1].arriveDate + legs[1].arriveTime.\\nThe reservationUrl in each item is the booking link. You must display it to the user as a markdown link, e.g. [예약하기](reservationUrl). CRITICAL: The URL is system-generated and must be reproduced byte-for-byte. Do NOT shorten, truncate, reorder, deduplicate, or alter any part of the URL — including query parameters that appear repeated or redundant. The URL may be very long (500+ characters) and contain repeated parameter names or values; this is intentional and required for the booking to work correctly.\\nImportant: Flight prices change in real-time. The displayed price may differ from the final booking price. Please show this notice to the user.\\nIf an airline is included in result.promotionAirlines, display the relevant promotion information.\",\"warnings\":[\"Flight prices change in real-time.\",\"The displayed price may differ from the final booking price.\"]},\"result\":{\"summary\":{\"totalCandidates\":11,\"totalRoutes\":7,\"returned\":3,\"cheapestTotal\":203600},\"items\":[{\"id\":\"1:1\",\"fareNo\":1,\"tripType\":\"ONE_WAY\",\"airline\":{\"code\":\"VN\",\"name\":\"베트남항공\",\"logoUrl\":\"https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/VN.png\"},\"route\":{\"origin\":\"ICN\",\"destination\":\"BKK\"},\"travelInfo\":{\"departDate\":\"20260920\",\"totalDurationMinutes\":595,\"stops\":1,\"isDirect\":false},\"legs\":[{\"legIndex\":1,\"origin\":\"ICN\",\"destination\":\"BKK\",\"departDate\":\"20260920\",\"departTime\":\"1035\",\"arriveDate\":\"20260920\",\"arriveTime\":\"1830\",\"durationMinutes\":595,\"stops\":1,\"isDirect\":false,\"segments\":[{\"airlineCode\":\"VN\",\"airlineName\":\"베트남항공\",\"flightNumber\":\"409\",\"departure\":{\"cityCode\":\"ICN\",\"cityName\":\"서울\",\"airportName\":\"인천\",\"airportNameEn\":\"Incheon\",\"date\":\"20260920\",\"time\":\"1035\",\"terminal\":\"1\"},\"arrival\":{\"cityCode\":\"SGN\",\"cityName\":\"호치민\",\"airportName\":\"\",\"airportNameEn\":\"Hochiminhcity\",\"date\":\"20260920\",\"time\":\"1345\",\"terminal\":\"2\"},\"durationMinutes\":310,\"equipment\":\"787\",\"codeShare\":\"\",\"operatingCarrier\":\"VN\"},{\"airlineCode\":\"VN\",\"airlineName\":\"베트남항공\",\"flightNumber\":\"607\",\"departure\":{\"cityCode\":\"SGN\",\"cityName\":\"호치민\",\"airportName\":\"\",\"airportNameEn\":\"Hochiminhcity\",\"date\":\"20260920\",\"time\":\"1650\",\"terminal\":\"2\"},\"arrival\":{\"cityCode\":\"BKK\",\"cityName\":\"방콕\",\"airportName\":\"수완나품\",\"airportNameEn\":\"Suvarnabhumi\",\"date\":\"20260920\",\"time\":\"1830\"},\"durationMinutes\":100,\"equipment\":\"321\",\"codeShare\":\"\",\"operatingCarrier\":\"VN\"}]}],\"price\":{\"currency\":\"KRW\",\"total\":203600,\"breakdown\":{\"baseAmount\":198200,\"discountedBaseAmount\":42700,\"taxAmount\":150900,\"tasfAmount\":10000}},\"isCheapest\":true,\"reservationUrl\":\"https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100210.k1?KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3A%3A00&tripbean=B2C%5E250%5EI%5EOW%5EICN%2C%2C%2C%5E2026-09-20%2C%2C%2C%5EBKK%2C%2C%2C%5EN%2CN%2CN%5E%2C%2C%5E1%5E0%5E0%5EY%5E%5E%5E%5E%5E%5E%5E%5E%5EFARE%5ED%5EN%5Enull%5Enull&farebean=VN%5ERP%5EADT%5ERP%5E203600%5E42700%5E26900%5E124000%5E10000%5E0%5E676629%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E0%5E%5EY%5EY%5ED%5ER%5E9.85%5ED%5EA%5E0.0%5E%5E%5E9.85%5ED%5EA%5E0.0%5E%5E%5E0%5E%5E%5EY001%5E20260920%5E%5EIBK%EA%B8%B0%EC%97%85%EC%9D%80%ED%96%89%EC%B9%B4%EB%93%9C%5EC%5E%5E%5E&itno=1%2C1&sno=1%2C2&air=VN%2CVN&fgtno=409%2C607&dctcd=ICN%2CSGN&ddt=20260920%2C20260920&dtm=1035%2C1650&actcd=SGN%2CBKK&adt=20260920%2C20260920&atm=1345%2C1830&cdshare=%2C&stopovercd=%2C&stopovertm=%2C&deptml=1%2C2&arrtml=2%2C&isFreeSameDayRefundable=%2C&exposeyn=&exposeday=&exposecolor=&saleFormCd=B2C&cabincls=M%2CM&bkgcls=P%2CP&seatcnt=4%2C4&seatstus=HK%2CHK&baginfo=1%EA%B0%9C%2C1%EA%B0%9C&segfarets=RP%2CRP&fcno=1%2C1&fabasis=PKOXKRP%2CPKOXKRP&fabasischd=PKOXKRP%2CPKOXKRP&fabasisinf=PKOXKRP%2CPKOXKRP&eqtype=787%2C321&qchargeincludeyn=N&utm_source=mcp-servers\"},{\"id\":\"2:2\",\"fareNo\":2,\"tripType\":\"ONE_WAY\",\"airline\":{\"code\":\"7C\",\"name\":\"제주항공\",\"logoUrl\":\"https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/7C.png\"},\"route\":{\"origin\":\"ICN\",\"destination\":\"BKK\"},\"travelInfo\":{\"departDate\":\"20260920\",\"totalDurationMinutes\":365,\"stops\":0,\"isDirect\":true},\"legs\":[{\"legIndex\":1,\"origin\":\"ICN\",\"destination\":\"BKK\",\"departDate\":\"20260920\",\"departTime\":\"2005\",\"arriveDate\":\"20260921\",\"arriveTime\":\"0010\",\"durationMinutes\":365,\"stops\":0,\"isDirect\":true,\"segments\":[{\"airlineCode\":\"7C\",\"airlineName\":\"제주항공\",\"flightNumber\":\"2503\",\"departure\":{\"cityCode\":\"ICN\",\"cityName\":\"서울\",\"airportName\":\"인천\",\"airportNameEn\":\"Incheon\",\"date\":\"20260920\",\"time\":\"2005\",\"terminal\":\"1\"},\"arrival\":{\"cityCode\":\"BKK\",\"cityName\":\"방콕\",\"airportName\":\"수완나품\",\"airportNameEn\":\"Suvarnabhumi\",\"date\":\"20260921\",\"time\":\"0010\"},\"durationMinutes\":365,\"equipment\":\"7M8\",\"codeShare\":\"\",\"operatingCarrier\":\"7C\"}]}],\"price\":{\"currency\":\"KRW\",\"total\":247100,\"breakdown\":{\"baseAmount\":253000,\"discountedBaseAmount\":109100,\"taxAmount\":123000,\"tasfAmount\":10000}},\"isCheapest\":false,\"reservationUrl\":\"https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100210.k1?KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3A%3A00&tripbean=B2C%5E250%5EI%5EOW%5EICN%2C%2C%2C%5E2026-09-20%2C%2C%2C%5EBKK%2C%2C%2C%5EN%2CN%2CN%5E%2C%2C%5E1%5E0%5E0%5EY%5E%5E%5E%5E%5E%5E%5E%5E%5EFARE%5ED%5EN%5Enull%5Enull&farebean=7C%5ERD%5EADT%5ERD%5E247100%5E109100%5E26900%5E96100%5E10000%5E5000%5E689169%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E0%5E%5EY%5EY%5ED%5ER%5E12.79%5ED%5EA%5E0.0%5E%5E%5E12.79%5ED%5EA%5E0.0%5E%5E%5E0%5E%5E%5EY001%5E20260704%5E%5EIBK%EA%B8%B0%EC%97%85%EC%9D%80%ED%96%89%EC%B9%B4%EB%93%9C%5EC%5E%5E%5E&itno=1&sno=1&air=7C&fgtno=2503&dctcd=ICN&ddt=20260920&dtm=2005&actcd=BKK&adt=20260921&atm=0010&cdshare=&stopovercd=&stopovertm=&deptml=1&arrtml=&isFreeSameDayRefundable=&exposeyn=&exposeday=&exposecolor=&saleFormCd=B2C&cabincls=M&bkgcls=Z&seatcnt=9&seatstus=HK&baginfo=15kg&segfarets=RD&fcno=1&fabasis=ZV3OKR&fabasischd=ZV3OKR&fabasisinf=ZV3OKR&eqtype=7M8&qchargeincludeyn=N&utm_source=mcp-servers\"},{\"id\":\"82001:82001\",\"fareNo\":82001,\"tripType\":\"ONE_WAY\",\"airline\":{\"code\":\"TW\",\"name\":\"티웨이항공\",\"logoUrl\":\"https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/TW.png\"},\"route\":{\"origin\":\"ICN\",\"destination\":\"BKK\"},\"travelInfo\":{\"departDate\":\"20260920\",\"totalDurationMinutes\":365,\"stops\":0,\"isDirect\":true},\"legs\":[{\"legIndex\":1,\"origin\":\"ICN\",\"destination\":\"BKK\",\"departDate\":\"20260920\",\"departTime\":\"1800\",\"arriveDate\":\"20260920\",\"arriveTime\":\"2205\",\"durationMinutes\":365,\"stops\":0,\"isDirect\":true,\"segments\":[{\"airlineCode\":\"TW\",\"airlineName\":\"티웨이항공\",\"flightNumber\":\"101\",\"departure\":{\"cityCode\":\"ICN\",\"cityName\":\"서울\",\"airportName\":\"인천\",\"airportNameEn\":\"Incheon\",\"date\":\"20260920\",\"time\":\"1800\",\"terminal\":\"\"},\"arrival\":{\"cityCode\":\"BKK\",\"cityName\":\"방콕\",\"airportName\":\"수완나품\",\"airportNameEn\":\"Suvarnabhumi\",\"date\":\"20260920\",\"time\":\"2205\",\"terminal\":\"\"},\"durationMinutes\":365,\"equipment\":\"A7M8\",\"codeShare\":\"\",\"operatingCarrier\":\"TW\"}]}],\"price\":{\"currency\":\"KRW\",\"total\":247340,\"breakdown\":{\"baseAmount\":252780,\"discountedBaseAmount\":113360,\"taxAmount\":123980,\"tasfAmount\":10000}},\"isCheapest\":false,\"reservationUrl\":\"https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100210.k1?KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3A%3A00&tripbean=B2C%5E250%5EI%5EOW%5EICN%2C%2C%2C%5E2026-09-20%2C%2C%2C%5EBKK%2C%2C%2C%5EN%2CN%2CN%5E%2C%2C%5E1%5E0%5E0%5EY%5E%5E%5E%5E%5E%5E%5E%5E%5EFARE%5ED%5EN%5Enull%5Enull&farebean=TW%5ERP%5EADT%5ERP%5E247340%5E113360%5E26780%5E97200%5E10000%5E0%5E654581%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E0%5E%5EY%5EY%5ED%5ER%5E11.99%5ED%5EA%5E0.0%5E%5E%5E11.99%5ED%5EA%5E0.0%5E%5E%5E0%5E%5E%5EY001%5E20260702%5E%5EIBK%EA%B8%B0%EC%97%85%EC%9D%80%ED%96%89%EC%B9%B4%EB%93%9C%5EC%5E%5E%5E&itno=1&sno=1&air=TW&fgtno=101&dctcd=ICN&ddt=20260920&dtm=1800&actcd=BKK&adt=20260920&atm=2205&cdshare=&stopovercd=&stopovertm=&deptml=&arrtml=&isFreeSameDayRefundable=&exposeyn=&exposeday=&exposecolor=&saleFormCd=B2C&cabincls=Y&bkgcls=L&seatcnt=9&seatstus=HK&baginfo=15kg&segfarets=RP&fcno=1&fabasis=LIB&fabasischd=LIB&fabasisinf=LIB&eqtype=A7M8&qchargeincludeyn=N&utm_source=mcp-servers\"}],\"promotionAirlines\":[{\"id\":179,\"startDate\":\"2026-07-01\",\"endDate\":\"2026-07-31\",\"priority\":1,\"airline\":\"QR\",\"origin\":\"ICN, SEL\",\"destinations\":[\"DOH\"],\"eventName\":\"카타르항공 인기 노선 특가\"}]}}"
+      }
+    ],
+    "structuredContent": {
+      "success": true,
+      "meta": {
+        "status": 200,
+        "contentType": "application/xml",
+        "promotionAirlines": {
+          "status": 200,
+          "statusText": "OK",
+          "contentType": "application/json"
+        },
+        "elapsedMs": 103
+      },
+      "presentation": {
+        "requiredInputs": [
+          "origin",
+          "destination",
+          "departDate"
+        ],
+        "recommendedFieldsToShow": [
+          "result.items[].legs[].origin",
+          "result.items[].legs[].destination",
+          "result.items[].legs[].departDate",
+          "result.items[].legs[].departTime",
+          "result.items[].legs[].arriveDate",
+          "result.items[].legs[].arriveTime",
+          "result.items[].reservationUrl"
+        ],
+        "note": "For each flight, always show departure and arrival schedule: legs[0].departDate + legs[0].departTime (outbound), legs[0].arriveDate + legs[0].arriveTime. For round trips, also show legs[1].departDate + legs[1].departTime and legs[1].arriveDate + legs[1].arriveTime.\nThe reservationUrl in each item is the booking link. You must display it to the user as a markdown link, e.g. [예약하기](reservationUrl). CRITICAL: The URL is system-generated and must be reproduced byte-for-byte. Do NOT shorten, truncate, reorder, deduplicate, or alter any part of the URL — including query parameters that appear repeated or redundant. The URL may be very long (500+ characters) and contain repeated parameter names or values; this is intentional and required for the booking to work correctly.\nImportant: Flight prices change in real-time. The displayed price may differ from the final booking price. Please show this notice to the user.\nIf an airline is included in result.promotionAirlines, display the relevant promotion information.",
+        "warnings": [
+          "Flight prices change in real-time.",
+          "The displayed price may differ from the final booking price."
+        ]
+      },
+      "result": {
+        "summary": {
+          "totalCandidates": 11,
+          "totalRoutes": 7,
+          "returned": 3,
+          "cheapestTotal": 203600
+        },
+        "items": [
+          {
+            "id": "1:1",
+            "fareNo": 1,
+            "tripType": "ONE_WAY",
+            "airline": {
+              "code": "VN",
+              "name": "베트남항공",
+              "logoUrl": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/VN.png"
+            },
+            "route": {
+              "origin": "ICN",
+              "destination": "BKK"
+            },
+            "travelInfo": {
+              "departDate": "20260920",
+              "totalDurationMinutes": 595,
+              "stops": 1,
+              "isDirect": false
+            },
+            "legs": [
+              {
+                "legIndex": 1,
+                "origin": "ICN",
+                "destination": "BKK",
+                "departDate": "20260920",
+                "departTime": "1035",
+                "arriveDate": "20260920",
+                "arriveTime": "1830",
+                "durationMinutes": 595,
+                "stops": 1,
+                "isDirect": false,
+                "segments": [
+                  {
+                    "airlineCode": "VN",
+                    "airlineName": "베트남항공",
+                    "flightNumber": "409",
+                    "departure": {
+                      "cityCode": "ICN",
+                      "cityName": "서울",
+                      "airportName": "인천",
+                      "airportNameEn": "Incheon",
+                      "date": "20260920",
+                      "time": "1035",
+                      "terminal": "1"
+                    },
+                    "arrival": {
+                      "cityCode": "SGN",
+                      "cityName": "호치민",
+                      "airportName": "",
+                      "airportNameEn": "Hochiminhcity",
+                      "date": "20260920",
+                      "time": "1345",
+                      "terminal": "2"
+                    },
+                    "durationMinutes": 310,
+                    "equipment": "787",
+                    "codeShare": "",
+                    "operatingCarrier": "VN"
+                  },
+                  {
+                    "airlineCode": "VN",
+                    "airlineName": "베트남항공",
+                    "flightNumber": "607",
+                    "departure": {
+                      "cityCode": "SGN",
+                      "cityName": "호치민",
+                      "airportName": "",
+                      "airportNameEn": "Hochiminhcity",
+                      "date": "20260920",
+                      "time": "1650",
+                      "terminal": "2"
+                    },
+                    "arrival": {
+                      "cityCode": "BKK",
+                      "cityName": "방콕",
+                      "airportName": "수완나품",
+                      "airportNameEn": "Suvarnabhumi",
+                      "date": "20260920",
+                      "time": "1830"
+                    },
+                    "durationMinutes": 100,
+                    "equipment": "321",
+                    "codeShare": "",
+                    "operatingCarrier": "VN"
+                  }
+                ]
+              }
+            ],
+            "price": {
+              "currency": "KRW",
+              "total": 203600,
+              "breakdown": {
+                "baseAmount": 198200,
+                "discountedBaseAmount": 42700,
+                "taxAmount": 150900,
+                "tasfAmount": 10000
+              }
+            },
+            "isCheapest": true,
+            "reservationUrl": "https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100210.k1?KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3A%3A00&tripbean=B2C%5E250%5EI%5EOW%5EICN%2C%2C%2C%5E2026-09-20%2C%2C%2C%5EBKK%2C%2C%2C%5EN%2CN%2CN%5E%2C%2C%5E1%5E0%5E0%5EY%5E%5E%5E%5E%5E%5E%5E%5E%5EFARE%5ED%5EN%5Enull%5Enull&farebean=VN%5ERP%5EADT%5ERP%5E203600%5E42700%5E26900%5E124000%5E10000%5E0%5E676629%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E0%5E%5EY%5EY%5ED%5ER%5E9.85%5ED%5EA%5E0.0%5E%5E%5E9.85%5ED%5EA%5E0.0%5E%5E%5E0%5E%5E%5EY001%5E20260920%5E%5EIBK%EA%B8%B0%EC%97%85%EC%9D%80%ED%96%89%EC%B9%B4%EB%93%9C%5EC%5E%5E%5E&itno=1%2C1&sno=1%2C2&air=VN%2CVN&fgtno=409%2C607&dctcd=ICN%2CSGN&ddt=20260920%2C20260920&dtm=1035%2C1650&actcd=SGN%2CBKK&adt=20260920%2C20260920&atm=1345%2C1830&cdshare=%2C&stopovercd=%2C&stopovertm=%2C&deptml=1%2C2&arrtml=2%2C&isFreeSameDayRefundable=%2C&exposeyn=&exposeday=&exposecolor=&saleFormCd=B2C&cabincls=M%2CM&bkgcls=P%2CP&seatcnt=4%2C4&seatstus=HK%2CHK&baginfo=1%EA%B0%9C%2C1%EA%B0%9C&segfarets=RP%2CRP&fcno=1%2C1&fabasis=PKOXKRP%2CPKOXKRP&fabasischd=PKOXKRP%2CPKOXKRP&fabasisinf=PKOXKRP%2CPKOXKRP&eqtype=787%2C321&qchargeincludeyn=N&utm_source=mcp-servers"
+          },
+          {
+            "id": "2:2",
+            "fareNo": 2,
+            "tripType": "ONE_WAY",
+            "airline": {
+              "code": "7C",
+              "name": "제주항공",
+              "logoUrl": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/7C.png"
+            },
+            "route": {
+              "origin": "ICN",
+              "destination": "BKK"
+            },
+            "travelInfo": {
+              "departDate": "20260920",
+              "totalDurationMinutes": 365,
+              "stops": 0,
+              "isDirect": true
+            },
+            "legs": [
+              {
+                "legIndex": 1,
+                "origin": "ICN",
+                "destination": "BKK",
+                "departDate": "20260920",
+                "departTime": "2005",
+                "arriveDate": "20260921",
+                "arriveTime": "0010",
+                "durationMinutes": 365,
+                "stops": 0,
+                "isDirect": true,
+                "segments": [
+                  {
+                    "airlineCode": "7C",
+                    "airlineName": "제주항공",
+                    "flightNumber": "2503",
+                    "departure": {
+                      "cityCode": "ICN",
+                      "cityName": "서울",
+                      "airportName": "인천",
+                      "airportNameEn": "Incheon",
+                      "date": "20260920",
+                      "time": "2005",
+                      "terminal": "1"
+                    },
+                    "arrival": {
+                      "cityCode": "BKK",
+                      "cityName": "방콕",
+                      "airportName": "수완나품",
+                      "airportNameEn": "Suvarnabhumi",
+                      "date": "20260921",
+                      "time": "0010"
+                    },
+                    "durationMinutes": 365,
+                    "equipment": "7M8",
+                    "codeShare": "",
+                    "operatingCarrier": "7C"
+                  }
+                ]
+              }
+            ],
+            "price": {
+              "currency": "KRW",
+              "total": 247100,
+              "breakdown": {
+                "baseAmount": 253000,
+                "discountedBaseAmount": 109100,
+                "taxAmount": 123000,
+                "tasfAmount": 10000
+              }
+            },
+            "isCheapest": false,
+            "reservationUrl": "https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100210.k1?KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3A%3A00&tripbean=B2C%5E250%5EI%5EOW%5EICN%2C%2C%2C%5E2026-09-20%2C%2C%2C%5EBKK%2C%2C%2C%5EN%2CN%2CN%5E%2C%2C%5E1%5E0%5E0%5EY%5E%5E%5E%5E%5E%5E%5E%5E%5EFARE%5ED%5EN%5Enull%5Enull&farebean=7C%5ERD%5EADT%5ERD%5E247100%5E109100%5E26900%5E96100%5E10000%5E5000%5E689169%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E0%5E%5EY%5EY%5ED%5ER%5E12.79%5ED%5EA%5E0.0%5E%5E%5E12.79%5ED%5EA%5E0.0%5E%5E%5E0%5E%5E%5EY001%5E20260704%5E%5EIBK%EA%B8%B0%EC%97%85%EC%9D%80%ED%96%89%EC%B9%B4%EB%93%9C%5EC%5E%5E%5E&itno=1&sno=1&air=7C&fgtno=2503&dctcd=ICN&ddt=20260920&dtm=2005&actcd=BKK&adt=20260921&atm=0010&cdshare=&stopovercd=&stopovertm=&deptml=1&arrtml=&isFreeSameDayRefundable=&exposeyn=&exposeday=&exposecolor=&saleFormCd=B2C&cabincls=M&bkgcls=Z&seatcnt=9&seatstus=HK&baginfo=15kg&segfarets=RD&fcno=1&fabasis=ZV3OKR&fabasischd=ZV3OKR&fabasisinf=ZV3OKR&eqtype=7M8&qchargeincludeyn=N&utm_source=mcp-servers"
+          },
+          {
+            "id": "82001:82001",
+            "fareNo": 82001,
+            "tripType": "ONE_WAY",
+            "airline": {
+              "code": "TW",
+              "name": "티웨이항공",
+              "logoUrl": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/TW.png"
+            },
+            "route": {
+              "origin": "ICN",
+              "destination": "BKK"
+            },
+            "travelInfo": {
+              "departDate": "20260920",
+              "totalDurationMinutes": 365,
+              "stops": 0,
+              "isDirect": true
+            },
+            "legs": [
+              {
+                "legIndex": 1,
+                "origin": "ICN",
+                "destination": "BKK",
+                "departDate": "20260920",
+                "departTime": "1800",
+                "arriveDate": "20260920",
+                "arriveTime": "2205",
+                "durationMinutes": 365,
+                "stops": 0,
+                "isDirect": true,
+                "segments": [
+                  {
+                    "airlineCode": "TW",
+                    "airlineName": "티웨이항공",
+                    "flightNumber": "101",
+                    "departure": {
+                      "cityCode": "ICN",
+                      "cityName": "서울",
+                      "airportName": "인천",
+                      "airportNameEn": "Incheon",
+                      "date": "20260920",
+                      "time": "1800",
+                      "terminal": ""
+                    },
+                    "arrival": {
+                      "cityCode": "BKK",
+                      "cityName": "방콕",
+                      "airportName": "수완나품",
+                      "airportNameEn": "Suvarnabhumi",
+                      "date": "20260920",
+                      "time": "2205",
+                      "terminal": ""
+                    },
+                    "durationMinutes": 365,
+                    "equipment": "A7M8",
+                    "codeShare": "",
+                    "operatingCarrier": "TW"
+                  }
+                ]
+              }
+            ],
+            "price": {
+              "currency": "KRW",
+              "total": 247340,
+              "breakdown": {
+                "baseAmount": 252780,
+                "discountedBaseAmount": 113360,
+                "taxAmount": 123980,
+                "tasfAmount": 10000
+              }
+            },
+            "isCheapest": false,
+            "reservationUrl": "https://flights.myrealtrip.com/air/b2c/AIR/MBL/AIRMBLSCH0100100210.k1?KSESID=air%3Ab2c%3ASELK138RB%3ASELK138RB%3A%3A00&tripbean=B2C%5E250%5EI%5EOW%5EICN%2C%2C%2C%5E2026-09-20%2C%2C%2C%5EBKK%2C%2C%2C%5EN%2CN%2CN%5E%2C%2C%5E1%5E0%5E0%5EY%5E%5E%5E%5E%5E%5E%5E%5E%5EFARE%5ED%5EN%5Enull%5Enull&farebean=TW%5ERP%5EADT%5ERP%5E247340%5E113360%5E26780%5E97200%5E10000%5E0%5E654581%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E0%5E%5EY%5EY%5ED%5ER%5E11.99%5ED%5EA%5E0.0%5E%5E%5E11.99%5ED%5EA%5E0.0%5E%5E%5E0%5E%5E%5EY001%5E20260702%5E%5EIBK%EA%B8%B0%EC%97%85%EC%9D%80%ED%96%89%EC%B9%B4%EB%93%9C%5EC%5E%5E%5E&itno=1&sno=1&air=TW&fgtno=101&dctcd=ICN&ddt=20260920&dtm=1800&actcd=BKK&adt=20260920&atm=2205&cdshare=&stopovercd=&stopovertm=&deptml=&arrtml=&isFreeSameDayRefundable=&exposeyn=&exposeday=&exposecolor=&saleFormCd=B2C&cabincls=Y&bkgcls=L&seatcnt=9&seatstus=HK&baginfo=15kg&segfarets=RP&fcno=1&fabasis=LIB&fabasischd=LIB&fabasisinf=LIB&eqtype=A7M8&qchargeincludeyn=N&utm_source=mcp-servers"
+          }
+        ],
+        "promotionAirlines": [
+          {
+            "id": 179,
+            "startDate": "2026-07-01",
+            "endDate": "2026-07-31",
+            "priority": 1,
+            "airline": "QR",
+            "origin": "ICN, SEL",
+            "destinations": [
+              "DOH"
+            ],
+            "eventName": "카타르항공 인기 노선 특가"
+          }
+        ]
+      }
+    }
+  },
+  "_meta": {
+    "normalizer_version": "1",
+    "source_type": "structured",
+    "raw_sha256": "ba04d4b04c7046179c69ab629363dac84c49e53ee49c4c4bc8293db9f04a0894",
+    "probed_at": "2026-07-01T15:22:19+00:00"
+  }
+}

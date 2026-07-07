@@ -1,0 +1,104 @@
+{
+  "domain": "flights",
+  "tool": "flightsFareCalendar",
+  "arguments": {
+    "from": "ICN",
+    "to": "KIX",
+    "departureDate": "2026-09-10",
+    "airlines": [
+      "*"
+    ],
+    "period": 4,
+    "international": true,
+    "maxResults": 5
+  },
+  "ok": true,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"meta\":{\"status\":200,\"contentType\":\"application/json\",\"elapsedMs\":6},\"presentation\":{\"requiredInputs\":[\"from\",\"to\",\"departureDate\"],\"recommendedFieldsToShow\":[\"result.cheapest\",\"result.items[]\"],\"note\":\"This calendar data is NOT real-time, and prices may change at the time of booking. The client must display this notice to users.\",\"warnings\":[\"Calendar prices are NOT real-time.\",\"Prices may change at the time of booking.\"]},\"result\":{\"summary\":{\"total\":110,\"returned\":5,\"cheapestPrice\":188700},\"cheapest\":{\"departureDate\":\"2026-09-21\",\"returnDate\":\"2026-09-24\",\"airline\":\"7C\",\"totalPrice\":188700},\"items\":[{\"departureDate\":\"2026-09-21\",\"returnDate\":\"2026-09-24\",\"airline\":\"7C\",\"totalPrice\":188700},{\"departureDate\":\"2026-09-27\",\"returnDate\":\"2026-09-30\",\"airline\":\"RS\",\"totalPrice\":248700},{\"departureDate\":\"2026-09-26\",\"returnDate\":\"2026-09-29\",\"airline\":\"RS\",\"totalPrice\":290200},{\"departureDate\":\"2026-09-30\",\"returnDate\":\"2026-10-03\",\"airline\":\"BX\",\"totalPrice\":302600},{\"departureDate\":\"2026-09-18\",\"returnDate\":\"2026-09-21\",\"airline\":\"WE\",\"totalPrice\":303810}],\"raw\":{\"from\":\"ICN\",\"to\":\"KIX\",\"period\":4}}}"
+      }
+    ],
+    "structuredContent": {
+      "success": true,
+      "meta": {
+        "status": 200,
+        "contentType": "application/json",
+        "elapsedMs": 6
+      },
+      "presentation": {
+        "requiredInputs": [
+          "from",
+          "to",
+          "departureDate"
+        ],
+        "recommendedFieldsToShow": [
+          "result.cheapest",
+          "result.items[]"
+        ],
+        "note": "This calendar data is NOT real-time, and prices may change at the time of booking. The client must display this notice to users.",
+        "warnings": [
+          "Calendar prices are NOT real-time.",
+          "Prices may change at the time of booking."
+        ]
+      },
+      "result": {
+        "summary": {
+          "total": 110,
+          "returned": 5,
+          "cheapestPrice": 188700
+        },
+        "cheapest": {
+          "departureDate": "2026-09-21",
+          "returnDate": "2026-09-24",
+          "airline": "7C",
+          "totalPrice": 188700
+        },
+        "items": [
+          {
+            "departureDate": "2026-09-21",
+            "returnDate": "2026-09-24",
+            "airline": "7C",
+            "totalPrice": 188700
+          },
+          {
+            "departureDate": "2026-09-27",
+            "returnDate": "2026-09-30",
+            "airline": "RS",
+            "totalPrice": 248700
+          },
+          {
+            "departureDate": "2026-09-26",
+            "returnDate": "2026-09-29",
+            "airline": "RS",
+            "totalPrice": 290200
+          },
+          {
+            "departureDate": "2026-09-30",
+            "returnDate": "2026-10-03",
+            "airline": "BX",
+            "totalPrice": 302600
+          },
+          {
+            "departureDate": "2026-09-18",
+            "returnDate": "2026-09-21",
+            "airline": "WE",
+            "totalPrice": 303810
+          }
+        ],
+        "raw": {
+          "from": "ICN",
+          "to": "KIX",
+          "period": 4
+        }
+      }
+    }
+  },
+  "_meta": {
+    "normalizer_version": "1",
+    "source_type": "structured",
+    "raw_sha256": "1e9f4b60d51b975f866483723457ab57ccf6be0f46e566585bdc5b291b3ae6ad",
+    "probed_at": "2026-07-01T15:22:19+00:00"
+  }
+}
