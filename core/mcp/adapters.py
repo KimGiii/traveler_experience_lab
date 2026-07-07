@@ -24,7 +24,13 @@ from ..schema.scenario_fixture import (
 # tracking (see docs/schema/contract.md §drift).
 NORMALIZER_VERSION = "1"
 
-_TNA_PRODUCT_URL = re.compile(r"https://experiences\.myrealtrip\.com/products/(\d+)")
+# Product links appear in two shapes inside the widget tree: the experiences
+# path and a legacy offers path (F-4: an offers-only leading card broke the
+# old index-based title↔url pairing). Group 0 is the verbatim url, group 1 the
+# trailing numeric id (the gid used by getTnaDetail/getTnaOptions chaining).
+_TNA_PRODUCT_URL = re.compile(
+    r"https://(?:experiences\.myrealtrip\.com/products|www\.myrealtrip\.com/offers)/(\d+)"
+)
 # copy_text lines like: "1. **[1일권] ... 입장권** ⭐4.8" then "   84,000원~"
 _TNA_TITLE = re.compile(r"^\s*\d+\.\s*\*\*(.+?)\*\*(?:\s*⭐\s*([\d.]+))?", re.MULTILINE)
 _TNA_PRICE = re.compile(r"([\d,]+)\s*원")
@@ -209,19 +215,31 @@ def _tnas(content_json: Any, src: SourceRef) -> list[ProductCandidate]:
     if not isinstance(content_json, dict):
         return []
     copy_text = content_json.get("copy_text") or ""
-    # Each product card repeats its url several times; dedupe preserving order so
-    # the Nth distinct url maps to the Nth product in copy_text listing order.
-    urls = _dedupe(_TNA_PRODUCT_URL.findall(json.dumps(content_json, ensure_ascii=False)))
     # finditer (not findall) so we can slice each product's verbatim copy_text
     # block — the closest thing to a per-item upstream object, since TNA search
     # returns no structuredContent and no discrete per-product JSON.
     matches = list(_TNA_TITLE.finditer(copy_text))
+    # Pair titles to urls by *position inside the widget tree*, not by index:
+    # each card renders its title followed by its own url group, and cards
+    # without a product/offers url (F-4) would shift an index-based mapping.
+    # A title we cannot locate in the widget gets gid None — no pairing beats
+    # a wrong one (chaining with a wrong gid returns a different product).
+    widget_str = json.dumps(content_json.get("widget") or {}, ensure_ascii=False)
+    title_pos = [widget_str.find(m.group(1).strip()) for m in matches]
+
+    def _url_after(i: int) -> tuple[str | None, str | None]:
+        start = title_pos[i]
+        if start < 0:
+            return None, None
+        following = [p for p in title_pos[i + 1:] if p >= 0]
+        end = min(following) if following else len(widget_str)
+        u = _TNA_PRODUCT_URL.search(widget_str, start, end)
+        return (u.group(0), u.group(1)) if u else (None, None)
 
     out: list[ProductCandidate] = []
     for i, m in enumerate(matches):
         title, rating = m.group(1), m.group(2)
-        gid = urls[i] if i < len(urls) else None
-        product_url = f"https://experiences.myrealtrip.com/products/{gid}" if gid else None
+        product_url, gid = _url_after(i)
         block_end = matches[i + 1].start() if i + 1 < len(matches) else len(copy_text)
         block = copy_text[m.start():block_end].strip()  # verbatim source slice
         price_m = _TNA_PRICE.search(block)  # price from THIS block, not a global index

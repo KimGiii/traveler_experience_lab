@@ -119,6 +119,42 @@ class SuccessNormalizationGolden(unittest.TestCase):
             self.assertEqual(cands, dedupe_candidates(cands), f"{path} not deduped")
 
 
+class TnaPairingGolden(unittest.TestCase):
+    """F-4 regression (docs/pilot/2026-07-07-plugin-smoke.md).
+
+    searchTnas cards are paired title↔url by widget position. The Danang
+    fixture's leading card links via the legacy offers/ path — the old
+    index-based pairing shifted every gid by one, so chained getTnaDetail
+    returned a different product than the candidate claimed.
+    """
+
+    # Verified live 2026-07-07: getTnaDetail(3881289) is the night pickup,
+    # getTnaDetail(3520244) matches the one-day tour's inclusions.
+    _EXPECTED = {
+        "[야간] 다낭 국제공항 픽업 서비스 (시내/호이안 이동)": "3881289",
+        "[선착순 특가!] 다낭 바나힐&호이안 퍼펙트 원데이 투어 (입장료/점심/저녁식사 포함)": "3520244",
+    }
+
+    def test_danang_titles_pair_with_verified_gids(self):
+        matches = [p for p in _FIXTURES if os.path.basename(p) == "searchTnas.sample3.json"]
+        self.assertTrue(matches, "missing searchTnas.sample3.json fixture")
+        rec = _load(matches[0])
+        by_title = {
+            c.title: c
+            for c in normalize(rec["tool"], rec.get("arguments", {}), rec["result"])
+        }
+        for title, gid in self._EXPECTED.items():
+            self.assertIn(title, by_title)
+            self.assertEqual(by_title[title].identifier, gid, f"pairing shifted for {title!r}")
+
+    def test_offers_only_card_still_gets_its_url(self):
+        rec = _load([p for p in _FIXTURES if os.path.basename(p) == "searchTnas.sample3.json"][0])
+        cands = normalize(rec["tool"], rec.get("arguments", {}), rec["result"])
+        lead = cands[0]
+        self.assertEqual(lead.identifier, "63983")
+        self.assertEqual(lead.booking_url, "https://www.myrealtrip.com/offers/63983")
+
+
 class ContractInvariants(unittest.TestCase):
     def test_bad_domain_rejected(self):
         with self.assertRaises(ValueError):

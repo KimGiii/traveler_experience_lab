@@ -53,7 +53,8 @@
 ### searchTnas → `content[0].text`(JSON), structuredContent 없음
 `{ widget(UI 트리), name, copy_text }`
 - **상품 데이터는 `copy_text`(모델용 마크다운)** 에 존재: 순위·상품명·⭐평점·시작가(`84,000원~`)·총건수.
-- 상품 URL(`https://experiences.myrealtrip.com/products/<gid>`)은 `widget` 내부에 임베드 → **gid 는 URL 말미 숫자**로 추출.
+- 상품 URL은 `widget` 내부에 임베드되며 **두 형태**: `experiences.myrealtrip.com/products/<gid>` + 구형 `www.myrealtrip.com/offers/<id>` (다낭 실측, 2026-07-07). **gid 는 URL 말미 숫자**로 추출.
+- ⚠️ **제목↔URL 짝짓기는 widget 내 위치 기준**이어야 함 — 카드마다 제목 뒤에 자기 URL 그룹이 온다. "N번째 distinct URL = N번째 제목" 인덱스 방식은 offers-전용 선행 카드에서 한 칸씩 밀림(F-4, `searchTnas.sample3.json` 골든으로 고정).
 - getTnaDetail/getTnaOptions 체이닝에 이 gid+url 필요.
 
 ### getCategoryList → `content[0].text`(JSON)
@@ -61,6 +62,7 @@
 
 ### getTnaDetail → `content[0].text`(JSON)
 `{ widget, name, copy_text }` — `copy_text` 에 상품명·평점·리뷰수·포함/불포함 사항 마크다운.
+⚠️ 첫 굵은 텍스트가 상품명이 아니라 **옵션명**("아동, 1인 금액" 등)인 상품 존재(3520244 실측) — detail 제목은 신뢰도 낮음, 상품 동정은 포함사항·평점·검색 카드와 대조.
 ⚠️ 취소정책은 **상품별로 있을 수도 없을 수도** 있음(검증한 6082857 응답엔 미포함). 어댑터는 `취소/환불` 문구가 있을 때만 `cancellation_note` 채움.
 
 ### getTnaOptions → `content[0].text`(JSON)

@@ -46,6 +46,7 @@ python3 -m core.cli fetch getTnaOptions --args '{"gid": "<gid>", "url": "<url>",
 ## 출력 (섹션)
 1. **여행자 시나리오** — 항공/숙소/TNA 흐름 기반.
 2. **실제 상품 후보** — 상품명·가격·가용성·평점·예약 URL (MCP 근거).
+   > **가격 읽는 법**: 항공·숙소상세는 `price.amount`(정수), 숙소검색·TNA는 `price.text`("93,983원/박"). `text`가 null이어도 `amount`를 확인할 것 — 항공은 `text`가 항상 null이다(F-3 오독 사례, docs/pilot/2026-07-07-plugin-smoke.md).
    > 예약 URL은 항공(`reservationUrl`)·TNA(product url)는 검색에서 바로 나오지만, **숙소는 검색(`searchStays`) 응답에 URL이 없다**(field_notes §3). 숙소 예약 링크·가용성·취소정책이 필요하면 해당 후보의 `gid`로 `getStayDetail`을 체이닝한다(→ `shareWebLink`).
 3. **도메인 엣지 케이스** — 취소/환불/재고없음/날짜불일치/가격변동/리뷰부족/모바일.
    > **근거 있는 엣지만 서술한다.** 검색 깊이에서 증명되는 건 TNA/항공의 `mobile`·항공 `price_change` 정도이며, 취소/재고없음/날짜불일치는 `getStayDetail`/`getTnaOptions`/`getTnaDetail` 체이닝으로 증거가 확보됐을 때만 나타난다(field_notes §5). fixture `edge_cases`에 없는 엣지를 추측으로 덧붙이지 말 것.
