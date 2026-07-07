@@ -8,7 +8,7 @@ injected as a :class:`Fetcher`, so plan/assemble/orchestrate stay pure.
 from __future__ import annotations
 
 from .assembly import LOW_REVIEW_THRESHOLD, assemble, derive_edge_cases
-from .inputs import DEFAULT_ORIGIN, ScenarioInputs
+from .inputs import DEFAULT_ADULTS, DEFAULT_ORIGIN, ScenarioInputs
 from .orchestrator import (
     CallError,
     Fetcher,
@@ -20,6 +20,7 @@ from .planning import Plan, PlannedCall, SkippedCall, plan_calls
 
 __all__ = [
     "ScenarioInputs",
+    "DEFAULT_ADULTS",
     "DEFAULT_ORIGIN",
     "plan_calls",
     "Plan",

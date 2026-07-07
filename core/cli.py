@@ -34,7 +34,7 @@ from datetime import datetime, timezone
 from .mcp.adapters import McpToolError, fingerprint, normalize, unwrap
 from .mcp.client import McpClient, McpError
 from .mcp.endpoints import DOMAIN_TOOLS
-from .scenario import FetchError, ScenarioInputs, ScenarioResult, orchestrate
+from .scenario import DEFAULT_ADULTS, FetchError, ScenarioInputs, ScenarioResult, orchestrate
 
 
 def _new_session() -> McpClient:
@@ -206,6 +206,17 @@ def cmd_scenario(args: argparse.Namespace) -> int:
     many ``fetch`` outputs. Prints the ScenarioFixture plus an execution trace
     (executed / skipped / errors).
     """
+    warnings: list[str] = []
+    adults = args.adults
+    if adults is None:
+        # Silent party-size defaults poisoned a solo-traveler smoke run (F-1,
+        # docs/pilot/2026-07-07-plugin-smoke.md): surface the assumption so the
+        # command layer maps the companions brief to --adults instead.
+        adults = DEFAULT_ADULTS
+        warnings.append(
+            f"adults not specified; defaulted to {DEFAULT_ADULTS} — "
+            "pass --adults matching the companions brief"
+        )
     inputs = ScenarioInputs(
         destination=args.destination,
         period=args.period,
@@ -218,11 +229,18 @@ def cmd_scenario(args: argparse.Namespace) -> int:
         check_out=args.check_out,
         depart_date=args.depart_date,
         return_date=args.return_date,
-        adults=args.adults,
+        adults=adults,
     )
     response_meta: list[dict[str, Any]] = []
     result = orchestrate(inputs, _live_fetcher(response_meta=response_meta))
-    _print_json(_result_dict(result, include_raw=args.with_raw, response_meta=response_meta))
+    _print_json(
+        _result_dict(
+            result,
+            include_raw=args.with_raw,
+            response_meta=response_meta,
+            warnings=warnings,
+        )
+    )
     # Red when every planned call errored (and at least one was planned) — a
     # scenario with no usable ground truth is a failure, not a thin success.
     planned = len(result.executed) + len(result.errors)
@@ -234,6 +252,7 @@ def _result_dict(
     *,
     include_raw: bool,
     response_meta: list[dict[str, Any]] | None = None,
+    warnings: list[str] | None = None,
 ) -> dict[str, Any]:
     fx = result.fixture
     out = {
@@ -255,6 +274,8 @@ def _result_dict(
     }
     if response_meta is not None:
         out["_meta"] = {"responses": response_meta}
+    if warnings:
+        out.setdefault("_meta", {})["warnings"] = warnings
     return out
 
 
@@ -374,7 +395,12 @@ def build_parser() -> argparse.ArgumentParser:
     p_scenario.add_argument("--check-out", default=None, help="YYYY-MM-DD")
     p_scenario.add_argument("--depart-date", default=None, help="YYYY-MM-DD (flights)")
     p_scenario.add_argument("--return-date", default=None, help="YYYY-MM-DD (flights)")
-    p_scenario.add_argument("--adults", type=int, default=2)
+    p_scenario.add_argument(
+        "--adults",
+        type=int,
+        default=None,
+        help=f"성인 인원 — 동행자 브리프에서 파악해 반드시 지정 (미지정 시 {DEFAULT_ADULTS} + _meta.warnings)",
+    )
     p_scenario.add_argument("--with-raw", action="store_true", help="include each candidate's raw payload")
     p_scenario.set_defaults(func=cmd_scenario)
     return parser

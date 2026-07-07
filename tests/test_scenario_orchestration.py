@@ -267,6 +267,31 @@ class CliScenarioSurface(unittest.TestCase):
         self.assertEqual(payload["executed"], [])
         self.assertEqual({s["domain"] for s in payload["skipped"]}, {"tnas", "stays", "flights"})
 
+    def test_adults_unspecified_defaults_with_meta_warning(self):
+        # F-1 regression (docs/pilot/2026-07-07-plugin-smoke.md): a silent
+        # party-size default poisoned a solo-traveler run. The default must
+        # still apply, but only with an explicit warning in _meta.
+        buf = io.StringIO()
+        with patch.object(cli, "_new_session", side_effect=AssertionError("network not needed")):
+            with contextlib.redirect_stdout(buf):
+                code = cli.cmd_scenario(self._args(adults=None))
+
+        payload = json.loads(buf.getvalue())
+        self.assertEqual(code, 0)
+        warnings = payload["_meta"]["warnings"]
+        self.assertEqual(len(warnings), 1)
+        self.assertIn("adults", warnings[0])
+        self.assertIn("--adults", warnings[0])
+
+    def test_adults_explicit_emits_no_warning(self):
+        buf = io.StringIO()
+        with patch.object(cli, "_new_session", side_effect=AssertionError("network not needed")):
+            with contextlib.redirect_stdout(buf):
+                cli.cmd_scenario(self._args(adults=1))
+
+        payload = json.loads(buf.getvalue())
+        self.assertNotIn("warnings", payload["_meta"])
+
     def test_scenario_session_failure_is_recorded_in_trace(self):
         buf = io.StringIO()
         with patch.object(
