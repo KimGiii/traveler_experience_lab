@@ -155,6 +155,25 @@ class TnaPairingGolden(unittest.TestCase):
         self.assertEqual(lead.booking_url, "https://www.myrealtrip.com/offers/63983")
 
 
+class TnaMeetingGolden(unittest.TestCase):
+    """F-5: meeting info lives in getTnaDetail's widget, not copy_text.
+
+    The candidate must surface 장소/시간 from the "이용 안내" section. The
+    guide's contact number is intentionally NOT surfaced — absent pre-booking.
+    """
+
+    def test_meeting_place_and_time_extracted(self):
+        matches = [p for p in _FIXTURES if os.path.basename(p) == "getTnaDetail.sample1.json"]
+        self.assertTrue(matches, "missing getTnaDetail.sample1.json fixture")
+        rec = _load(matches[0])
+        cand = normalize(rec["tool"], rec.get("arguments", {}), rec["result"])[0]
+        self.assertEqual(cand.meeting_place, "유니버셜 스튜디오 재팬")
+        self.assertIsNotNone(cand.meeting_time)
+        # copy_text carries no meeting prefix — proves the widget was the source.
+        content = json.loads(rec["result"]["content"][0]["text"])
+        self.assertNotIn("장소:", content.get("copy_text", ""))
+
+
 class ContractInvariants(unittest.TestCase):
     def test_bad_domain_rejected(self):
         with self.assertRaises(ValueError):

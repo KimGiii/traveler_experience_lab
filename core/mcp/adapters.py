@@ -337,6 +337,7 @@ def _tna_detail(content_json: Any, src: SourceRef) -> list[ProductCandidate]:
     title_m = re.search(r"\*\*(.+?)\*\*", copy_text)
     rating_m = re.search(r"⭐\s*([\d.]+)\s*\(리뷰\s*([\d,]+)개\)", copy_text)
     cancellation = _extract_cancellation(copy_text)  # may be absent (field_notes §4)
+    meeting_place, meeting_time = _extract_meeting(content_json.get("widget"))
     return [
         ProductCandidate(
             domain="tnas",
@@ -344,12 +345,46 @@ def _tna_detail(content_json: Any, src: SourceRef) -> list[ProductCandidate]:
             rating=_as_float(rating_m.group(1)) if rating_m else None,
             review_count=_as_int(rating_m.group(2)) if rating_m else None,
             cancellation_note=cancellation,
+            meeting_place=meeting_place,
+            meeting_time=meeting_time,
             # "cancellation" only when the copy_text actually carries a policy line.
             edge_flags=["cancellation", "mobile"] if cancellation else ["mobile"],
             source=src,
             raw=content_json,  # single-product detail: full upstream object (lossless)
         )
     ]
+
+
+# Meeting info lives in the widget's "이용 안내" section as Text nodes prefixed
+# "장소:" / "시간:" — NOT in copy_text (field_notes §4). The guide's contact
+# number is deliberately not extracted: it is absent pre-booking ("예약 확정 후
+# 조율"), so there is no source field to normalize (F-5).
+_MEETING_PREFIX = re.compile(r"^\s*(장소|시간)\s*:\s*(.+)$", re.DOTALL)
+
+
+def _extract_meeting(widget: Any) -> tuple[str | None, str | None]:
+    place: str | None = None
+    time: str | None = None
+
+    def walk(node: Any) -> None:
+        nonlocal place, time
+        if isinstance(node, dict):
+            if node.get("type") == "Text" and isinstance(node.get("value"), str):
+                m = _MEETING_PREFIX.match(node["value"].strip())
+                if m:
+                    label, value = m.group(1), m.group(2).strip()
+                    if label == "장소" and place is None:
+                        place = value
+                    elif label == "시간" and time is None:
+                        time = value
+            for v in node.values():
+                walk(v)
+        elif isinstance(node, list):
+            for v in node:
+                walk(v)
+
+    walk(widget)
+    return place, time
 
 
 def _extract_cancellation(copy_text: str) -> str | None:

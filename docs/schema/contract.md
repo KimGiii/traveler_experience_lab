@@ -20,6 +20,8 @@
 | `availability_note` | nullable | 예: "해당 날짜는 예약이 불가능합니다." |
 | `free_cancellation` | nullable | stay room `isFreeCancellation` 파생. |
 | `cancellation_note` | nullable | TNA `copy_text` 취소정책(있을 때만). |
+| `meeting_place` | nullable | TNA `getTnaDetail` widget "이용 안내"의 `장소:` (대부분 존재). |
+| `meeting_time` | nullable | TNA `getTnaDetail` widget "이용 안내"의 `시간:` (상당수 "예약 확정 후 조율"). |
 | `edge_flags` | 필수(list) | `EDGE_CASES` 부분집합. 위반 시 `validate_candidate`가 `ValueError`. |
 
 **Nullable 의미 규약**: `None` = *제공되지 않음*(unknown). *알려진 빈 값*이 아니다. 확정된 부재는 별도 플래그(예 `available=False`)로 표현한다.

@@ -80,6 +80,11 @@ class ProductCandidate:
     availability_note: str | None = None     # e.g. "해당 날짜는 예약이 불가능합니다."
     free_cancellation: bool | None = None    # stay room isFreeCancellation
     cancellation_note: str | None = None     # cancellation policy text (tna copy_text)
+    # Meeting info from getTnaDetail's "이용 안내" widget section (field_notes §4).
+    # Present for most TNA products; the guide's contact number is NOT — it is
+    # disclosed only after booking, so it has no pre-booking source field.
+    meeting_place: str | None = None
+    meeting_time: str | None = None
     edge_flags: list[str] = field(default_factory=list)  # e.g. "sold_out", "date_unavailable"
     source: SourceRef | None = None
     raw: Any = None
