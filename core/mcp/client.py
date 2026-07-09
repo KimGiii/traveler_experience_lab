@@ -21,6 +21,7 @@ from __future__ import annotations
 import json
 import os
 import ssl
+import time
 import urllib.error
 import urllib.request
 from dataclasses import dataclass, field
@@ -32,6 +33,31 @@ from .endpoints import DEFAULT_ENDPOINT, PROTOCOL_VERSION
 # text/event-stream SSE frame. We accept both and parse accordingly.
 _ACCEPT = "application/json, text/event-stream"
 _DEFAULT_TIMEOUT = 30.0
+
+# The endpoint rate-limits bursts (measured 2026-07-09: ~5-7 back-to-back
+# requests → HTTP 429 {"code":"RATE_LIMITED","retryAfter":60}). One 429 must
+# not kill a whole orchestration run, so we honor retryAfter a bounded number
+# of times. Indirection over time.sleep keeps the wait testable.
+_RATE_LIMIT_MAX_RETRIES = 2
+_RATE_LIMIT_MAX_WAIT_S = 60.0
+_sleep = time.sleep
+
+
+def _retry_after_seconds(detail: str, headers: Any) -> float:
+    """Extract the server-requested wait from a 429 response, capped."""
+    wait: float | None = None
+    try:
+        wait = float(json.loads(detail).get("retryAfter"))
+    except (ValueError, TypeError, AttributeError, json.JSONDecodeError):
+        pass
+    if wait is None and headers is not None:
+        try:
+            wait = float(headers.get("Retry-After"))
+        except (ValueError, TypeError):
+            pass
+    if wait is None or wait <= 0:
+        wait = _RATE_LIMIT_MAX_WAIT_S
+    return min(wait, _RATE_LIMIT_MAX_WAIT_S)
 
 # Common CA-bundle locations to fall back to when the interpreter's default
 # trust store is empty (e.g. python.org macOS builds that never ran
@@ -111,21 +137,26 @@ class McpClient:
             headers["Mcp-Session-Id"] = self.session_id
 
         request = urllib.request.Request(self.endpoint, data=raw, headers=headers, method="POST")
-        try:
-            with urllib.request.urlopen(request, timeout=self.timeout, context=self._ssl_context) as response:
-                # Capture a session id handed back on initialize.
-                sid = response.headers.get("Mcp-Session-Id")
-                if sid:
-                    self.session_id = sid
-                payload_text = response.read().decode("utf-8", errors="replace")
-        except urllib.error.HTTPError as exc:  # 4xx/5xx
-            detail = exc.read().decode("utf-8", errors="replace") if exc.fp else ""
-            raise McpError(
-                f"HTTP {exc.code} calling {method}: {detail[:500]}",
-                http_status=exc.code,
-            ) from exc
-        except urllib.error.URLError as exc:  # DNS / connection / timeout
-            raise McpError(f"transport error calling {method}: {exc.reason}") from exc
+        for attempt in range(_RATE_LIMIT_MAX_RETRIES + 1):
+            try:
+                with urllib.request.urlopen(request, timeout=self.timeout, context=self._ssl_context) as response:
+                    # Capture a session id handed back on initialize.
+                    sid = response.headers.get("Mcp-Session-Id")
+                    if sid:
+                        self.session_id = sid
+                    payload_text = response.read().decode("utf-8", errors="replace")
+                break
+            except urllib.error.HTTPError as exc:  # 4xx/5xx
+                detail = exc.read().decode("utf-8", errors="replace") if exc.fp else ""
+                if exc.code == 429 and attempt < _RATE_LIMIT_MAX_RETRIES:
+                    _sleep(_retry_after_seconds(detail, exc.headers))
+                    continue
+                raise McpError(
+                    f"HTTP {exc.code} calling {method}: {detail[:500]}",
+                    http_status=exc.code,
+                ) from exc
+            except urllib.error.URLError as exc:  # DNS / connection / timeout
+                raise McpError(f"transport error calling {method}: {exc.reason}") from exc
 
         if is_notification and not payload_text.strip():
             return None
