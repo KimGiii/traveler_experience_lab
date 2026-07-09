@@ -34,6 +34,7 @@ detail/availability 체이닝이나 단일 도구 확인이 필요하면 `fetch`
 python3 -m core.cli fetch searchTnas --args '{"query": "<목적지 키워드>"}'
 python3 -m core.cli fetch searchStays --args '{"keyword": "<목적지>", "checkIn": "YYYY-MM-DD", "checkOut": "YYYY-MM-DD"}'
 python3 -m core.cli fetch searchInternationalFlights --args '{"origin": "ICN", "destination": "<IATA>", "departDate": "YYYY-MM-DD"}'
+python3 -m core.cli fetch flightsFareCalendar --args '{"from": "ICN", "to": "<IATA>", "departureDate": "YYYY-MM-DD"}'   # ⚠ 인자명이 검색과 다름(from/to/departureDate). 결과는 날짜 대안 운임 — 실시간 아님(price_change), 예약 URL 없음
 # 상세/가용성 체이닝(둘 다 fetch):
 python3 -m core.cli fetch getStayDetail --args '{"gid": <gid>, "checkIn": "...", "checkOut": "..."}'
 python3 -m core.cli fetch getTnaOptions --args '{"gid": "<gid>", "url": "<url>", "selectedDate": "YYYY-MM-DD"}'

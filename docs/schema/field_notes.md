@@ -35,6 +35,8 @@
 - `price`: `{ currency: "KRW", total, breakdown:{baseAmount, discountedBaseAmount, taxAmount, tasfAmount} }`
 - `isCheapest`, **`reservationUrl`** (예약 URL)
 - `fareCalendar` 는 `result.cheapest`/`items[]` 에 `{departureDate,returnDate,airline,totalPrice}` — **실시간 아님**(presentation.note 명시), 가격 변동 엣지케이스 근거.
+  - ⚠ **인자명이 검색 도구와 상이**: `from`/`to`/`departureDate` (검색은 `origin`/`destination`/`departDate`). `origin`으로 부르면 비즈니스 오류.
+  - 어댑터 정규화 지원(2026-07-10, P′-05 후속): 항목당 flights 후보 1건 — 예약 URL 없음(예약 가능 상품 아님)·`price_change` 고정. 그 전까지는 unmodeled로 **0건 반환**됐음(`FareCalendarGolden` 회귀 고정).
 
 ## 3. Stays
 ### searchStays → `structuredContent`

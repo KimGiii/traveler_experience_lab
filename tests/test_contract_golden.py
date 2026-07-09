@@ -174,6 +174,37 @@ class TnaMeetingGolden(unittest.TestCase):
         self.assertNotIn("장소:", content.get("copy_text", ""))
 
 
+class FareCalendarGolden(unittest.TestCase):
+    """P′-05 regression: flightsFareCalendar was unmodeled, so a live 26-item
+    response normalized to 0 candidates and read as "no data" mid-pilot
+    (docs/pilot/sessions/P05_scenario_bangkok.md §정합성 3).
+
+    Calendar entries must normalize as flights candidates: route from the
+    request's from/to args, price from totalPrice, no booking URL (not a
+    bookable product), and price_change flagged (upstream says NOT real-time).
+    """
+
+    def _cands(self):
+        matches = [p for p in _FIXTURES if os.path.basename(p) == "flightsFareCalendar.sample1.json"]
+        self.assertTrue(matches, "missing flightsFareCalendar.sample1.json fixture")
+        rec = _load(matches[0])
+        return normalize(rec["tool"], rec.get("arguments", {}), rec["result"])
+
+    def test_calendar_items_become_candidates(self):
+        cands = self._cands()
+        self.assertEqual(len(cands), 5)  # fixture summary.returned == 5
+        first = cands[0]
+        self.assertEqual(first.domain, "flights")
+        self.assertEqual(first.title, "ICN→KIX 7C 2026-09-21~2026-09-24")
+        self.assertEqual(first.price.amount, 188700)
+        self.assertEqual(first.identifier, "2026-09-21/2026-09-24/7C")
+
+    def test_entries_are_not_bookable_and_flag_price_change(self):
+        for c in self._cands():
+            self.assertIsNone(c.booking_url)
+            self.assertIn("price_change", c.edge_flags)
+
+
 class ContractInvariants(unittest.TestCase):
     def test_bad_domain_rejected(self):
         with self.assertRaises(ValueError):

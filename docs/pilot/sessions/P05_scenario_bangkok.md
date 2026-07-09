@@ -51,6 +51,7 @@
 1. **플러그인 사용 조건 충족** — 오케스트레이션+체이닝 전건 어댑터 경유, `--adults 3`(warnings 없음).
 2. **전 구간 타임스탬프 완비 + 중단 0** → **순 소요 1분 21초**(81초). 구간: T1−T0 0:13 · T2−T1 0:41 · T3−T2 0:27.
 3. **데이터 계층 관찰 2건**: ① `flightsFareCalendar` 인자명이 다른 항공 도구와 상이(`from/to/departureDate` vs `origin/destination/departDate`) — commands/scenario.md 예시에 반영 후보. ② 동일 도구 정규화 결과 0건 — 날짜 대안 근거로 못 씀(어댑터 or 업스트림 확인 후속).
+   - **후속 종결(2026-07-10)**: 원인은 업스트림이 아니라 **어댑터 미구현**(unmodeled tool → 빈 배열). 라이브 재검증에서 업스트림은 26건 정상 반환(브리프 날짜 TW 514,960원 vs 기간 내 최저 12-17 7C 467,600원). `_fare_calendar` 핸들러 추가 + `FareCalendarGolden` 회귀 고정, scenario.md·field_notes 반영. 이 세션의 "날짜 대안 탐색이 약함" 서술은 당시 어댑터 기준으로만 유효.
 
 ## 품질 부지표 카운트
 

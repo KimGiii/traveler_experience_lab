@@ -145,6 +145,8 @@ def normalize(tool: str, arguments: dict[str, Any], result: Any) -> list[Product
     src = source_ref(tool, arguments)
     if tool in ("searchInternationalFlights", "searchDomesticFlights"):
         cands = _flights(structured, src)
+    elif tool == "flightsFareCalendar":
+        cands = _fare_calendar(structured, arguments, src)
     elif tool == "searchStays":
         cands = _stays(structured, src)
     elif tool == "searchTnas":
@@ -178,6 +180,35 @@ def _flights(structured: Any, src: SourceRef) -> list[ProductCandidate]:
                 booking_url=it.get("reservationUrl"),
                 identifier=str(it.get("id")) if it.get("id") is not None else None,
                 edge_flags=["price_change", "mobile"],
+                source=src,
+                raw=it,
+            )
+        )
+    return out
+
+
+def _fare_calendar(structured: Any, arguments: dict[str, Any], src: SourceRef) -> list[ProductCandidate]:
+    """Date-alternative fares (field_notes §2). Entries are date/airline/price
+    triples, not bookable products — upstream gives no id and no reservation URL,
+    and presentation.warnings says calendar prices are NOT real-time, so every
+    candidate carries price_change. Route comes from the request arguments
+    (fareCalendar uses from/to, unlike the search tools' origin/destination)."""
+    items = (((structured or {}).get("result") or {}).get("items")) or []
+    origin = arguments.get("from") or "?"
+    dest = arguments.get("to") or "?"
+    out: list[ProductCandidate] = []
+    for it in items:
+        depart = it.get("departureDate") or "?"
+        ret = it.get("returnDate")
+        airline = it.get("airline") or "?"
+        out.append(
+            ProductCandidate(
+                domain="flights",
+                title=f"{origin}→{dest} {airline} {depart}" + (f"~{ret}" if ret else ""),
+                price=Price(amount=it.get("totalPrice"), currency="KRW"),
+                booking_url=None,
+                identifier=f"{depart}/{ret or ''}/{airline}",
+                edge_flags=["price_change"],
                 source=src,
                 raw=it,
             )
