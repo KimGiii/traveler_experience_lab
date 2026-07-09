@@ -42,6 +42,11 @@
 - `searchParams`, `pagination:{currentPage,hasNextPage,totalCount,itemsInThisPage}`
 - `content[0].text` 는 데이터가 아니라 **위젯 UI 트리** → 무시하고 structuredContent 사용.
 
+### 가격 의미론 — 인원 종속 (F-2 종결, 2026-07-09 실측)
+- **게스트하우스·민박·호스텔 유형은 검색가·상세가 모두 `adultCount`에 비례**(인원 기반 과금). 호텔은 객실 단위라 인원 무관. 실측: 까사보니따(민박) adults 1/2 = 73,438/146,875원, 라스트 사무라이(호스텔) 41,432/66,292원 — 두 depth 모두 일치.
+- 2026-07-07 스모크의 "검색가 vs 상세가 정확히 2×"(F-2)는 **재현 불가**: 민박·호스텔 3건 × adults 1/2 = 5회 비교 전건 검색가≈상세가(차이 0~0.7%, 세금/캐시 수준). adults=1 검색가(73,438)가 당시 검색가(73,739)와 사실상 동일 → 당시 값은 "1인 가격 vs 2인 가격"이었다. 검색·상세 간 인원 파라미터 불일치 또는 이후 수정된 업스트림 표시 문제로 판정. 어댑터 수정 불필요.
+- 함의: **인원 오염(F-1)이 이 유형에선 곧 가격 오염** — scenario 출력에서 숙소 가격 인용 시 조회 인원 명시(commands/scenario.md §출력-2).
+
 ### getStayDetail → `content[0].text`(JSON)
 `{ success, searchParams, property, pricing, location, amenities, reviews, rooms[], roomCount, noRoomsAvailable }`
 - `property`: `{ gid, gpid, name, grade, category, region, reviewScore, reviewCount, images[], shareWebLink }`
@@ -83,5 +88,5 @@
 
 ## 6. 미해결/후속
 - searchTnas 상품별 **정형 필드(gid/price/rating)** 는 structuredContent 미제공 → `copy_text` 파싱 or widget 트리 파서 필요. 현재 어댑터는 URL→gid + copy_text 기반 최소 추출.
-- 레이트리밋: 이번 스윕(총 13콜) 정상. 대량 fixture 생성 시 별도 측정 필요(계획서 §7).
+- ~~레이트리밋: 이번 스윕(총 13콜) 정상. 대량 fixture 생성 시 별도 측정 필요(계획서 §7).~~ → **실측 완료(2026-07-09)**: 무지연 버스트 **~5콜에서 429** `{"code":"RATE_LIMITED","retryAfter":60}`. 수 초 간격(실사용 CLI 페이스)은 전건 성공 — 토큰 버킷형으로 추정. 클라이언트가 429 시 retryAfter를 존중해 최대 2회 재시도(`core/mcp/client.py`, `tests/test_rate_limit_retry.py`). 스크립트로 대량 순차 호출 시에는 콜 간 수 초 간격을 둘 것.
 - `passengers` 등 object 인자 세부 스키마는 미검증(기본값 동작 확인만).
