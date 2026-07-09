@@ -134,6 +134,7 @@
 3. ~~VoC 샘플 30~50건을 비식별 요약으로 받을 수 있는지 확인 (0주차 게이트).~~ → 🔶 공개 VoC 33건으로 조건부 통과 (2026-07-06, [판정 기록](docs/voc/0-week-gate.md)).
 4. ~~PE 2~3명에게 현재 "문제→시나리오→실험 브리프" 작성 소요시간 **baseline 측정**.~~ → ✅ **6세션 실측 완료 (2026-07-08)**. 과제 A 확정(순 소요 중앙값 8분20초), 과제 B 품질만. [결과 리포트](docs/baseline/baseline_report.md)·[동형 파일럿 과제](docs/baseline/pilot_task_briefs.md).
 5. 타깃 런타임 **Codex-first + Claude-compatible 듀얼**로 고정 (공용 코어 `core/` + 양쪽 얇은 어댑터).
+6. **파일럿 실행** — 준비 완료(2026-07-09): 동형 과제([A′/B′](docs/baseline/pilot_task_briefs.md))·[기록 시트](docs/pilot/pilot_sheet.md)·축 경계 가이드·스모크 발견 F-1~F-5 전건 종결·429 재시도. **남은 것은 PE 3명 일정 확보뿐** (within-subject, 세션 시작 2~3분 시차).
 
 ---
 
