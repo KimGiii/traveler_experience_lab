@@ -1,6 +1,6 @@
 # 파일럿 실측 기록 시트 (플러그인 사용)
 
-- 준비일: 2026-07-09 · 상태: **6세션 실측 완료 (2026-07-10)** — 판정 §아래
+- 준비일: 2026-07-09 · 상태: **6세션 실측 완료 (2026-07-10)** — 판정 §아래 · 결과 리포트 [`pilot_report.md`](pilot_report.md)
 - 과제: [`pilot_task_briefs.md`](../baseline/pilot_task_briefs.md) (A′ 방콕 / B′ voc-025~033)
 - 비교 기준: [`baseline_sheet.md`](../baseline/baseline_sheet.md) · [`baseline_report.md`](../baseline/baseline_report.md)
 - 스키마는 baseline_sheet와 동형. **참가자는 baseline과 동일 인물(PE-1~3, within-subject)** 권장.
